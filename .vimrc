@@ -4,7 +4,7 @@
 runtime! defaults.vim
 
         " fall back on desert colorscheme for things not defined below
-colo desert
+colorscheme desert
 
 " Misc. --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -187,7 +187,7 @@ function! MyTabLine()
         let s .= '%{MyTabLabel(' . (i + 1) . ')}'
     endfor
 
-            " after the last tab fill with TabLineFill and reset tab page nr
+            " after the last tab fill with TabLineFill and reset tab page number
     let s .= '%#TabLineFill#%T'
 
             " right-align the label to close the current tab page
@@ -216,6 +216,7 @@ function! MyTabLabel(n)
 
     let tab .= "]"
 
+            " show tab separator character on every tab except the last one
     if a:n != tabpagenr("$")
         let tab .= "Þ"
         ""|" \"³" \"Û" \"Ý" \"Þ" \"º"
@@ -232,7 +233,7 @@ highlight TabLineSel ctermfg=0 ctermbg=7
         " make unselected tabs darkgrey
 highlight TabLine ctermfg=0 ctermbg=8
 
-        " fill usused tab line space with darkgrey
+        " fill unused tab line space with darkgrey
 highlight TablineFill ctermbg=8
 
 " Folding ------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -255,12 +256,12 @@ noremap <F10> :echo "highlight<" . synIDattr(synID(line("."),col("."),1),"name")
 
 " indent guides ------------------------------------------------------------------------------------------------------------------------------------------------------
 
+set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
+
 augroup indentguidetoggle
     autocmd!
     autocmd WinEnter,BufEnter * set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
 augroup END
-
-set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
 
 highlight Conceal ctermbg=0 ctermfg=2
 
