@@ -254,14 +254,16 @@ noremap <F10> :echo "highlight<" . synIDattr(synID(line("."),col("."),1),"name")
 ""cnoremap W w !sudo tee > /dev/null %
 
 " indent guides ------------------------------------------------------------------------------------------------------------------------------------------------------
-        
+
 augroup indentguidetoggle
     autocmd!
-    autocmd WinEnter,BufEnter * set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³
+    autocmd WinEnter,BufEnter * set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
 augroup END
 
+set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
+
 highlight Conceal ctermbg=0 ctermfg=2
-        ""asdf
+
 " Line numbering -----------------------------------------------------------------------------------------------------------------------------------------------------
 
         " always have absolute line numbering on
