@@ -34,3 +34,6 @@ alias xzegrep='xzegrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias zfgrep='zfgrep --color=auto'
 alias xzfgrep='xzfgrep --color=auto'
+
+# always use vim-X11
+alias vim='vimx'

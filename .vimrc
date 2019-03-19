@@ -1,7 +1,10 @@
 " Set defaults for fallback ------------------------------------------------------------------------------------------------------------------------------------------
 
         " use Enhanced Vim defaults
-runtime! defaults.vim
+""runtime! defaults.vim
+
+        " use <ctrl> + c clipboard
+set clipboard=unnamedplus
 
         " fall back on desert colorscheme for things not defined below
 colorscheme desert
@@ -29,93 +32,33 @@ setlocal spelllang=en_us
 " Syntax highlighting ------------------------------------------------------------------------------------------------------------------------------------------------
 
         " white black
-highlight Normal ctermfg=15 ctermbg=0
+highlight Normal ctermfg=7 ctermbg=0
 
-  " grey black
-highlight Comment ctermfg=7 ctermbg=0 cterm=italic
+  " white black
+highlight Comment ctermfg=7 ctermbg=0
 
 ""highlight SpecialCommment ctermbg=3
 
         " yellow
-highlight Constant ctermfg=6 cterm=bold
+highlight Constant ctermfg=3
 
         " cyan
-highlight Statement ctermfg=3
+highlight Statement ctermfg=6
 
         " bright cyan
-highlight Identifier ctermfg=11
+highlight Identifier ctermfg=6 cterm=bold
 
         " bright green
-highlight Type ctermfg=10
+highlight Type ctermfg=2 cterm=bold
 
         " red
-highlight Special ctermfg=4
+highlight Special ctermfg=1
 
         " green
 highlight PreProc ctermfg=2
 
         " show matching brackets
 set showmatch
-
-""ctermfg={color-nr}				*highlight-ctermfg* *E421*
-""ctermbg={color-nr}				*highlight-ctermbg*
-""	The {color-nr} argument is a color number.  Its range is zero to
-""	(not including) the number given by the termcap entry "Co".
-""	The actual color with this number depends on the type of terminal
-""	and its settings.  Sometimes the color also depends on the settings of
-""	"cterm".  For example, on some systems "cterm=bold ctermfg=3" gives
-""	another color, on others you just get color 3.
-""
-""	For an xterm this depends on your resources, and is a bit
-""	unpredictable.	See your xterm documentation for the defaults.	The
-""	colors for a color-xterm can be changed from the .Xdefaults file.
-""	Unfortunately this means that it's not possible to get the same colors
-""	for each user.	See |xterm-color| for info about color xterms.
-""
-""	The MSDOS standard colors are fixed (in a console window), so these
-""	have been used for the names.  But the meaning of color names in X11
-""	are fixed, so these color settings have been used, to make the
-""	highlighting settings portable (complicated, isn't it?).  The
-""	following names are recognized, with the color number used:
-""
-""							*cterm-colors*
-""	    NR-16   NR-8    COLOR NAME ~
-""	    0	    0	    Black
-""	    1	    4	    DarkBlue
-""	    2	    2	    DarkGreen
-""	    3	    6	    DarkCyan
-""	    4	    1	    DarkRed
-""	    5	    5	    DarkMagenta
-""	    6	    3	    Brown, DarkYellow
-""	    7	    7	    LightGray, LightGrey, Gray, Grey
-""	    8	    0*	    DarkGray, DarkGrey
-""	    9	    4*	    Blue, LightBlue
-""	    10	    2*	    Green, LightGreen
-""	    11	    6*	    Cyan, LightCyan
-""	    12	    1*	    Red, LightRed
-""	    13	    5*	    Magenta, LightMagenta
-""	    14	    3*	    Yellow, LightYellow
-""	    15	    7*	    White
-""
-""	The number under "NR-16" is used for 16-color terminals ('t_Co'
-""	greater than or equal to 16).  The number under "NR-8" is used for
-""	8-color terminals ('t_Co' less than 16).  The '*' indicates that the
-""	bold attribute is set for ctermfg.  In many 8-color terminals (e.g.,
-""	"linux"), this causes the bright colors to appear.  This doesn't work
-""	for background colors!	Without the '*' the bold attribute is removed.
-""	If you want to set the bold attribute in a different way, put a
-""	"cterm=" argument AFTER the "ctermfg=" or "ctermbg=" argument.	Or use
-""	a number instead of a color name.
-""
-""	The case of the color names is ignored.
-""	Note that for 16 color ansi style terminals (including xterms), the
-""	numbers in the NR-8 column is used.  Here '*' means 'add 8' so that Blue
-""	is 12, DarkGray is 8 etc.
-""
-""	Note that for some color terminals these names may result in the wrong
-""	colors!
-""
-""	You can also use "NONE" to remove the color.
 
 " Indent settings ----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -165,7 +108,7 @@ set statusline+=%v,%l
 set statusline+=\ 
 
         " make status line background color black and foreground color white
-highlight StatusLine ctermbg=7 ctermfg=0
+highlight StatusLine ctermbg=0 ctermfg=7
 
 " Tab line -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -230,15 +173,15 @@ set tabline=%!MyTabLine()
         " make selected tab white
 highlight TabLineSel ctermfg=0 ctermbg=7
 
-        " make unselected tabs darkgrey
+        " make unselected tabs DarkGrey
 highlight TabLine ctermfg=0 ctermbg=8
 
-        " fill unused tab line space with darkgrey
-highlight TablineFill ctermbg=8
+        " fill unused tab line space with DarkGrey
+highlight TablineFill ctermfg=8
 
 " Folding ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-""source ~\_newfold.vim
+source ~/dotfiles/folding.vim
 
 " Key mapping --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -256,27 +199,26 @@ noremap <F10> :echo "highlight<" . synIDattr(synID(line("."),col("."),1),"name")
 
 " indent guides ------------------------------------------------------------------------------------------------------------------------------------------------------
 
-set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
+set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=│ containedin=ALL
 
 augroup indentguidetoggle
     autocmd!
-    autocmd WinEnter,BufEnter * set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=³ containedin=ALL
+    autocmd WinEnter,BufEnter * set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=│ containedin=ALL
 augroup END
 
 highlight Conceal ctermbg=0 ctermfg=2
 
 " Line numbering -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-        " always have absolute line numbering on
+        " turn on regular numbers on startup
 set number
-""set relativenumber
 
         " use hybrid numbering on current window and absolute numbering on idle windows
 augroup numbertoggle
     autocmd!
-    autocmd WinEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd WinEnter,FocusGained,InsertLeave * set relativenumber | set number
     autocmd WinLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
-        " make line number column background darkgrey and foreground black
-highlight LineNr ctermbg=8 ctermfg=0
+        " make line number column background white and foreground black
+highlight LineNr ctermbg=7 ctermfg=0
