@@ -26,6 +26,9 @@ set clipboard=unnamed
         " spellcheck for US English
 setlocal spelllang=en_us
 
+        " always use with utf-8 encoding
+set encoding=utf-8
+
         " highlight matching search patterns
 ""set hlsearch
 
