@@ -37,3 +37,9 @@ alias xzfgrep='xzfgrep --color=auto'
 
 # always use vim-X11
 alias vim='vimx'
+
+# custom prompt
+PS1="\[\033[2;37m\][\D{%D}] \[\033[1;36m\]\u\[\033[00;35m\]@\h\[\033[00m\]:\[\033[32m\]\w\[\033[00m\]\$"
+
+# set cursor to white block after every command
+PROMPT_COMMAND='echo -e "\033[?16;0;224c"'
