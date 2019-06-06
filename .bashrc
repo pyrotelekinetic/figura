@@ -40,3 +40,6 @@ alias vim='vimx'
 
 # always show prompt in ed
 alias ed='ed -p \*'
+
+# man shorthand
+alias mank='man -k'
