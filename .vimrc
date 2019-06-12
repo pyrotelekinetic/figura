@@ -1,14 +1,3 @@
-" Set defaults for fallback ------------------------------------------------------------------------------------------------------------------------------------------
-
-        " use Enhanced Vim defaults
-""runtime! defaults.vim
-
-        " use <ctrl> + c clipboard
-set clipboard=unnamedplus
-
-        " fall back on desert colorscheme for things not defined below
-colorscheme desert
-
 " Misc. --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         " hide buffers when they are abandoned
@@ -29,18 +18,19 @@ setlocal spelllang=en_us
         " always use with utf-8 encoding
 set encoding=utf-8
 
-        " highlight matching search patterns
-""set hlsearch
+        " do not highlight matching search patterns
+set hlsearch!
+
+        " fall back on desert colorscheme for things not defined below
+colorscheme desert
 
 " Syntax highlighting ------------------------------------------------------------------------------------------------------------------------------------------------
 
         " white black
 highlight Normal ctermfg=7 ctermbg=0
 
-  " white black
+        " white black
 highlight Comment ctermfg=7 ctermbg=0
-
-""highlight SpecialCommment ctermbg=3
 
         " yellow
 highlight Constant ctermfg=3
@@ -198,9 +188,9 @@ noremap <F10> :echo "highlight<" . synIDattr(synID(line("."),col("."),1),"name")
 ""noremap _ :Explore .<cr>
 
         " write with sudo 
-""cnoremap W w !sudo tee > /dev/null %
+cnoremap W w !sudo tee > /dev/null %
 
-" indent guides ------------------------------------------------------------------------------------------------------------------------------------------------------
+" Indent guides ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 set conceallevel=2 | set concealcursor=nvic | syntax match IndentGuide /\v    /ms=e conceal cchar=│ containedin=ALL
 
@@ -213,8 +203,9 @@ highlight Conceal ctermbg=0 ctermfg=2
 
 " Line numbering -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-        " turn on regular numbers on startup
+        " turn on line numbering on startup
 set number
+set relativenumber
 
         " use hybrid numbering on current window and absolute numbering on idle windows
 augroup numbertoggle
@@ -225,3 +216,18 @@ augroup END
 
         " make line number column background white and foreground black
 highlight LineNr ctermbg=7 ctermfg=0
+
+" Binary mode --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        " edit binary files using `xxd`
+        " `vim -b`
+augroup Binary
+    autocmd!
+    autocmd BufReadPre  *.bin let &bin=1
+    autocmd BufReadPost *.bin if &bin | %!xxd
+    autocmd BufReadPost *.bin set ft=xxd | endif
+    autocmd BufWritePre *.bin if &bin | %!xxd -r
+    autocmd BufWritePre *.bin endif
+    autocmd BufWritePost *.bin if &bin | %!xxd
+    autocmd BufWritePost *.bin set nomod | endif
+augroup END
