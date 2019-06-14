@@ -10,7 +10,7 @@ set wildmode=list:longest,longest:full
 set visualbell
 
         " use system clipboard for copy/paste
-set clipboard=unnamed
+set clipboard=unnamedplus
 
         " spellcheck for US English
 setlocal spelllang=en_us
@@ -203,7 +203,7 @@ highlight Conceal ctermbg=0 ctermfg=2
 
 " Line numbering -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-        " turn on line numbering on startup
+        " turn on hybrid line numbering on startup
 set number
 set relativenumber
 
