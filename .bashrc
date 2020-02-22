@@ -6,11 +6,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-export PATH
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
-# uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+export WINEPREFIX="$HOME/data/wine"
 
 # User specific aliases and functions
 
@@ -35,11 +33,14 @@ alias fgrep='fgrep --color=auto'
 alias zfgrep='zfgrep --color=auto'
 alias xzfgrep='xzfgrep --color=auto'
 
-# always use vim-X11
-alias vim='vimx'
-
 # always show prompt in ed
 alias ed='ed -p \*'
 
 # man shorthand
 alias mank='man -k'
+
+# always use vim-X11
+alias vim='vimx'
+
+# date format
+alias datef='date +%a\ %b\ %d\ %T\ %Y'
