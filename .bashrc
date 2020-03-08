@@ -44,3 +44,6 @@ alias vim='vimx'
 
 # date format
 alias datef='date +%a\ %b\ %d\ %T\ %Y'
+
+# ncmcpp
+alias ncm='ncmpcpp'
