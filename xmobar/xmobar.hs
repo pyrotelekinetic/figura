@@ -3,23 +3,50 @@ import Xmobar
 -- Example user-defined plugin
 
 data HelloWorld = HelloWorld
-    deriving (Read, Show)
+  deriving (Read, Show)
 
 instance Exec HelloWorld where
-    alias HelloWorld = "hw"
-    run   HelloWorld = return "<fc=red>Hello World!!</fc>"
+  alias HelloWorld = "hw"
+  run   HelloWorld = return "<fc=red>Hello World!!</fc>"
 
--- Configuration, using predefined monitors as well as our HelloWorld
--- plugin:
+data Conky = Conky
+  deriving (Read, Show)
+
+black = "#1c1c1c"
+black1 = "#626262"
+
+red = "#af005f"
+red1 = "#af5f87"
+
+green = "#1c5f5f"
+green1 = "#008787"
+
+yellow = "#af871c"
+yellow1 = "#dfaf00"
+
+blue = "#1c5f87"
+blue1 = "#5f87af"
+
+magenta = "#5f1c5f"
+magenta1 = "#875f87"
+
+cyan = "#005f87"
+cyan1 = "#0087af"
+
+white = "#afafaf"
+white1 = "#e4e4e4"
+
+type Color = String
+
+setColor :: Color -> String -> String
 
 config :: Config
 config = defaultConfig
   { font = "xft:Fira Code:size=12"
   , additionalFonts = []
-  , borderColor = "black"
   , border = NoBorder
-  , bgColor = "black"
-  , fgColor = "grey"
+  , bgColor = black
+  , fgColor = white
   , alpha = 255
   , position = BottomW L 100
   , textOffset = -1
@@ -40,11 +67,11 @@ config = defaultConfig
     , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
     , Run HelloWorld
     ]
-  , sepChar = "%"
+  , sepChar = "$"
   , alignSep = "}{"
-  , template = "%cpu% | %memory% * %swap% | %eth0% - %eth1% }\
-               \ %hw% { <fc=#ee9a00>%date%</fc>| %EGPH% | %uname%"
+  , template = "$cpu$ | $memory$ * $swap$ | $eth0$ - $eth1$ } { <fc=#ee9a00>$date$</fc>"
   }
 
 main :: IO ()
 main = xmobar config
+
