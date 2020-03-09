@@ -12,6 +12,45 @@ instance Exec HelloWorld where
 data Conky = Conky
   deriving (Read, Show)
 
+main :: IO ()
+main = xmobar config
+
+type Color = String
+
+setColorFG :: Color -> String -> String
+setColorFG c s = "<fc=" ++ c ++ ">" ++ s ++ "</fc>"
+
+config :: Config
+config = defaultConfig
+  { font = "xft:Fira Code:size=12"
+  , additionalFonts = []
+  , border = NoBorder
+  , bgColor = black
+  , fgColor = white
+  , alpha = 255
+  , position = BottomW L 100
+  , textOffset = -1
+  , iconOffset = -1
+  , lowerOnStart = True
+  , pickBroadest = False
+  , persistent = False
+  , hideOnStart = False
+  , iconRoot = "."
+  , allDesktops = True
+  , overrideRedirect = True
+  , commands =
+    [ Run $ Network "enp2s0" ["-L","0","-H","32", "--normal","green","--high","red"] 10
+    , Run $ Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10
+    , Run $ Memory ["-t","Mem: <usedratio>%"] 10
+    , Run $ Swap [] 10
+    , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
+    , Run HelloWorld
+    ]
+  , sepChar = "$"
+  , alignSep = "}{"
+  , template = "$cpu$ | $memory$ * $swap$ | $eth0$} {" ++ setColorFG yellow "$date$"
+  }
+
 black = "#1c1c1c"
 black1 = "#626262"
 
@@ -35,43 +74,3 @@ cyan1 = "#0087af"
 
 white = "#afafaf"
 white1 = "#e4e4e4"
-
-type Color = String
-
-setColor :: Color -> String -> String
-
-config :: Config
-config = defaultConfig
-  { font = "xft:Fira Code:size=12"
-  , additionalFonts = []
-  , border = NoBorder
-  , bgColor = black
-  , fgColor = white
-  , alpha = 255
-  , position = BottomW L 100
-  , textOffset = -1
-  , iconOffset = -1
-  , lowerOnStart = True
-  , pickBroadest = False
-  , persistent = False
-  , hideOnStart = False
-  , iconRoot = "."
-  , allDesktops = True
-  , overrideRedirect = True
-  , commands =
-    [ Run $ Network "eth1" ["-L","0","-H","32", "--normal","green","--high","red"] 10
-    , Run $ Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10
-    , Run $ Memory ["-t","Mem: <usedratio>%"] 10
-    , Run $ Swap [] 10
-    , Run $ Com "uname" ["-s","-r"] "" 36000
-    , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
-    , Run HelloWorld
-    ]
-  , sepChar = "$"
-  , alignSep = "}{"
-  , template = "$cpu$ | $memory$ * $swap$ | $eth0$ - $eth1$ } { <fc=#ee9a00>$date$</fc>"
-  }
-
-main :: IO ()
-main = xmobar config
-

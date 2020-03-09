@@ -1,6 +1,0 @@
-
-xmobar.hs:41:1: error:
-    The type signature for ‘setColor’ lacks an accompanying binding
-   |
-41 | setColor :: Color -> String -> String
-   | ^^^^^^^^
