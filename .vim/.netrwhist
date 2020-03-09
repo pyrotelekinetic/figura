@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/carter/dotfiles/.xmonad'
 let g:netrw_dirhist_6='/home/carter/.xmobar'
 let g:netrw_dirhist_5='/home/carter'
 let g:netrw_dirhist_4='/home/carter/.xmobar'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_1='/home/carter/teth/ncurses-0.2.16/lib/UI/NCurses'
 let g:netrw_dirhist_0='/home/carter'
 let g:netrw_dirhist_9='/home/carter/pyro-lisp'
 let g:netrw_dirhist_8='/home/carter/.vim/haskell-vim/syntax'
-let g:netrw_dirhist_7='/home/carter/.vim/haskell-vim'
