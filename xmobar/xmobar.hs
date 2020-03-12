@@ -1,17 +1,5 @@
 import Xmobar
 
--- Example user-defined plugin
-
-data HelloWorld = HelloWorld
-  deriving (Read, Show)
-
-instance Exec HelloWorld where
-  alias HelloWorld = "hw"
-  run   HelloWorld = return "<fc=red>Hello World!!</fc>"
-
-data Conky = Conky
-  deriving (Read, Show)
-
 main :: IO ()
 main = xmobar config
 
@@ -20,6 +8,22 @@ type Color = String
 setColorFG :: Color -> String -> String
 setColorFG c s = "<fc=" ++ c ++ ">" ++ s ++ "</fc>"
 
+seperator :: String
+seperator = setColorFG green " | "
+
+pad :: Int -> String
+pad 1 = " "
+pad n = " " ++ pad (n - 1)
+
+left :: String -> String
+left s = s ++ "}"
+
+middle :: String -> String
+middle s = s
+
+right :: String -> String
+right s = "{" ++ s
+
 config :: Config
 config = defaultConfig
   { font = "xft:Fira Code:size=12"
@@ -27,10 +31,9 @@ config = defaultConfig
   , border = NoBorder
   , bgColor = black
   , fgColor = white
-  , alpha = 255
-  , position = BottomW L 100
-  , textOffset = -1
-  , iconOffset = -1
+  , alpha = 255 , position = Bottom
+  , textOffset = 17
+  , iconOffset = 1
   , lowerOnStart = True
   , pickBroadest = False
   , persistent = False
@@ -39,38 +42,56 @@ config = defaultConfig
   , allDesktops = True
   , overrideRedirect = True
   , commands =
-    [ Run $ Network "enp2s0" ["-L","0","-H","32", "--normal","green","--high","red"] 10
-    , Run $ Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10
-    , Run $ Memory ["-t","Mem: <usedratio>%"] 10
+    [ Run $ Cpu ["-L", "6", "-H", "15", "--low", greenBright, "--normal", yellowBright,"--high", redBright] 10
+    , Run $ Memory ["-t", "Mem: <usedratio>%"] 10
     , Run $ Swap [] 10
-    , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
-    , Run HelloWorld
+    , Run $ Date "%a, %b %_d, %Y" "date" 43200
+    , Run $ Date "%-I:%M %P" "time" 30
+    , Run $ MPD ["-t", "<artist> - <title> * <remaining>"] 10
     ]
-  , sepChar = "$"
+  , sepChar = "%"
   , alignSep = "}{"
-  , template = "$cpu$ | $memory$ * $swap$ | $eth0$} {" ++ setColorFG yellow "$date$"
+  , template =
+    ( left $ concat
+      [ pad 1
+      , "%mpd%"
+      ]
+    )
+    ++
+    ( middle $ concat
+      [ setColorFG blueBright "%time%"
+      ]
+    )
+    ++
+    ( right $ concat
+      [ setColorFG whiteBright "%cpu%"
+      , seperator
+      , setColorFG blue "%date%"
+      , pad 1
+      ]
+    )
   }
 
 black = "#1c1c1c"
-black1 = "#626262"
+blackBright = "#626262"
 
 red = "#af005f"
-red1 = "#af5f87"
+redBright = "#af5f87"
 
 green = "#1c5f5f"
-green1 = "#008787"
+greenBright = "#008787"
 
 yellow = "#af871c"
-yellow1 = "#dfaf00"
+yellowBright = "#dfaf00"
 
 blue = "#1c5f87"
-blue1 = "#5f87af"
+blueBright = "#5f87af"
 
 magenta = "#5f1c5f"
-magenta1 = "#875f87"
+magentaBright = "#875f87"
 
 cyan = "#005f87"
-cyan1 = "#0087af"
+cyanBright = "#0087af"
 
 white = "#afafaf"
-white1 = "#e4e4e4"
+whiteBright = "#e4e4e4"
