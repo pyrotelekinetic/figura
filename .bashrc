@@ -22,8 +22,6 @@ alias ll="ls -l"
 
 # cd shorthand
 alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
 
 # grep shorthand and auto-coloring
 alias grep='grep --color=auto'
