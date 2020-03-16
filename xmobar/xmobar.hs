@@ -9,20 +9,20 @@ setColorFG :: Color -> String -> String
 setColorFG c s = "<fc=" ++ c ++ ">" ++ s ++ "</fc>"
 
 seperator :: String
-seperator = setColorFG green " | "
+seperator = setColorFG green "|"
 
 pad :: Int -> String
 pad 1 = " "
 pad n = " " ++ pad (n - 1)
 
-left :: String -> String
-left s = s ++ "}"
+left :: [String] -> String
+left ss = concat ss ++ "}"
 
-middle :: String -> String
-middle s = s
+middle :: [String] -> String
+middle ss = concat ss
 
-right :: String -> String
-right s = "{" ++ s
+right :: [String] -> String
+right ss = "{" ++ concat ss
 
 config :: Config
 config = defaultConfig
@@ -42,8 +42,24 @@ config = defaultConfig
   , allDesktops = True
   , overrideRedirect = True
   , commands =
-    [ Run $ Cpu ["-L", "6", "-H", "15", "--low", greenBright, "--normal", yellowBright,"--high", redBright] 10
-    , Run $ Memory ["-t", "Mem: <usedratio>%"] 10
+    [ Run $ Cpu
+      [ "-S", "True"
+      , "-L", "6"
+      , "-H", "15"
+      , "--low", greenBright
+      , "--normal", yellowBright
+      , "--high", redBright
+      , "-t", "Cpu: <total>"
+      ] 10
+    , Run $ Memory
+      [ "-S", "True"
+      , "-L", "10"
+      , "-H", "16"
+      , "--low", greenBright
+      , "--normal", yellowBright
+      , "--high", redBright
+      , "-t", "Mem: <usedratio>"
+      ] 10
     , Run $ Swap [] 10
     , Run $ Date "%a, %b %_d, %Y" "date" 43200
     , Run $ Date "%-I:%M %P" "time" 30
@@ -51,26 +67,31 @@ config = defaultConfig
     ]
   , sepChar = "%"
   , alignSep = "}{"
-  , template =
-    ( left $ concat
-      [ pad 1
-      , "%mpd%"
-      ]
-    )
-    ++
-    ( middle $ concat
-      [ setColorFG blueBright "%time%"
-      ]
-    )
-    ++
-    ( right $ concat
-      [ setColorFG whiteBright "%cpu%"
-      , seperator
-      , setColorFG blue "%date%"
-      , pad 1
-      ]
-    )
+  , template = myTemplate
   }
+
+myTemplate =
+  left
+    [ pad 1
+    , setColorFG magentaBright "%mpd%"
+    ]
+  ++
+  middle
+    [ setColorFG blueBright "%time%"
+    ]
+  ++
+  right
+    [ setColorFG yellow "%cpu%"
+    , pad 1
+    , seperator
+    , pad 1
+    , setColorFG yellow "%memory%"
+    , pad 1
+    , seperator
+    , pad 1
+    , setColorFG blueBright "%date%"
+    , pad 1
+    ]
 
 black = "#1c1c1c"
 blackBright = "#626262"
