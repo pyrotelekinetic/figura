@@ -1,3 +1,5 @@
+{-# LANGUAGE NamedFieldPuns #-}
+
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -6,43 +8,44 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
+import XMonad.Layout.Spiral
 import XMonad.StackSet
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Actions.CycleWS as CWS
 import XMonad.Actions.DynamicWorkspaceOrder as DWO
-import StatusBar
 import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
 
 main = do
-  xmproc <- myBar ""
-  xmonad $ ewmh def
+  spawn "killall mpdscribble"
+  spawn "mpdscribble --conf ~/.config/mpd/mpdscribble/mpdscribble.conf"
+  spawn "killall mpd"
+  spawn "mpd"
+  xmproc <- spawnPipe myStatusBar
+  xmonad $ ewmh $ docks $def
     { terminal = "qterminal"
     , modMask = mod4Mask
     , XMonad.borderWidth = 1
+    , XMonad.focusedBorderColor = magenta
+    , XMonad.normalBorderColor = blackBright
     , XMonad.workspaces = withScreens 2 ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     , manageHook = manageDocks <+> manageHook def
     , layoutHook = avoidStruts $ layoutHook def
+--    , layoutHook = avoidStruts $ Tall 1 1 1 ||| Full
     , keys = myKeys
     , handleEventHook = handleEventHook def <+> docksEventHook
     , logHook = dynamicLogWithPP xmobarPP
-      { ppOutput = myBar
-      ,  ppTitle = xmobarColor "" "" . shorten 20
-      , ppHiddenNoWindows = xmobarColor "" ""
-      }
+--      { ppOutput = hPutStrLn xmproc
+--      ,  ppTitle = xmobarColor "" "" . shorten 20
+--      , ppHiddenNoWindows = xmobarColor "" ""
+--      }
     }
 
-myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs"
---myStatusBar = "conky -c ~/.conky_dzen | dzen2 -xs 1 -y 1179"
+myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs -x 1"
+dzenConkyStatusBar = "conky -c ~/.conky_dzen | dzen2 -xs 1 -y 0 -x 0"
 
-myKeys conf@(XConfig {XMonad.modMask = modMask}) = fromList $
-  [ ((modMask, xK_Return), spawn $ terminal conf)
-  , ((modMask, xK_semicolon), spawn "dmenu_run") 
-  , ((modMask, xK_q), spawn "xmonad --restart")
-  , ((modMask, xK_x), kill)
-  ]
-  ++
+myKeys conf@(XConfig {modMask}) = fromList $
   [ ((modMask, xK_j), windows focusDown)
   , ((modMask, xK_k), windows focusUp)
   , ((modMask, xK_Down), windows focusDown)
@@ -57,11 +60,18 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = fromList $
   , ((modMask, xK_z), windows swapMaster)
   , ((modMask, xK_t), withFocused $ windows . sink)
   , ((modMask, xK_Tab), nextScreen)
-  , ((modMask .|. shiftMask, xK_Tab), CWS.moveTo Prev NonEmptyWS)
+  , ((modMask .|. shiftMask, xK_Tab), shiftNextScreen >> nextScreen)
   , ((modMask, xK_grave), DWO.moveTo Next HiddenNonEmptyWS)
   ]
   ++
-  [ ((0, xF86XK_Tools), spawn "mpd")
+  [ ((modMask, xK_Return), spawn $ terminal conf)
+  , ((modMask, xK_semicolon), spawn "dmenu_run") 
+  , ((modMask, xK_q), spawn "xmonad --restart && killall xmobar")
+  , ((modMask .|. shiftMask, xK_q), spawn "killall xmobar && xmobar -r ~/dotfiles/xmobar/xmobar.hs")
+  , ((modMask, xK_x), kill)
+  ]
+  ++
+  [ ((0, xF86XK_Tools), spawn "qterminal -e ncmpcpp")
   , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
   , ((0, xF86XK_AudioPrev), spawn "mpc prev")
   , ((0, xF86XK_AudioNext), spawn "mpc next")
@@ -76,79 +86,26 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = fromList $
   ]
 
 
---import Xmobar
+black = "#1c1c1c"
+blackBright = "#626262"
 
--- Example user-defined plugin
+red = "#af005f"
+redBright = "#af5f87"
 
---data HelloWorld = HelloWorld
---  deriving (Read, Show)
---
---instance Exec HelloWorld where
---  alias HelloWorld = "hw"
---  run   HelloWorld = return "<fc=red>Hello World!!</fc>"
---
---data Conky = Conky
---  deriving (Read, Show)
---
---bar :: IO ()
---bar = Xmobar.xmobar xmobarConfig
---
-----type Color = String
---
---setColorFG :: String -> String -> String
---setColorFG c s = "<fc=" ++ c ++ ">" ++ s ++ "</fc>"
---
---xmobarConfig :: Config
---xmobarConfig = Xmobar.defaultConfig
---  { font = "xft:Fira Code:size=12"
---  , additionalFonts = []
---  , border = NoBorder
---  , bgColor = black
---  , fgColor = white
---  , alpha = 255
---  , position = BottomW Xmobar.L 100
---  , textOffset = -1
---  , iconOffset = -1
---  , lowerOnStart = True
---  , pickBroadest = False
---  , persistent = False
---  , hideOnStart = False
---  , iconRoot = "."
---  , allDesktops = True
---  , overrideRedirect = True
---  , commands =
---    [ Run $ Network "enp2s0" ["-L","0","-H","32", "--normal","green","--high","red"] 10
---    , Run $ Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10
---    , Run $ Memory ["-t","Mem: <usedratio>%"] 10
---    , Run $ Swap [] 10
---    , Run $ Date "%a %b %_d %Y %H:%M:%S" "date" 10
---    , Run HelloWorld
---    ]
---  , sepChar = "$"
---  , alignSep = "}{"
---  , template = "$cpu$ | $memory$ * $swap$ | $eth0$} {" ++ setColorFG yellow "$date$"
---  }
---
---black = "#1c1c1c"
---black1 = "#626262"
---
---red = "#af005f"
---red1 = "#af5f87"
---
---green = "#1c5f5f"
---green1 = "#008787"
---
---yellow = "#af871c"
---yellow1 = "#dfaf00"
---
---blue = "#1c5f87"
---blue1 = "#5f87af"
---
---magenta = "#5f1c5f"
---magenta1 = "#875f87"
---
---cyan = "#005f87"
---cyan1 = "#0087af"
---
---white = "#afafaf"
---white1 = "#e4e4e4"
+green = "#1c5f5f"
+greenBright = "#008787"
+
+yellow = "#af871c"
+yellowBright = "#dfaf00"
+
+blue = "#1c5f87"
+blueBright = "#5f87af"
+
+magenta = "#5f1c5f"
+magentaBright = "#875f87"
+
+cyan = "#005f87"
+cyanBright = "#0087af"
+
+white = "#afafaf"
+whiteBright = "#e4e4e4"
