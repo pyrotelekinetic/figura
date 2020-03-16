@@ -13,7 +13,7 @@ export WINEPREFIX="$HOME/data/wine"
 # User specific aliases and functions
 
 #PS1="[\u@\h \W]\$"
-PS1="[\[\033[1;35m\]\u\[\033[0;34m\]@\[\033[1;34m\]\h \[\033[32m\]\w\[\033[0;37m\]]\[\033[38m\]\$ \[\033[00m\]\[\033[37m\]"
+PS1="\[\033[31m\][\[\033[1;35m\]\u\[\033[0;34m\]@\[\033[1;34m\]\h \[\033[32m\]\w\[\033[0;37m\]\[\033[31m\]]\[\033[38m\]\$ \[\033[37m\]"
 
 # ls shorthand and auto-coloring
 alias ls="ls --color=auto"
