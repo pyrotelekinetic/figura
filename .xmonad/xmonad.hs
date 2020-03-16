@@ -18,10 +18,6 @@ import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
 
 main = do
-  spawn "killall mpdscribble"
-  spawn "mpdscribble --conf ~/.config/mpd/mpdscribble/mpdscribble.conf"
-  spawn "killall mpd"
-  spawn "mpd"
   xmproc <- spawnPipe myStatusBar
   xmonad $ ewmh $ docks $def
     { terminal = "qterminal"
