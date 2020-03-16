@@ -21,6 +21,8 @@ set encoding=utf-8
 " do not highlight matching search patterns
 set hlsearch!
 
+set scrolloff=1
+
 " *** Syntax highlighting ***
 
 let g:arcadia_Twilight = 1
