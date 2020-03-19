@@ -13,7 +13,9 @@ export WINEPREFIX="$HOME/data/wine"
 # User specific aliases and functions
 
 #PS1="[\u@\h \W]\$"
-PS1="\[\033[31m\][\[\033[1;35m\]\u\[\033[0;34m\]@\[\033[1;34m\]\h \[\033[32m\]\w\[\033[0;37m\]\[\033[31m\]]\[\033[38m\]\$ \[\033[37m\]"
+source ~/dotfiles/git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=true
+PS1="\[\e[0;37m\][\[\e[0;95m\]\u\[\e[0;34m\]@\[\e[0;95m\]\h \[\e[1;32m\]\w\[\e[0;37m\]\[\e[33m\]\$(__git_ps1 ' (%s)')\[\e[0;37m\]]\$ "
 
 # ls shorthand and auto-coloring
 alias ls="ls --color=auto"
@@ -48,3 +50,6 @@ alias datef='date +%a\ %b\ %d\ %T\ %Y'
 
 # ncmcpp
 alias ncm='ncmpcpp'
+
+# git
+alias gitlog='git log --oneline'
