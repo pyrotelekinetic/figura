@@ -63,7 +63,7 @@ config = defaultConfig
     , Run $ Swap [] 10
     , Run $ Date "%a, %b %_d, %Y" "date" 43200
     , Run $ Date "%-I:%M %P" "time" 30
-    , Run $ MPD ["-t", "<artist> - <title> * <remaining>"] 10
+    , Run $ MPD ["-M", "50", "-e", "…", "-t", "<artist> - <title> * <remaining>"] 10
     ]
   , sepChar = "%"
   , alignSep = "}{"
