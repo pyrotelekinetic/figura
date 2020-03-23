@@ -8,9 +8,13 @@ fi
 # User specific environment
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
-export WINEPREFIX="$HOME/data/wine"
-
 # User specific aliases and functions
+
+# set default editor
+EDITOR=vimx
+
+# set custom wine prefix
+export WINEPREFIX="$HOME/data/wine"
 
 #PS1="[\u@\h \W]\$"
 source ~/dotfiles/git-prompt.sh
