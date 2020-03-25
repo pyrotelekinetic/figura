@@ -29,8 +29,7 @@ main = do
     , XMonad.normalBorderColor = blackBright
     , XMonad.workspaces = withScreens 2 ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     , manageHook = manageDocks <+> manageHook def
-    , layoutHook = avoidStruts $ layoutHook def
---    , layoutHook = avoidStruts $ Tall 1 1 1 ||| Full
+    , layoutHook = avoidStruts myLayout
     , keys = myKeys
     , handleEventHook = handleEventHook def <+> docksEventHook
     , logHook = dynamicLogWithPP xmobarPP
@@ -42,6 +41,9 @@ main = do
 
 myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs -x 1"
 dzenConkyStatusBar = "conky -c ~/.conky_dzen | dzen2 -xs 1 -y 0 -x 0"
+
+myLayout = Mirror tall ||| tall ||| Full
+  where tall = Tall 1 (2/100) (1/2)
 
 myKeys conf@(XConfig {modMask}) = fromList $
   [ ((modMask, xK_j), windows focusDown)
