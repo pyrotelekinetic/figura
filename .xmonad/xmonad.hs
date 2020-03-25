@@ -40,7 +40,6 @@ main = do
     }
 
 myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs -x 1"
-dzenConkyStatusBar = "conky -c ~/.conky_dzen | dzen2 -xs 1 -y 0 -x 0"
 
 myLayout = Mirror tall ||| tall ||| Full
   where tall = Tall 1 (2/100) (1/2)
