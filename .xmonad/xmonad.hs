@@ -3,17 +3,12 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.IndependentScreens
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Gaps
-import XMonad.Layout.Spiral
 import XMonad.StackSet
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Actions.CycleWS as CWS
 import XMonad.Actions.DynamicWorkspaceOrder as DWO
-import System.IO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
 
