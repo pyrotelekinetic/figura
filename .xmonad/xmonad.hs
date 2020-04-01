@@ -41,8 +41,10 @@ main = do
 
 myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs -x 1"
 
-myLayout = Mirror tall ||| tall ||| Full
-  where tall = Tall 1 (2/100) (1/2)
+myLayout = long ||| tall ||| Full
+  where
+  tall = Tall 1 (2/100) (1/2)
+  long = Mirror tall
 
 myKeys conf@(XConfig {modMask}) = fromList $
   [ ((modMask, xK_j), windows focusDown)
