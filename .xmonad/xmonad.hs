@@ -58,6 +58,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
   , ((modMask, xK_Tab), nextScreen)
   , ((modMask .|. shiftMask, xK_Tab), shiftNextScreen >> nextScreen)
   , ((modMask, xK_grave), DWO.moveTo Next HiddenNonEmptyWS)
+  , ((modMask, xK_f), sendMessage ToggleStruts)
   ]
   ++
   [ ((modMask, xK_Return), spawn $ terminal conf)
