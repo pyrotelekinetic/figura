@@ -70,15 +70,18 @@ set statusline+=\ \  " two space padding
 set statusline+=[%{strftime(\"%H:%M\ %d-%m-%Y\",getftime(expand(\"%:p\")))}] " show last modified timestamp
 set statusline+=%= " align everything else to the right
 set statusline+=%v,%l " show position in buffer: virtual column, linenumber
-set statusline+=\  " add one space as padding 
+set statusline+=\  " add one space as padding
 
 " *** Key mapping ***
 
 " show highlight group under cursor with <F10>
 noremap <F10> :echo "highlight<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" write with sudo 
+" write with sudo
 cnoremap W w !sudo tee > /dev/null %
+
+" trim trailing whitespace from current line
+noremap <F4> :s/\s\+$//e<CR>
 
 " *** Line numbering ***
 
