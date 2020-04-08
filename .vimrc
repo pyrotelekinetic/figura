@@ -41,6 +41,11 @@ let g:rainbow_conf = {
 \ 'ctermfgs': ['lightmagenta', 'lightgreen', 'lightblue', 'blue', 'green', 'magenta', 'red', 'lightred', 'lightcyan', 'cyan', 'yellow', 'lightyellow']
 \ }
 
+" highlight trailing whitespace
+highlight TrailingSpace ctermbg=red
+autocmd InsertEnter * match TrailingSpace /\s\+\%#\@<!$/
+autocmd InsertLeave * match TrailingSpace /\s\+$/
+
 " *** Indent settings ***
 
 " move through groups of four spaces like a single tab
