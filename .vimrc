@@ -21,6 +21,7 @@ set encoding=utf-8
 " do not highlight matching search patterns
 set hlsearch!
 
+" always show one line above or below cursor
 set scrolloff=1
 
 " *** Syntax highlighting ***
