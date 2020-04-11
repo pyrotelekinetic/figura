@@ -24,6 +24,10 @@ set hlsearch!
 " always show one line above or below cursor
 set scrolloff=1
 
+" show spaces as ·
+set listchars=space:·
+set list
+
 " *** Syntax highlighting ***
 
 let g:arcadia_Twilight = 1
