@@ -24,9 +24,8 @@ set hlsearch!
 " always show one line above or below cursor
 set scrolloff=1
 
-" show spaces as ·
+" show spaces as · when list mode is on
 set listchars=space:·
-set list
 
 " *** Syntax highlighting ***
 
@@ -92,6 +91,9 @@ cnoremap W w !sudo tee > /dev/null %
 
 " trim trailing whitespace from current line
 noremap <F4> :s/\s\+$//e<CR>
+
+" toggle showing spaces as dots
+noremap <F2> :set list!<CR>
 
 " *** Line numbering ***
 
