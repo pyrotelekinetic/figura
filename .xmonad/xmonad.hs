@@ -5,18 +5,20 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.IndependentScreens
+import XMonad.Layout.NoBorders
 import XMonad.StackSet
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Actions.CycleWS as CWS
 import XMonad.Actions.DynamicWorkspaceOrder as DWO
 import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
+import Control.Concurrent
 
 main = do
   spawn "killall mpd ; mpd"
   spawn "killall mpdscribble ; mpdscribble"
   xmproc <- spawnPipe myStatusBar
-  xmonad $ ewmh $ docks $def
+  xmonad $ ewmh $ docks $ def
     { terminal = "qterminal"
     , modMask = mod4Mask
     , XMonad.borderWidth = 1
@@ -62,7 +64,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
   ]
   ++
   [ ((modMask, xK_Return), spawn $ terminal conf)
-  , ((modMask, xK_semicolon), spawn "dmenu_run") 
+  , ((modMask, xK_semicolon), spawn "dmenu_run")
   , ((modMask, xK_q), spawn "xmonad --restart && killall xmobar")
   , ((modMask .|. shiftMask, xK_q), spawn "killall xmobar && xmobar -r ~/dotfiles/xmobar/xmobar.hs")
   , ((modMask, xK_x), kill)

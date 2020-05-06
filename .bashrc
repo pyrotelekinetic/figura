@@ -59,4 +59,4 @@ alias ncm='ncmpcpp'
 alias gitlog='git log --oneline'
 
 # thinkorswim
-alias thinkorswim='wine ~/wine/drive_c/users/carter/Local\ Settings/Application\ Data/thinkorswim/thinkorswim.exe'
+#alias thinkorswim='wine ~/wine/drive_c/users/carter/Local\ Settings/Application\ Data/thinkorswim/thinkorswim.exe'
