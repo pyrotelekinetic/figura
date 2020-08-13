@@ -15,6 +15,7 @@ import Data.Map (fromList)
 import Control.Concurrent
 
 main = do
+  spawn "xbanish"
   spawn "killall mpd ; mpd"
   spawn "killall mpdscribble ; mpdscribble"
   xmproc <- spawnPipe myStatusBar
