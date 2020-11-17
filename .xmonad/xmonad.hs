@@ -37,7 +37,7 @@ main = do
 --      }
     }
 
-myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs -x 1"
+myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs"
 
 myLayout = long ||| tall ||| Full
   where
@@ -80,7 +80,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
   , ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
   ]
   ++
-  [ ((m .|. mod4Mask, k), windows $ onCurrentScreen f i) 
+  [ ((m .|. mod4Mask, k), windows $ onCurrentScreen f i)
     | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
     , (f, m) <- [(greedyView, 0), (shift, shiftMask)]
   ]
@@ -89,7 +89,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
 black = "#1c1c1c"
 blackBright = "#626262"
 
-red = "#af005f"
+red = "#af004f"
 redBright = "#af5f87"
 
 green = "#1c5f5f"
