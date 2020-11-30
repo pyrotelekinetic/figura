@@ -52,10 +52,10 @@ autocmd InsertLeave * match TrailingSpace /\s\+$/
 
 " *** Indent settings ***
 
-" move through groups of four spaces like a single tab
+" move through groups of two spaces like a single tab
 set shiftwidth=2
 
-" one tab is four spaces
+" one tab is two spaces
 set softtabstop=2
 
 " automatically convert/expand tabs to spaces
