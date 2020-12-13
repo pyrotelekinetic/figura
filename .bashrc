@@ -55,5 +55,6 @@ alias datef='date +%a\ %b\ %d\ %T\ %Y'
 # ncmcpp
 alias ncm='ncmpcpp'
 
-# git
+# git shorthand
 alias gitlog='git log --oneline'
+alias gitstat='git status'
