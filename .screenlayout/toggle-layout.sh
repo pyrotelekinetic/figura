@@ -1,10 +1,10 @@
 #!/bin/sh
 if [ "$SCREENLAYOUT" == "right-vertical" ]
 then
-  source ./horizontal.sh
+  source ~/dotfiles/.screenlayout/horizontal.sh
 elif [ "$SCREENLAYOUT" == "horizontal" ]
 then
-  source ./right-vertical.sh
+  source ~/dotfiles/.screenlayout/right-vertical.sh
 else
   echo "Error: $SCREENLAYOUT not set properly"
 fi
