@@ -69,6 +69,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
   , ((modMask, xK_q), spawn "xmonad --restart && killall xmobar")
   , ((modMask .|. shiftMask, xK_q), spawn "killall xmobar && xmobar -r ~/dotfiles/xmobar/xmobar.hs")
   , ((modMask, xK_x), kill)
+  , ((modMask, xK_Scroll_Lock), spawn "~/.screenlayout/toggle-layout.sh")
   ]
   ++
   [ ((0, xK_Home), spawn "qterminal -e ncmpcpp")
