@@ -71,10 +71,10 @@ myKeys conf@(XConfig {modMask}) = fromList $
   , ((modMask, xK_x), kill)
   ]
   ++
-  [ ((0, xF86XK_Tools), spawn "qterminal -e ncmpcpp")
-  , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
-  , ((0, xF86XK_AudioPrev), spawn "mpc prev")
-  , ((0, xF86XK_AudioNext), spawn "mpc next")
+  [ ((0, xK_Home), spawn "qterminal -e ncmpcpp")
+  , ((0, xK_Scroll_Lock), spawn "mpc toggle")
+  , ((0, xK_Print), spawn "mpc prev")
+  , ((0, xK_Pause), spawn "mpc next")
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 2%+")
   , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 2%-")
   , ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
