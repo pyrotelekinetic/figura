@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SCREENLAYOUT=$(<./current-layout)
+SCREENLAYOUT=$(<~/dotfiles/.screenlayout/current-layout)
 
 if [ $SCREENLAYOUT == "right-vertical" ]
 then
