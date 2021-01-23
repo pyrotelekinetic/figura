@@ -16,6 +16,9 @@ EDITOR=vimx
 # set custom wine prefix
 export WINEPREFIX="$HOME/data/wine"
 
+# for gpg-agent
+export GPG_TTY=$(tty)
+
 #PS1="[\u@\h \W]\$"
 source ~/dotfiles/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
