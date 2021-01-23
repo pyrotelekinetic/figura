@@ -27,7 +27,7 @@ main = do
     , XMonad.normalBorderColor = blackBright
     , XMonad.workspaces = withScreens 2 ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     , manageHook = manageDocks <+> manageHook def
-    , layoutHook = smartBorders $ avoidStruts myLayout
+    , layoutHook = avoidStruts myLayout
     , keys = myKeys
     , handleEventHook = handleEventHook def <+> docksEventHook
     , logHook = dynamicLogWithPP xmobarPP
@@ -39,7 +39,7 @@ main = do
 
 myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs"
 
-myLayout = long ||| tall ||| Full
+myLayout = long ||| tall ||| noBorders Full
   where
   tall = Tall 1 (2/100) (1/2)
   long = Mirror tall
