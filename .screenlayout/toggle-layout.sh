@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 SCREENLAYOUT=$(<~/dotfiles/.screenlayout/current-layout)
 
