@@ -47,8 +47,6 @@ myLayout = long ||| tall ||| noBorders Full
 myKeys conf@(XConfig {modMask}) = fromList $
   [ ((modMask, xK_j), windows focusDown)
   , ((modMask, xK_k), windows focusUp)
-  , ((modMask, xK_Down), windows focusDown)
-  , ((modMask, xK_Up), windows focusUp)
   , ((modMask .|. shiftMask, xK_j), windows swapDown)
   , ((modMask .|. shiftMask, xK_k), windows swapUp)
   , ((modMask, xK_h), sendMessage Shrink)
@@ -76,6 +74,8 @@ myKeys conf@(XConfig {modMask}) = fromList $
   , ((0, xK_Scroll_Lock), spawn "mpc toggle")
   , ((0, xK_Print), spawn "mpc prev")
   , ((0, xK_Pause), spawn "mpc next")
+  , ((modMask, xK_Up), spawn "amixer -q sset Master 2%+")
+  , ((modMask, xK_Down), spawn "amixer -q sset Master 2%-")
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 2%+")
   , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 2%-")
   , ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
