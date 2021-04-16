@@ -105,9 +105,9 @@ set relativenumber
 
 " use hybrid numbering on current window and absolute numbering on idle windows
 augroup numbertoggle
-    autocmd!
-    autocmd WinEnter,FocusGained,InsertLeave * set relativenumber | set number
-    autocmd WinLeave,FocusLost,InsertEnter   * set norelativenumber
+	autocmd!
+	autocmd WinEnter,FocusGained,InsertLeave * set relativenumber | set number
+	autocmd WinLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 " *** Binary mode ***
@@ -115,12 +115,12 @@ augroup END
 " edit binary files using `xxd`
 " `vim -b`
 augroup Binary
-    autocmd!
-    autocmd BufReadPre  *.bin let &bin=1
-    autocmd BufReadPost *.bin if &bin | %!xxd
-    autocmd BufReadPost *.bin set ft=xxd | endif
-    autocmd BufWritePre *.bin if &bin | %!xxd -r
-    autocmd BufWritePre *.bin endif
-    autocmd BufWritePost *.bin if &bin | %!xxd
-    autocmd BufWritePost *.bin set nomod | endif
+	autocmd!
+	autocmd BufReadPre  *.bin let &bin=1
+	autocmd BufReadPost *.bin if &bin | %!xxd
+	autocmd BufReadPost *.bin set ft=xxd | endif
+	autocmd BufWritePre *.bin if &bin | %!xxd -r
+	autocmd BufWritePre *.bin endif
+	autocmd BufWritePost *.bin if &bin | %!xxd
+	autocmd BufWritePost *.bin set nomod | endif
 augroup END

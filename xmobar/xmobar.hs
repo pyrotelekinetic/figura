@@ -26,72 +26,72 @@ right ss = "{" ++ concat ss
 
 config :: Config
 config = defaultConfig
-  { font = "xft:Fira Code:size=12"
-  , additionalFonts = []
-  , border = NoBorder
-  , bgColor = black
-  , fgColor = white
-  , alpha = 255 , position = Bottom
-  , textOffset = 17
-  , iconOffset = 1
-  , lowerOnStart = True
-  , pickBroadest = False
-  , persistent = False
-  , hideOnStart = False
-  , iconRoot = "."
-  , allDesktops = True
-  , overrideRedirect = True
-  , commands =
-    [ Run $ Cpu
-      [ "-S", "True"
-      , "-L", "6"
-      , "-H", "15"
-      , "--low", greenBright
-      , "--normal", yellowBright
-      , "--high", redBright
-      , "-t", "Cpu: <total>"
-      ] 10
-    , Run $ Memory
-      [ "-S", "True"
-      , "-L", "10"
-      , "-H", "16"
-      , "--low", greenBright
-      , "--normal", yellowBright
-      , "--high", redBright
-      , "-t", "Mem: <usedratio>"
-      ] 10
-    , Run $ Swap [] 10
-    , Run $ Date "%a, %b %_d, %Y" "date" 43200
-    , Run $ Date "%-I:%M %P" "time" 30
-    , Run $ MPD ["-M", "25", "-e", "…", "-f", ">", "-b", "=", "-W", "24", "-t", "<artist> - <title> [<statei>][<flags>] <bar>"] 10
-    ]
-  , sepChar = "%"
-  , alignSep = "}{"
-  , template = myTemplate
-  }
+	{ font = "xft:Fira Code:size=12"
+	, additionalFonts = []
+	, border = NoBorder
+	, bgColor = black
+	, fgColor = white
+	, alpha = 255 , position = Bottom
+	, textOffset = 17
+	, iconOffset = 1
+	, lowerOnStart = True
+	, pickBroadest = False
+	, persistent = False
+	, hideOnStart = False
+	, iconRoot = "."
+	, allDesktops = True
+	, overrideRedirect = True
+	, commands =
+		[ Run $ Cpu
+			[ "-S", "True"
+			, "-L", "6"
+			, "-H", "15"
+			, "--low", greenBright
+			, "--normal", yellowBright
+			, "--high", redBright
+			, "-t", "Cpu: <total>"
+			] 10
+		, Run $ Memory
+			[ "-S", "True"
+			, "-L", "10"
+			, "-H", "16"
+			, "--low", greenBright
+			, "--normal", yellowBright
+			, "--high", redBright
+			, "-t", "Mem: <usedratio>"
+			] 10
+		, Run $ Swap [] 10
+		, Run $ Date "%a, %b %_d, %Y" "date" 43200
+		, Run $ Date "%-I:%M %P" "time" 30
+		, Run $ MPD ["-M", "25", "-e", "…", "-f", ">", "-b", "=", "-W", "24", "-t", "<artist> - <title> [<statei>][<flags>] <bar>"] 10
+		]
+	, sepChar = "%"
+	, alignSep = "}{"
+	, template = myTemplate
+	}
 
 myTemplate =
-  left
-    [ pad 1
-    , setColorFG magentaBright "%mpd%"
-    ]
-  ++
-  middle
-    [ setColorFG blueBright "%time%"
-    ]
-  ++
-  right
-    [ setColorFG yellow "%cpu%"
-    , pad 1
-    , seperator
-    , pad 1
-    , setColorFG yellow "%memory%"
-    , pad 1
-    , seperator
-    , pad 1
-    , setColorFG blueBright "%date%"
-    , pad 1
-    ]
+	left
+		[ pad 1
+		, setColorFG magentaBright "%mpd%"
+		]
+	++
+	middle
+		[ setColorFG blueBright "%time%"
+		]
+	++
+	right
+		[ setColorFG yellow "%cpu%"
+		, pad 1
+		, seperator
+		, pad 1
+		, setColorFG yellow "%memory%"
+		, pad 1
+		, seperator
+		, pad 1
+		, setColorFG blueBright "%date%"
+		, pad 1
+		]
 
 black = "#1c1c1c"
 blackBright = "#626262"

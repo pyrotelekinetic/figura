@@ -2,7 +2,7 @@
 
 # source global definitions
 if [ -f /etc/bashrc ]; then
-  source /etc/bashrc
+	source /etc/bashrc
 fi
 
 # User specific environment
