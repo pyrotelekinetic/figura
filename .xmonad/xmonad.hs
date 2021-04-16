@@ -10,6 +10,8 @@ import XMonad.StackSet
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Actions.CycleWS as CWS
 import XMonad.Actions.DynamicWorkspaceOrder as DWO
+import XMonad.Actions.SpawnOn
+
 import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
 import Control.Concurrent
@@ -26,7 +28,7 @@ main = do
     , XMonad.focusedBorderColor = magenta
     , XMonad.normalBorderColor = blackBright
     , XMonad.workspaces = withScreens 2 ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    , manageHook = manageDocks <+> manageHook def
+    , manageHook = manageDocks <+> manageSpawn <+> manageHook def
     , layoutHook = avoidStruts myLayout
     , keys = myKeys
     , handleEventHook = handleEventHook def <+> docksEventHook
@@ -63,14 +65,14 @@ myKeys conf@(XConfig {modMask}) = fromList $
   ]
   ++
   [ ((modMask, xK_Return), spawn $ terminal conf)
-  , ((modMask, xK_semicolon), spawn "dmenu_run")
+  , ((modMask, xK_semicolon), spawnHere "dmenu_run")
   , ((modMask, xK_q), spawn "xmonad --restart && killall xmobar")
   , ((modMask .|. shiftMask, xK_q), spawn "killall xmobar && xmobar -r ~/dotfiles/xmobar/xmobar.hs")
   , ((modMask, xK_x), kill)
   , ((modMask, xK_Scroll_Lock), spawn "~/.screenlayout/toggle-layout.sh")
   ]
   ++
-  [ ((0, xK_Home), spawn "qterminal -e ncmpcpp")
+  [ ((0, xK_Home), spawnHere "qterminal -e ncmpcpp")
   , ((0, xK_Scroll_Lock), spawn "mpc toggle")
   , ((0, xK_Print), spawn "mpc prev")
   , ((0, xK_Pause), spawn "mpc next")
