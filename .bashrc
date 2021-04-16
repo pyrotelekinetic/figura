@@ -61,3 +61,6 @@ alias ncm='ncmpcpp'
 # git shorthand
 alias gitlog='git log --oneline'
 alias gitstat='git status'
+
+# xclip
+alias xcl='xclip -selection CLIPBOARD'
