@@ -84,6 +84,11 @@ myKeys conf@(XConfig {modMask}) = fromList $
 	, ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
 	]
 	++
+	[ ((modMask, xK_d), spawnHere "discord")
+	, ((modMask, xK_f), spawnHere "firefox")
+	, ((modMask, xK_s), spawnHere "steam")
+	]
+	++
 	[ ((m .|. mod4Mask, k), windows $ onCurrentScreen f i)
 		| (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
 		, (f, m) <- [(greedyView, 0), (shift, shiftMask)]
