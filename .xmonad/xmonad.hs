@@ -85,7 +85,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
 	]
 	++
 	[ ((modMask, xK_d), spawnHere "discord")
-	, ((modMask, xK_f), spawnHere "firefox")
+	, ((modMask, xK_b), spawnHere "firefox")
 	, ((modMask, xK_s), spawnHere "steam")
 	]
 	++
