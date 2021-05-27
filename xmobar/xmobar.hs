@@ -26,7 +26,7 @@ right ss = "{" ++ concat ss
 
 config :: Config
 config = defaultConfig
-	{ font = "xft:Fira Code:size=12"
+	{ font = "xft:Fira Code:size=12:antialias=true, Ricty Diminished:size=12"
 	, additionalFonts = []
 	, border = NoBorder
 	, bgColor = black
