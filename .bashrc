@@ -28,6 +28,7 @@ PS1="\[\e[0;37m\][\[\e[0;95m\]\u\[\e[0;34m\]@\[\e[0;95m\]\h \[\e[1;32m\]\w\[\e[0
 alias ls="ls --color=auto"
 alias la="ls -a"
 alias ll="ls -l"
+alias l.="ls -d .*"
 
 # cd shorthand
 alias ..="cd .."
