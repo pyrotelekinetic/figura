@@ -25,7 +25,8 @@ set hlsearch!
 set scrolloff=1
 
 " show spaces as · when list mode is on
-set listchars=space:·
+set listchars=space:·,multispace:···+,tab:▸\ 
+set list
 
 " *** Syntax highlighting ***
 
@@ -48,12 +49,12 @@ let g:rainbow_conf = {
 " highlight trailing whitespace
 highlight TrailingSpace ctermbg=red
 autocmd InsertEnter * match TrailingSpace /\s\+\%#\@<!$/
-autocmd InsertLeave * match TrailingSpace /\s\+$/
+autocmd InsertLeave,WinEnter * match TrailingSpace /\s\+$/
 
 " *** Indent settings ***
 
 " move through groups of two spaces like a single tab
-"set shiftwidth=2
+set shiftwidth=2
 
 " one tab is two spaces
 "set softtabstop=0
@@ -89,7 +90,7 @@ set statusline+=\  " add one space as padding
 noremap <F10> :echo "highlight<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " write with sudo
-cnoremap W w !sudo tee > /dev/null %
+cnoremap <F1> w !sudo tee > /dev/null %
 
 " trim trailing whitespace from current line
 noremap <F4> :s/\s\+$//e<CR>
@@ -97,13 +98,17 @@ noremap <F4> :s/\s\+$//e<CR>
 " toggle showing spaces as dots
 noremap <F2> :set list!<CR>
 
+" switch buffers on ctrl j and ctrl k
+noremap <C-j> :bn<CR>
+noremap <C-k> :bp<CR>
+
 " *** Line numbering ***
 
 " turn on hybrid line numbering on startup
 set number
 set relativenumber
 
-" use hybrid numbering on current window and absolute numbering on idle windows
+" use relative numbering on current window and absolute numbering on idle windows
 augroup numbertoggle
 	autocmd!
 	autocmd WinEnter,FocusGained,InsertLeave * set relativenumber | set number
