@@ -22,6 +22,9 @@ export WINEPREFIX="$HOME/data/wine"
 
 # for gpg-agent
 export GPG_TTY=$(tty)
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent /bye
 
 #PS1="[\u@\h \W]\$"
 source ~/dotfiles/git-prompt.sh
