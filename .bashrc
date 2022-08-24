@@ -10,6 +10,10 @@ export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
 # User specific aliases and functions
 
+# set less options
+export PAGER="less -FR"
+alias less="less -FR"
+
 # set default editor
 EDITOR=vimx
 
