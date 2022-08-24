@@ -1,0 +1,9 @@
+.git/
+*.hi
+*.o
+*.errors
+*.state
+*.swp
+*-linux
+xmobar
+.netrwhist
