@@ -15,7 +15,7 @@ export PAGER="less -FR"
 alias less="less -FR"
 
 # set default editor
-EDITOR=vimx
+export EDITOR=vimx
 
 # set custom wine prefix
 export WINEPREFIX="$HOME/data/wine"
