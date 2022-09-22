@@ -129,3 +129,5 @@ augroup Binary
 	autocmd BufWritePost *.bin if &bin | %!xxd
 	autocmd BufWritePost *.bin set nomod | endif
 augroup END
+
+autocmd FileType gitcommit setlocal spell
