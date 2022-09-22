@@ -20,12 +20,6 @@ export EDITOR=vimx
 # set custom wine prefix
 export WINEPREFIX="$HOME/data/wine"
 
-# for gpg-agent
-export GPG_TTY=$(tty)
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent /bye
-
 #PS1="[\u@\h \W]\$"
 source ~/dotfiles/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
@@ -72,3 +66,8 @@ alias gitstat='git status'
 
 # xclip
 alias xcl='xclip -selection CLIPBOARD'
+
+export GPG_TTY=$(tty)
+unset SSH_AGENT_PID
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent /bye > /dev/null
