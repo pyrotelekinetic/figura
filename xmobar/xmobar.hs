@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -threaded #-}
 import Xmobar
 
 main :: IO ()
