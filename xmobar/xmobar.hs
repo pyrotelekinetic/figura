@@ -30,7 +30,7 @@ config = defaultConfig
 	{ font = "xft:Fira Code:size=12:antialias=true, Ricty Diminished:size=12"
 	, additionalFonts = []
 	, border = NoBorder
-	, bgColor = black
+	, bgColor = newblack
 	, fgColor = white
 	, alpha = 255 , position = Bottom
 	, textOffset = 17
@@ -93,6 +93,8 @@ myTemplate =
 		, setColorFG blueBright "%date%"
 		, pad 1
 		]
+
+newblack = "#111111"
 
 black = "#1c1c1c"
 blackBright = "#626262"
