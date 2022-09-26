@@ -104,7 +104,7 @@ noremap <C-k> :bp<CR>
 
 " *** Line numbering ***
 
-" turn on hybrid line numbering on startup
+" turn on relative line numbering on startup
 set number
 set relativenumber
 
