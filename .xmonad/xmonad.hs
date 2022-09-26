@@ -41,7 +41,7 @@ main = do
 
 myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs"
 
-myLayout = long ||| tall ||| noBorders Full
+myLayout = tall ||| long ||| noBorders Full
 	where
 	tall = Tall 1 (2/100) (1/2)
 	long = Mirror tall
