@@ -5,6 +5,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops (ewmh)
+import XMonad.Hooks.ManageHelpers (isDialog)
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.NoBorders (noBorders)
 import XMonad.StackSet
@@ -13,6 +14,7 @@ import XMonad.Actions.CycleWS (nextScreen, shiftNextScreen, hiddenWS, emptyWS, W
 import XMonad.Actions.DynamicWorkspaceOrder (moveTo)
 import XMonad.Actions.SpawnOn (manageSpawn, spawnHere, spawnAndDo)
 
+import Data.List (isInfixOf)
 import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
 
@@ -28,7 +30,7 @@ main = do
 		, XMonad.focusedBorderColor = magenta
 		, XMonad.normalBorderColor = blackBright
 		, XMonad.workspaces = withScreens 2 ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-		, manageHook = manageDocks <+> manageSpawn <+> manageHook def
+		, manageHook = myManageHook <+> manageDocks <+> manageSpawn <+> manageHook def
 		, layoutHook = avoidStruts myLayout
 		, keys = myKeys
 		, handleEventHook = handleEventHook def <+> docksEventHook
@@ -38,6 +40,18 @@ main = do
 --			, ppHiddenNoWindows = xmobarColor "" ""
 --			}
 		}
+
+myManageHook :: ManageHook
+myManageHook = dialogHook <+> pinentryHook
+	where
+	pinentryHook :: ManageHook
+	pinentryHook = className ~? "pinentry" --> doFloat
+
+	dialogHook :: ManageHook
+	dialogHook = isDialog --> doF swapUp
+
+	(~?) :: (Eq a, Functor m) => m [a] -> [a] -> m Bool
+	q ~? x = isInfixOf x <$> q
 
 myStatusBar = "xmobar ~/dotfiles/xmobar/xmobar.hs"
 
