@@ -4,18 +4,17 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Layout.IndependentScreens
-import XMonad.Layout.NoBorders
+import XMonad.Layout.NoBorders (noBorders)
 import XMonad.StackSet
 import XMonad.Util.Run (spawnPipe)
-import XMonad.Actions.CycleWS as CWS
-import XMonad.Actions.DynamicWorkspaceOrder as DWO
-import XMonad.Actions.SpawnOn
+import XMonad.Actions.CycleWS (nextScreen, shiftNextScreen, hiddenWS, emptyWS, WSType (..))
+import XMonad.Actions.DynamicWorkspaceOrder (moveTo)
+import XMonad.Actions.SpawnOn (manageSpawn, spawnHere, spawnAndDo)
 
 import Graphics.X11.ExtraTypes.XF86
 import Data.Map (fromList)
-import Control.Concurrent
 
 main = do
 	spawn "xbanish"
@@ -61,7 +60,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
 	, ((modMask, xK_t), withFocused $ windows . sink)
 	, ((modMask, xK_Tab), nextScreen)
 	, ((modMask .|. shiftMask, xK_Tab), shiftNextScreen >> nextScreen)
-	, ((modMask, xK_grave), DWO.moveTo Next HiddenNonEmptyWS)
+	, ((modMask, xK_grave), moveTo Next (hiddenWS :&: Not emptyWS))
 	, ((modMask, xK_f), sendMessage ToggleStruts)
 	]
 	++
