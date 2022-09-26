@@ -55,6 +55,7 @@ myKeys conf@(XConfig {modMask}) = fromList $
 	, ((modMask, xK_l), sendMessage Expand)
 	, ((modMask, xK_comma), sendMessage (IncMasterN 1))
 	, ((modMask, xK_period), sendMessage (IncMasterN (-1)))
+	, ((modMask .|. shiftMask, xK_space), setLayout $ layoutHook conf)
 	, ((modMask, xK_space), sendMessage NextLayout)
 	, ((modMask, xK_z), windows swapMaster)
 	, ((modMask, xK_t), withFocused $ windows . sink)
@@ -91,6 +92,10 @@ myKeys conf@(XConfig {modMask}) = fromList $
 	[ ((m .|. mod4Mask, k), windows $ onCurrentScreen f i)
 		| (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
 		, (f, m) <- [(greedyView, 0), (shift, shiftMask)]
+	]
+	++
+	[ ((modMask, xK_bracketleft), spawn "dunstctl close")
+	, ((modMask, xK_bracketright), spawn "dunstctl history-pop")
 	]
 
 
