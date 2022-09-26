@@ -80,22 +80,21 @@ myKeys conf@(XConfig {modMask}) = fromList $
 	]
 	++
 	[ ((modMask, xK_Return), spawn $ terminal conf)
-	, ((modMask, xK_semicolon), spawnHere "dmenu_run")
+	, ((modMask, xK_semicolon), spawnHere "dmenu_run -m 0 -fn 'Fira Mono 12'")
 	, ((modMask, xK_q), spawn "xmonad --restart && killall xmobar")
 	, ((modMask .|. shiftMask, xK_q), spawn "killall xmobar && xmobar -r ~/dotfiles/xmobar/xmobar.hs")
 	, ((modMask, xK_x), kill)
-	, ((modMask, xK_Scroll_Lock), spawn "~/.screenlayout/toggle-layout.sh")
 	]
 	++
 	[ ((0, xK_Home), spawnHere "qterminal -e ncmpcpp")
 	, ((0, xK_Scroll_Lock), spawn "mpc toggle")
 	, ((0, xK_Print), spawn "mpc prev")
 	, ((0, xK_Pause), spawn "mpc next")
-	, ((modMask, xK_Up), spawn "amixer -q sset Master 2%+")
-	, ((modMask, xK_Down), spawn "amixer -q sset Master 2%-")
-	, ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 2%+")
-	, ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 2%-")
-	, ((0, xF86XK_AudioMute), spawn "amixer set Master toggle")
+	, ((modMask, xK_Up), spawn "pactl set-sink-volume 0 +2%")
+	, ((modMask, xK_Down), spawn "pactl set-sink-volume 0 -2%")
+	, ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 +%2")
+	, ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -%2")
+	, ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
 	]
 	++
 	[ ((modMask, xK_d), spawnHere "discord")
