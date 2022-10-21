@@ -24,7 +24,7 @@ main = do
 	spawn "killall mpdscribble ; mpdscribble"
 	xmproc <- spawnPipe myStatusBar
 	xmonad $ ewmh $ docks $ def
-		{ terminal = "qterminal"
+		{ terminal = "kitty"
 		, modMask = mod4Mask
 		, XMonad.borderWidth = 1
 		, XMonad.focusedBorderColor = magenta
