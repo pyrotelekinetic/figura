@@ -4,6 +4,4 @@
 *.errors
 *.state
 *.swp
-*-linux
-xmobar
 .netrwhist
