@@ -43,7 +43,7 @@ let hs_highlight_more_types = 1
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-\ 'ctermfgs': ['lightmagenta', 'lightgreen', 'lightblue', 'blue', 'green', 'magenta', 'red', 'lightred', 'lightcyan', 'cyan', 'yellow', 'lightyellow']
+\ 'ctermfgs': ['red', 'lightmagenta', 'lightyellow', 'lightgreen', 'lightblue', 'cyan', 'lightred', 'magenta', 'yellow', 'green', 'blue', 'lightcyan']
 \ }
 
 " highlight trailing whitespace
