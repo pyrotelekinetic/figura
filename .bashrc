@@ -15,7 +15,7 @@ export PAGER="less -FR"
 alias less="less -FR"
 
 # set default editor
-export EDITOR=vimx
+export EDITOR=vim
 
 # set custom wine prefix
 export WINEPREFIX="$HOME/data/wine"
@@ -50,9 +50,6 @@ alias ed='ed -p \*'
 
 # man shorthand
 alias mank='man -k'
-
-# always use vim-X11
-alias vim='vimx'
 
 # date format
 alias datef='date +%a\ %b\ %d\ %T\ %Y'
