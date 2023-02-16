@@ -39,6 +39,29 @@
         source ~/.oldbashrc
       ";
     };
+
+    gpg = {
+      enable = true;
+      mutableKeys = true;
+      mutableTrust = true;
+      settings = {
+        keyid-format = "none";
+        with-subkey-fingerprint = true;
+      };
+    };
+  };
+
+  # Home Manager managed services
+  services = {
+    gpg-agent = {
+      enable = true;
+      enableBashIntegration = true;
+      enableScDaemon = true;
+      enableSshSupport = true;
+      sshKeys = [ "3C305675F93CC000802C4DE9F6DDF464ACDD3DE3" ];
+      grabKeyboardAndMouse = true;
+      pinentryFlavor = "qt";
+    };
   };
 
   gtk = {
@@ -62,8 +85,6 @@
 	file
   vim
   git
-  gnupg
-  pinentry.qt
   kitty
   libqalculate
 
