@@ -49,6 +49,14 @@
         with-subkey-fingerprint = true;
       };
     };
+
+    password-store = {
+      enable = true;
+      settings = {
+        PASSWORD_STORE_DIR = "$HOME/.password-store";
+        PASSWORD_STORE_GENERATED_LENGTH = "64";
+      };
+    };
   };
 
   # Home Manager managed services
