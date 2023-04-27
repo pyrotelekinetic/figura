@@ -9,6 +9,9 @@ set wildmode=list:longest,longest:full
 " turn on the 'visual bell' - which is much quieter than the 'audio blink'
 set visualbell
 
+set undofile
+set undodir=~/.vim/undo
+
 " use system clipboard for copy/paste
 set clipboard=unnamedplus
 
