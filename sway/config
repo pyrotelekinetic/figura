@@ -257,15 +257,17 @@ bindsym $mod+Mod1+$down resize grow height 10 px
 bar {
     position bottom
     mode hide
+    font "IBM Plex Mono"
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        background $background
+        statusline $foreground
+        focused_workspace $background $green $foreground
+        inactive_workspace $background $background $foreground
     }
 }
 
