@@ -90,7 +90,7 @@
   # Utilities
   coreutils-full
   psmisc
-	file
+  file
   vim
   git
   kitty
