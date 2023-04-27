@@ -18,12 +18,24 @@ home = {
     x11.enable = true;
   };
 
-  # Tell things to use wayland
   sessionVariables = {
+    # Tell things to use wayland
     MOZ_ENABLE_WAYLAND = 1;
     XDG_CURRENT_DESKTOP = "sway";
     NIXOS_OZONE_WL="1";
+
+    # Set less options
+    LESS = "-FR";
+
+    # Set default programs
+    PAGER = "less";
+    EDITOR = "vim";
   };
+
+  # Include local binary path
+  sessionPath = [
+    "$HOME/.local/bin"
+  ];
 };
 
 # Home Manager managed programs

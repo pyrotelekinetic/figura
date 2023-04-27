@@ -1,16 +1,6 @@
 # .bashrc
 
-# User specific environment
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-
 # User specific aliases and functions
-
-# set less options
-export PAGER="less -FR"
-alias less="less -FR"
-
-# set default editor
-export EDITOR=vim
 
 #PS1="[\u@\h \W]\$"
 source ~/dotfiles/git-prompt.sh
