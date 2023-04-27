@@ -128,6 +128,20 @@ client.unfocused $magentaBright $magentaBright $magentaBright $magenta
 
     # Firefox
     bindsym $mod+b exec firefox
+
+    # Steam
+    bindsym $mod+s exec steam
+
+    # Cider
+    bindsym $mod+u exec cider
+
+    bindsym $mod+Left exec "playerctl previous"
+    bindsym $mod+Right exec "playerctl next"
+    bindsym $mod+Delete exec "playerctl play-pause"
+
+    # dunst
+    bindsym $mod+BracketLeft exec "dunstctl close"
+    bindsym $mod+BracketRight exec "dunstctl history-pop"
 #
 # Moving around:
 #
