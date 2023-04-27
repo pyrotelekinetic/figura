@@ -35,9 +35,9 @@ programs = {
   bash = {
     enable = true;
     # I should do this in a better way
-    bashrcExtra = "
+    bashrcExtra = ''
       source ~/dotfiles/.bashrc
-    ";
+    '';
   };
 
   gpg = {
