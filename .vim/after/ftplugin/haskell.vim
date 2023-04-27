@@ -1,4 +1,6 @@
 setlocal softtabstop=2
+setlocal shiftwidth=2
+setlocal expandtab
 syntax match Lambda contained "\\" conceal cchar=λ
 syntax match Case contained "case"
 syntax match LambdaCase "\\case" contains=Lambda,Case
