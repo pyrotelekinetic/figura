@@ -1,10 +1,5 @@
 # .bashrc
 
-# source global definitions
-if [ -f /etc/bashrc ]; then
-	source /etc/bashrc
-fi
-
 # User specific environment
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
