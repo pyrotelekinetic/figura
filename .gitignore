@@ -4,7 +4,5 @@
 *.errors
 *.state
 *.swp
-*-linux
-xmobar
 .netrwhist
 .vim/undo
