@@ -55,8 +55,3 @@ alias gitstat='git status'
 
 # xclip
 alias xcl='xclip -selection CLIPBOARD'
-
-export GPG_TTY=$(tty)
-unset SSH_AGENT_PID
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent /bye > /dev/null
