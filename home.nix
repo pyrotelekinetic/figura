@@ -36,6 +36,44 @@ home = {
   sessionPath = [
     "$HOME/.local/bin"
   ];
+
+  shellAliases = {
+    # ls shorthand and auto-coloring
+    ls = "ls --color=auto";
+    la = "ls -a";
+    ll = "ls -l";
+    "l." = "ls -d .*";
+
+    # cd shorthand
+    ".." = "cd ..";
+
+    # grep shorthand and auto-coloring
+    grep = "grep --color=auto";
+    zgrep = "zgrep --color=auto";
+    xzgrep = "xzgrep --color=auto";
+    egrep = "egrep --color=auto";
+    zegrep = "zegrep --color=auto";
+    xzegrep = "xzegrep --color=auto";
+    fgrep = "fgrep --color=auto";
+    zfgrep = "zfgrep --color=auto";
+    xzfgrep = "xzfgrep --color=auto";
+
+    # always show prompt in ed
+    ed = "ed -p \*";
+
+    # man shorthand
+    mank = "man -k";
+
+    # date format
+    datef = "date +%a\ %b\ %d\ %T\ %Y";
+
+    # ncmcpp
+    ncm = "ncmpcpp";
+
+    # git shorthand
+    gitlog = "git log --oneline";
+    gitstat = "git status";
+  };
 };
 
 # Home Manager managed programs
@@ -51,10 +89,6 @@ programs = {
       source ~/dotfiles/git-prompt.sh
       GIT_PS1_SHOWDIRTYSTATE=true
       PS1="\[\e[0;37m\][\[\e[0;95m\]\u\[\e[0;34m\]@\[\e[0;95m\]\h \[\e[1;32m\]\w\[\e[0;37m\]\[\e[33m\]\$(__git_ps1 ' (%s)')\[\e[0;37m\]]\$\[\e[0m\] "
-    '';
-    # I should do this in a better way
-    bashrcExtra = ''
-      source ~/dotfiles/.bashrc
     '';
   };
 
