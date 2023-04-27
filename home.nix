@@ -36,7 +36,7 @@ programs = {
     enable = true;
     # I should do this in a better way
     bashrcExtra = "
-      source ~/.oldbashrc
+      source ~/dotfiles/.bashrc
     ";
   };
 
