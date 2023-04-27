@@ -20,6 +20,10 @@ set $term kitty
 # on the original workspace that the command was run on.
 set $menu bemenu-run -p '$' | xargs swaymsg exec --
 
+default_border pixel
+default_floating_border pixel
+
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
