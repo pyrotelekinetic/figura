@@ -225,6 +225,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Same thing but with alt instead of mode switch
+bindsym $mod+Mod1+$left resize shrink width 10 px
+bindsym $mod+Mod1+$right resize grow width 10 px
+bindsym $mod+Mod1+$up resize shrink height 10 px
+bindsym $mod+Mod1+$down resize grow height 10 px
+
 #
 # Status Bar:
 #
