@@ -12,9 +12,6 @@ alias less="less -FR"
 # set default editor
 export EDITOR=vim
 
-# set custom wine prefix
-export WINEPREFIX="$HOME/data/wine"
-
 #PS1="[\u@\h \W]\$"
 source ~/dotfiles/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
