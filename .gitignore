@@ -1,8 +1,4 @@
 .git/
-*.hi
-*.o
-*.errors
-*.state
 *.swp
 .netrwhist
 .vim/undo
