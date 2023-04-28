@@ -74,6 +74,13 @@ home = {
     gitlog = "git log --oneline";
     gitstat = "git status";
   };
+
+  file = {
+    sway-config = {
+      source = ./sway/config;
+      target = ".config/sway/config";
+    };
+  };
 };
 
 # Home Manager managed programs
