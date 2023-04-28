@@ -115,6 +115,12 @@ services = {
     grabKeyboardAndMouse = true;
     pinentryFlavor = "qt";
   };
+
+  # Connect to phone with kdeconnect app
+  kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
 };
 
 gtk = {
