@@ -74,6 +74,11 @@ home = {
       target = ".vim";
       recursive = true;
     };
+
+    dunstrc = {
+      source = ./dunstrc;
+      target = ".config/dunst/dunstrc";
+    };
   };
 };
 
