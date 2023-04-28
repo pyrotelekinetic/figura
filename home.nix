@@ -84,11 +84,14 @@ programs = {
   # Make bash work with HM
   bash = {
     enable = true;
-    # Set prompt
     initExtra = ''
+      # Set prompt
       source ~/dotfiles/git-prompt.sh
       GIT_PS1_SHOWDIRTYSTATE=true
       PS1="\[\e[0;37m\][\[\e[0;95m\]\u\[\e[0;34m\]@\[\e[0;95m\]\h \[\e[1;32m\]\w\[\e[0;37m\]\[\e[33m\]\$(__git_ps1 ' (%s)')\[\e[0;37m\]]\$\[\e[0m\] "
+
+      # Set ssh alias for kitty
+      [ "$TERM" = "xterm-kitty" ] && alias ssh='kitty +kitten ssh'
     '';
   };
 
