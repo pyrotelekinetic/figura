@@ -47,28 +47,11 @@ home = {
     # cd shorthand
     ".." = "cd ..";
 
-    # grep shorthand and auto-coloring
-    grep = "grep --color=auto";
-    zgrep = "zgrep --color=auto";
-    xzgrep = "xzgrep --color=auto";
-    egrep = "egrep --color=auto";
-    zegrep = "zegrep --color=auto";
-    xzegrep = "xzegrep --color=auto";
-    fgrep = "fgrep --color=auto";
-    zfgrep = "zfgrep --color=auto";
-    xzfgrep = "xzfgrep --color=auto";
-
-    # always show prompt in ed
-    ed = "ed -p \*";
-
     # man shorthand
     mank = "man -k";
 
     # date format
     datef = "date +%a\ %b\ %d\ %T\ %Y";
-
-    # ncmcpp
-    ncm = "ncmpcpp";
 
     # git shorthand
     gitlog = "git log --oneline";
