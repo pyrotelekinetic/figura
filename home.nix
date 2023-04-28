@@ -63,6 +63,17 @@ home = {
       source = ./sway/config;
       target = ".config/sway/config";
     };
+
+    vimrc = {
+      source = ./.vimrc;
+      target = ".vimrc";
+    };
+
+    vim-dir = {
+      source = ./.vim;
+      target = ".vim";
+      recursive = true;
+    };
   };
 };
 
