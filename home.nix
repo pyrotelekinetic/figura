@@ -198,6 +198,7 @@ home.packages = with pkgs; [
   # Media
   plex-media-player
   cider
+  mpris-scrobbler
 
   # Games
   prismlauncher
