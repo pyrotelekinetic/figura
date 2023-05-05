@@ -59,11 +59,6 @@ home = {
   };
 
   file = {
-    sway-config = {
-      source = ./sway/config;
-      target = ".config/sway/config";
-    };
-
     vimrc = {
       source = ./.vimrc;
       target = ".vimrc";
