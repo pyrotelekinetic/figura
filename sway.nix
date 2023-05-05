@@ -118,6 +118,7 @@ wayland.windowManager.sway = {
         "${mod}+Shift+${up}" = "move up";
         "${mod}+Shift+${right}" = "move right";
         "${mod}+Shift+minus" = "move scratchpad";
+        "${mod}+minus" = "scratchpad show";
         # Workspaces
         "${mod}+1" = "workspace number 1";
         "${mod}+2" = "workspace number 2";
@@ -165,7 +166,7 @@ wayland.windowManager.sway = {
       border = 1;
       titlebar = false;
     };
-    workspaceAutoBackAndForth = true;
+    workspaceAutoBackAndForth = false;
   };
 };
 
