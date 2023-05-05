@@ -74,6 +74,11 @@ home = {
       source = ./dunstrc;
       target = ".config/dunst/dunstrc";
     };
+
+    kitty = {
+      source = ./kitty.conf;
+      target = ".config/kitty/kitty.conf";
+    };
   };
 };
 
