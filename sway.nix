@@ -128,7 +128,7 @@ wayland.windowManager.sway = {
         "${mod}+7" = "workspace number 7";
         "${mod}+8" = "workspace number 8";
         "${mod}+9" = "workspace number 9";
-        "${mod}+0" = "workspace number 0";
+        "${mod}+0" = "workspace number 10";
         "${mod}+Shift+1" = "move container to workspace number 1";
         "${mod}+Shift+2" = "move container to workspace number 2";
         "${mod}+Shift+3" = "move container to workspace number 3";
@@ -138,7 +138,7 @@ wayland.windowManager.sway = {
         "${mod}+Shift+7" = "move container to workspace number 7";
         "${mod}+Shift+8" = "move container to workspace number 8";
         "${mod}+Shift+9" = "move container to workspace number 9";
-        "${mod}+Shift+0" = "move container to workspace number 0";
+        "${mod}+Shift+0" = "move container to workspace number 10";
         # Control
         "${mod}+x" = "kill";
         "${mod}+Semicolon" = "exec bemenu-run -p '>' | xargs swaymsg exec --";
