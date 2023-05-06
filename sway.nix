@@ -117,6 +117,8 @@ wayland.windowManager.sway = {
         "${mod}+Shift+${down}" = "move down";
         "${mod}+Shift+${up}" = "move up";
         "${mod}+Shift+${right}" = "move right";
+        "${mod}+Space" = "focus mode_toggle";
+        "${mod}+Shift+Space" = "floating toggle";
         "${mod}+Shift+minus" = "move scratchpad";
         "${mod}+minus" = "scratchpad show";
         # Workspaces
