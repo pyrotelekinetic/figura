@@ -144,6 +144,7 @@ wayland.windowManager.sway = {
         "${mod}+Shift+0" = "move container to workspace number 10";
         # Control
         "${mod}+x" = "kill";
+        "${mod}+f" = "fullscreen toggle";
         "${mod}+Semicolon" = "exec bemenu-run -p '>' | xargs swaymsg exec --";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
