@@ -21,6 +21,53 @@
 wayland.windowManager.sway = {
   enable = true;
   config = {
+    defaultWorkspace = "workspace number 1";
+    workspaceOutputAssign =
+      let
+        primary = "DP-3";
+        secondary = "HDMI-A-1";
+      in [
+        {
+          output = primary;
+          workspace = "1";
+        }
+        {
+          output = primary;
+          workspace = "3";
+        }
+        {
+          output = primary;
+          workspace = "5";
+        }
+        {
+          output = primary;
+          workspace = "7";
+        }
+        {
+          output = primary;
+          workspace = "9";
+        }
+        {
+          output = secondary;
+          workspace = "2";
+        }
+        {
+          output = secondary;
+          workspace = "4";
+        }
+        {
+          output = secondary;
+          workspace = "6";
+        }
+        {
+          output = secondary;
+          workspace = "8";
+        }
+        {
+          output = secondary;
+          workspace = "0";
+        }
+      ];
     bars = [ {
       command = "swaybar";
       colors = {
@@ -131,7 +178,7 @@ wayland.windowManager.sway = {
         "${mod}+7" = "workspace number 7";
         "${mod}+8" = "workspace number 8";
         "${mod}+9" = "workspace number 9";
-        "${mod}+0" = "workspace number 10";
+        "${mod}+0" = "workspace number 0";
         "${mod}+Shift+1" = "move container to workspace number 1";
         "${mod}+Shift+2" = "move container to workspace number 2";
         "${mod}+Shift+3" = "move container to workspace number 3";
@@ -141,7 +188,7 @@ wayland.windowManager.sway = {
         "${mod}+Shift+7" = "move container to workspace number 7";
         "${mod}+Shift+8" = "move container to workspace number 8";
         "${mod}+Shift+9" = "move container to workspace number 9";
-        "${mod}+Shift+0" = "move container to workspace number 10";
+        "${mod}+Shift+0" = "move container to workspace number 0";
         # Control
         "${mod}+x" = "kill";
         "${mod}+f" = "fullscreen toggle";
