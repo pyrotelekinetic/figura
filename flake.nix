@@ -27,6 +27,7 @@ outputs = { nixpkgs, home-manager, ... }: {
     modules = [
       ./home.nix
       ./sway.nix
+      ./vim.nix
     ];
   };
 };

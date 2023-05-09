@@ -59,11 +59,6 @@ home = {
   };
 
   file = {
-    vimrc = {
-      source = ./.vimrc;
-      target = ".vimrc";
-    };
-
     vim-dir = {
       source = ./.vim;
       target = ".vim";
@@ -158,7 +153,6 @@ home.packages = with pkgs; [
   coreutils-full
   psmisc
   file
-  vim
   git
   kitty
   libqalculate
