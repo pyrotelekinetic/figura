@@ -205,6 +205,8 @@ wayland.windowManager.sway = {
         "${mod}+Left" = "exec playerctl previous";
         "${mod}+Right" = "exec playerctl next";
         "${mod}+Delete" = "exec playerctl play-pause";
+        "${mod}+Down" = "exec pamixer -d 5";
+        "${mod}+Up" = "exec pamixer -i 5";
         # Notifications
         "${mod}+BracketLeft" = "exec dunstctl close";
         "${mod}+BracketRight" = "exec dunstctl history-pop";

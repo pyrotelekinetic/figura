@@ -188,6 +188,7 @@ home.packages = with pkgs; [
   pavucontrol
   pulsemixer
   playerctl
+  pamixer
 
   # Media
   plex-media-player
