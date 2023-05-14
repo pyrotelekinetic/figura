@@ -74,6 +74,11 @@ home = {
       source = ./kitty.conf;
       target = ".config/kitty/kitty.conf";
     };
+
+    git-prompt = {
+      source = ./git-prompt.sh;
+      target = ".config/git-prompt.sh";
+    };
   };
 };
 
@@ -87,7 +92,7 @@ programs = {
     enable = true;
     initExtra = ''
       # Set prompt
-      source ~/dotfiles/git-prompt.sh
+      source ~/.config/git-prompt.sh
       GIT_PS1_SHOWDIRTYSTATE=true
       PS1="\[\e[0;37m\][\[\e[0;95m\]\u\[\e[0;34m\]@\[\e[0;95m\]\h \[\e[1;32m\]\w\[\e[0;37m\]\[\e[33m\]\$(__git_ps1 ' (%s)')\[\e[0;37m\]]\$\[\e[0m\] "
 
