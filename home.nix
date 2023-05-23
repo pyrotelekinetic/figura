@@ -59,12 +59,6 @@ home = {
   };
 
   file = {
-    vim-dir = {
-      source = ./.vim;
-      target = ".vim";
-      recursive = true;
-    };
-
     dunstrc = {
       source = ./dunstrc;
       target = ".config/dunst/dunstrc";

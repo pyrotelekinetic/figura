@@ -142,4 +142,11 @@ programs.vim = {
   '';
 };
 
+home.file.vim-dir = {
+  source = ./.vim;
+  target = ".vim";
+  recursive = true;
+};
+
+
 }
