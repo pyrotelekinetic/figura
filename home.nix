@@ -59,11 +59,6 @@ home = {
   };
 
   file = {
-    dunstrc = {
-      source = ./dunstrc;
-      target = ".config/dunst/dunstrc";
-    };
-
     kitty = {
       source = ./kitty.conf;
       target = ".config/kitty/kitty.conf";
@@ -167,7 +162,6 @@ home.packages = with pkgs; [
   wl-clipboard
   xdg-utils
   bemenu
-  dunst
   grim
   slurp
   imv

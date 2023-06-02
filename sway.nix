@@ -208,8 +208,8 @@ wayland.windowManager.sway = {
         "${mod}+Down" = "exec pamixer -d 5";
         "${mod}+Up" = "exec pamixer -i 5";
         # Notifications
-        "${mod}+BracketLeft" = "exec dunstctl close";
-        "${mod}+BracketRight" = "exec dunstctl history-pop";
+        "${mod}+BracketLeft" = "exec makoctl dismiss";
+        "${mod}+BracketRight" = "exec makoctl restore";
       };
     menu = "bemenu-run -p '>' | xargs swaymsg exec --";
     modifier = "Mod4";
@@ -220,6 +220,25 @@ wayland.windowManager.sway = {
     };
     workspaceAutoBackAndForth = false;
   };
+};
+
+programs.mako = {
+  enable = true;
+  anchor = "top-right";
+  backgroundColor = black;
+  borderColor = blackBright;
+  borderRadius = 10;
+  borderSize = 1;
+  defaultTimeout = 50000;
+  font = "IBM Plex Mono";
+  ignoreTimeout = true;
+  layer = "overlay";
+  margin = "10";
+  markup = true;
+  maxVisible = 10;
+  padding = "5";
+  progressColor = "over ${green}";
+  textColor = white;
 };
 
 }
