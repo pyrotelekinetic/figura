@@ -187,11 +187,6 @@ home.packages = with pkgs; [
   plex-media-player
   cider
   mpris-scrobbler
-
-  # Games
-  prismlauncher
-  osu-lazer
-  heroic
 ];
 
 }

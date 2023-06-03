@@ -28,6 +28,7 @@ outputs = { nixpkgs, home-manager, ... }: {
       ./home.nix
       ./sway.nix
       ./vim.nix
+      ./games.nix
     ];
   };
 };
