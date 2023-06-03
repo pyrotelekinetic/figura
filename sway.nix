@@ -197,7 +197,7 @@ wayland.windowManager.sway = {
         "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
         # Apps
         "${mod}+Return" = "exec kitty";
-        "${mod}+d" = "exec discord";
+        "${mod}+d" = "exec firefox --new-window https://discord.com/app";
         "${mod}+b" = "exec firefox";
         "${mod}+s" = "exec steam";
         "${mod}+u" = "exec cider";
