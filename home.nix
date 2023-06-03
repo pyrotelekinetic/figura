@@ -107,6 +107,26 @@ programs = {
       PASSWORD_STORE_GENERATED_LENGTH = "64";
     };
   };
+
+  git = {
+    enable = true;
+    userName = "Carter Ison";
+    userEmail = "carter@isons.org";
+    signing = {
+      key = "3477FBCE6552E74A734485AD3312A18E7AE89BDE";
+      signByDefault = true;
+    };
+    aliases = {
+      l = "log --graph";
+    };
+    ignores = [
+      "*.swp"
+    ];
+    extraConfig = {
+      init.defaultBranch = "main";
+      log.abbrevCommit = true;
+    };
+  };
 };
 
 # Home Manager managed services
@@ -147,7 +167,6 @@ home.packages = with pkgs; [
   coreutils-full
   psmisc
   file
-  git
   kitty
   libqalculate
 
