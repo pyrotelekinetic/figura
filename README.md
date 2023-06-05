@@ -1,4 +1,4 @@
-# domi
+# domus
 it means home in latin
 
 This is my home-manager flake. It's a work in progress.
