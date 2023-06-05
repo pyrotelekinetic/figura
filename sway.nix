@@ -145,6 +145,9 @@ wayland.windowManager.sway = {
         xkb_layout = "us";
         xkb_options = "compose:ralt";
       };
+      "type:touchpad" = {
+        natural_scroll = "enabled";
+      };
     };
 
     keybindings =
