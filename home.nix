@@ -206,6 +206,10 @@ home.packages = with pkgs; [
   plex-media-player
   cider
   mpris-scrobbler
+  mpd
+  mpdris2
+  mpc-cli
+  ncmpcpp
 ];
 
 }
