@@ -29,6 +29,12 @@ outputs = { nixpkgs, home-manager, ... }: {
       ./sway.nix
       ./vim.nix
       ./games.nix
+
+      (args: {
+        nix.registry.nixpkgs.flake = nixpkgs;
+        xdg.configFile."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+        home.sessionVariables.NIX_PATH = "nixpkgs=${args.config.xdg.configHome}/nix/inputs/nixpkgs$\{NIX_PATH:+:$NIX_PATH}";
+      })
     ];
   };
 };
