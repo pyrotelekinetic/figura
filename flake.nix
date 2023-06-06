@@ -1,6 +1,6 @@
 {
 
-description = "Home Manager configuration of Carter";
+description = "Home Manager and NixOS configurations of pyrotelekinetic";
 
 inputs = {
   nixpkgs = {

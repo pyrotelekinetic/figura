@@ -1,7 +1,12 @@
-# domus
-it means home in latin
+# mundus
+it means world in latin
 
-This is my home-manager flake. It's a work in progress.
+---
+
+This is my Home-Manager and NixOS flake.
+
+NixOS modules are under figura/ (latin "shape, or form") and Home-Manager
+modules are under domus/ (latin "home").
 
 ---
 
