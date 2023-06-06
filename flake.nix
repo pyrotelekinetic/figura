@@ -25,10 +25,10 @@ outputs = { nixpkgs, home-manager, ... }: {
       system = "x86_64-linux";
     };
     modules = [
-      ./home.nix
-      ./sway.nix
-      ./vim.nix
-      ./games.nix
+      ./domus/home.nix
+      ./domus/sway.nix
+      ./domus/vim.nix
+      ./domus/games.nix
 
       (args: {
         nix.registry.nixpkgs.flake = nixpkgs;
