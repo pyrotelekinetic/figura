@@ -99,15 +99,11 @@ sound.enable = false;
 
 services.pipewire = {
   enable = true;
-
   alsa = {
     enable = true;
     support32Bit = true;
   };
-
   pulse.enable = true;
-
-  media-session.enable = false;
   wireplumber.enable = true;
 };
 
@@ -184,9 +180,11 @@ services = {
   # Enable the OpenSSH daemon.
   openssh = {
     enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
     openFirewall = true;
     ports = [ 22 26656 ];
   };
