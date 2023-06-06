@@ -19,6 +19,22 @@ inputs = {
 };
 
 outputs = { nixpkgs, home-manager, ... }: {
+  nixosConfigurations.sol = nixpkgs.lib.nixosSystem {
+    system = "x86_64-linux";
+    modules = [
+      ./figura/configuration.nix
+      ./figura/hardware-configuration.nix
+      ./figura/pyrosite.nix
+      ./figura/swap.nix
+
+      {
+        nix.registry.nixpkgs.flake = nixpkgs;
+        environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+        nix.nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
+      }
+    ];
+  };
+
   homeConfigurations.cison = home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs {
       config.allowUnfree = true;
