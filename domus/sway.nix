@@ -246,8 +246,6 @@ programs.mako = {
 
 # Desktop specific packages
 home.packages = with pkgs; [
-  sway
-  wayland
   wl-clipboard
   xdg-utils
   bemenu
