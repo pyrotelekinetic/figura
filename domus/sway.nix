@@ -225,7 +225,7 @@ wayland.windowManager.sway = {
   };
 };
 
-services.mako = {
+programs.mako = {
   enable = true;
   anchor = "top-right";
   backgroundColor = black;
