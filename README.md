@@ -5,8 +5,8 @@ it means world in latin
 
 This is my Home-Manager and NixOS flake.
 
-NixOS modules are under figura/ (latin "shape, or form") and Home-Manager
-modules are under domus/ (latin "home").
+NixOS modules are under `figura/` (latin "shape, or form") and Home-Manager
+modules are under `domus/` (latin "home").
 
 ---
 
