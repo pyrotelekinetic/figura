@@ -25,7 +25,6 @@ outputs = { nixpkgs, home-manager, ... }: {
       ./figura/configuration.nix
       ./figura/hardware-configuration.nix
       ./figura/pyrosite.nix
-      ./figura/swap.nix
 
       {
         nix.registry.nixpkgs.flake = nixpkgs;
