@@ -244,4 +244,16 @@ programs.mako = {
   textColor = white;
 };
 
+# Desktop specific packages
+home.packages = with pkgs; [
+  sway
+  wayland
+  wl-clipboard
+  xdg-utils
+  bemenu
+  grim
+  slurp
+  imv
+];
+
 }

@@ -175,16 +175,6 @@ home.packages = with pkgs; [
   fd
   du-dust
 
-  # Wayland desktop
-  sway
-  wayland
-  wl-clipboard
-  xdg-utils
-  bemenu
-  grim
-  slurp
-  imv
-
   # Drip
   neofetch
   bottom
