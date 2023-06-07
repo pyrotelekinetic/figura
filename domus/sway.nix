@@ -254,4 +254,32 @@ home.packages = with pkgs; [
   imv
 ];
 
+gtk = {
+  enable = true;
+};
+
+qt = {
+  enable = true;
+  style = {
+    package = pkgs.adwaita-qt;
+    name = "adwaita-dark";
+  };
+};
+
+# Set mouse cursor for gtk and x11
+home.pointerCursor = {
+  name = "breeze_cursors";
+  package = pkgs.breeze-gtk;
+  size = 24;
+  gtk.enable = true;
+  x11.enable = true;
+};
+
+# Tell things to use wayland
+home.sessionVariables = {
+  MOZ_ENABLE_WAYLAND = 1;
+  XDG_CURRENT_DESKTOP = "sway";
+  NIXOS_OZONE_WL="1";
+};
+
 }

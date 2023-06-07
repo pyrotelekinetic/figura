@@ -9,21 +9,7 @@ home = {
   # Verify Home Manager and Nixpkgs are on same release ver
   enableNixpkgsReleaseCheck = true;
 
-  # Set mouse cursor for gtk and x11
-  pointerCursor = {
-    name = "breeze_cursors";
-    package = pkgs.breeze-gtk;
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
-
   sessionVariables = {
-    # Tell things to use wayland
-    MOZ_ENABLE_WAYLAND = 1;
-    XDG_CURRENT_DESKTOP = "sway";
-    NIXOS_OZONE_WL="1";
-
     # Set less options
     LESS = "-FR";
 
@@ -145,18 +131,6 @@ services = {
   kdeconnect = {
     enable = true;
     indicator = true;
-  };
-};
-
-gtk = {
-  enable = true;
-};
-
-qt = {
-  enable = true;
-  style = {
-    package = pkgs.adwaita-qt;
-    name = "adwaita-dark";
   };
 };
 
