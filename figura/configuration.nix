@@ -23,13 +23,6 @@ boot = {
   plymouth.enable = true;
 };
 
-# Filesystems
-fileSystems."/data" = {
-  device = "LABEL=data";
-  fsType = "ext4";
-  noCheck = true;
-};
-
 nix.settings = {
   experimental-features = [ "nix-command" "flakes" ];
   auto-optimise-store = true;
