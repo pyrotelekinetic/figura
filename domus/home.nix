@@ -35,11 +35,6 @@ home = {
   };
 
   file = {
-    kitty = {
-      source = ./kitty.conf;
-      target = ".config/kitty/kitty.conf";
-    };
-
     git-prompt = {
       source = ./git-prompt.sh;
       target = ".config/git-prompt.sh";
