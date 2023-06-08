@@ -12,10 +12,7 @@ home = {
   sessionVariables = {
     # Set less options
     LESS = "-FR";
-
-    # Set default programs
     PAGER = "less";
-    EDITOR = "vim";
   };
 
   # Include local binary path

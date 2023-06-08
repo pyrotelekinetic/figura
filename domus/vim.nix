@@ -148,5 +148,7 @@ home.file.vim-dir = {
   recursive = true;
 };
 
+# Set vim as default editor
+home.sessionVariables.Editor = "vim";
 
 }
