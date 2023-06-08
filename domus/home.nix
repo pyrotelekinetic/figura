@@ -33,14 +33,7 @@ home = {
     # cd shorthand
     ".." = "cd ..";
 
-    # man shorthand
-    mank = "man -k";
-
-    # date format
-    datef = "date +%a\ %b\ %d\ %T\ %Y";
-
     # git shorthand
-    gitlog = "git log --oneline";
     gitstat = "git status";
   };
 
