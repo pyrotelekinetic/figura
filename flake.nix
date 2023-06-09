@@ -31,6 +31,12 @@ outputs = { nixpkgs, home-manager, ... }: {
         environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
         nix.nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
       }
+
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.cison = import ./domus;
+      }
     ];
   };
 
