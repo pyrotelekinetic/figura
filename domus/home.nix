@@ -1,5 +1,12 @@
 { pkgs, ... }: {
 
+imports = [
+  ./sway.nix
+  ./kitty.nix
+  ./vim.nix
+  ./games.nix
+];
+
 home = {
   username = "cison";
   homeDirectory = "/home/cison";

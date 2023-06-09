@@ -41,11 +41,6 @@ outputs = { nixpkgs, home-manager, ... }: {
     };
     modules = [
       ./domus/home.nix
-      ./domus/sway.nix
-      ./domus/vim.nix
-      ./domus/games.nix
-      ./domus/kitty.nix
-
       (args: {
         nix.registry.nixpkgs.flake = nixpkgs;
         xdg.configFile."nix/inputs/nixpkgs".source = nixpkgs.outPath;
