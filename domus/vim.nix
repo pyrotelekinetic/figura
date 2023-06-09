@@ -149,6 +149,6 @@ home.file.vim-dir = {
 };
 
 # Set vim as default editor
-home.sessionVariables.Editor = "vim";
+home.sessionVariables.EDITOR = "vim";
 
 }
