@@ -22,7 +22,7 @@ outputs = { nixpkgs, home-manager, ... }: {
   nixosConfigurations.sol = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./figura/configuration.nix
+      ./figura
       ./figura/hardware-configuration.nix
       ./figura/pyrosite.nix
 
@@ -40,7 +40,7 @@ outputs = { nixpkgs, home-manager, ... }: {
       system = "x86_64-linux";
     };
     modules = [
-      ./domus/home.nix
+      ./domus
       (args: {
         nix.registry.nixpkgs.flake = nixpkgs;
         xdg.configFile."nix/inputs/nixpkgs".source = nixpkgs.outPath;
