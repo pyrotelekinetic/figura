@@ -23,8 +23,6 @@ outputs = { nixpkgs, home-manager, ... }: {
     system = "x86_64-linux";
     modules = [
       ./figura
-      ./figura/hardware-configuration.nix
-      ./figura/pyrosite.nix
 
       {
         nix.registry.nixpkgs.flake = nixpkgs;

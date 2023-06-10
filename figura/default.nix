@@ -1,5 +1,10 @@
 { inputs, config, pkgs, ... }: {
 
+imports = [
+  ./hardware-configuration.nix
+  ./pyrosite.nix
+];
+
 hardware = {
   opengl = {
     enable = true;
