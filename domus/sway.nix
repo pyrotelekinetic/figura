@@ -213,6 +213,8 @@ wayland.windowManager.sway = {
         # Notifications
         "${mod}+BracketLeft" = "exec makoctl dismiss";
         "${mod}+BracketRight" = "exec makoctl restore";
+        # Screenshot
+        "${mod}+Print" = "exec grim";
       };
     menu = "bemenu-run -p '>' | xargs swaymsg exec --";
     modifier = "Mod4";
