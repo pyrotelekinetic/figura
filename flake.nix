@@ -22,7 +22,7 @@ outputs = { nixpkgs, home-manager, ... }: {
   nixosConfigurations.sol = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      ./figura
+      ./mundus
 
       {
         nix.registry.nixpkgs.flake = nixpkgs;
