@@ -127,6 +127,9 @@ wayland.windowManager.sway = {
     floating = {
       border = 1;
       titlebar = false;
+      criteria = [
+        { app_id = "pinentry.*"; }
+      ];
     };
 
     focus = {
