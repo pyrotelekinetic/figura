@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, ... }: rec {
 
 imports = [
   ./sway.nix
@@ -123,6 +123,18 @@ services = {
   kdeconnect = {
     enable = true;
     indicator = true;
+  };
+};
+
+# XDG user directories
+xdg = {
+  enable = true;
+  userDirs = {
+    enable = true;
+    desktop = "${home.homeDirectory}/desktop";
+    documents = "${home.homeDirectory}/documents";
+    download = "${home.homeDirectory}/downloads";
+    pictures = "${home.homeDirectory}/pictures";
   };
 };
 
