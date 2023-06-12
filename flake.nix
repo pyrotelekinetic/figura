@@ -16,9 +16,15 @@ inputs = {
     ref = "release-22.11";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  pyroscheme = {
+    type = "github";
+    owner = "pyrotelekinetic";
+    repo = "pyroscheme";
+    ref = "main";
+  };
 };
 
-outputs = { self, nixpkgs, home-manager }: {
+outputs = { self, nixpkgs, home-manager, pyroscheme }: {
   nixosConfigurations.sol = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
@@ -31,6 +37,7 @@ outputs = { self, nixpkgs, home-manager }: {
       }
 
       home-manager.nixosModules.home-manager {
+        home-manager.extraSpecialArgs = { colors = pyroscheme.colors; };
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.cison = import ./domus;
@@ -43,6 +50,7 @@ outputs = { self, nixpkgs, home-manager }: {
       config.allowUnfree = true;
       system = "x86_64-linux";
     };
+    extraSpecialArgs = { colors = pyroscheme.colors; };
     modules = [
       ./domus
       (args: {

@@ -38,10 +38,27 @@
         "type": "github"
       }
     },
+    "pyroscheme": {
+      "locked": {
+        "lastModified": 1686584835,
+        "narHash": "sha256-KsXTNanAB5oXGNCFB9DxzJAKEL+xn7qcYc3C0nqM+BU=",
+        "owner": "pyrotelekinetic",
+        "repo": "pyroscheme",
+        "rev": "52377772d0c8193c0404a9788273028c81bf8bc9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pyrotelekinetic",
+        "ref": "main",
+        "repo": "pyroscheme",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pyroscheme": "pyroscheme"
       }
     },
     "utils": {
