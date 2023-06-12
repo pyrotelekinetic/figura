@@ -5,8 +5,6 @@ imports = [
   ./pyrosite.nix
 ];
 
-pyrosite.enable = true;
-
 hardware = {
   opengl = {
     enable = true;
