@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, colors, ... }: {
 
 programs.kitty = {
   enable = true;
@@ -8,7 +8,7 @@ programs.kitty = {
     size = 14;
   };
 
-  settings = {
+  settings = with colors; {
     enable_audio_bell = false;
     disable_ligatures = "cursor";
     cursor_shape = "block";
@@ -26,45 +26,44 @@ programs.kitty = {
 
     shell = ".";
     editor = ".";
-  };
 
-  settings.clear_all_shortcuts = true;
-  keybindings = {
-    "ctrl+shift+c" = "copy_to_clipboard";
-    "ctrl+shift+v" = "paste_from_clipboard";
-  };
+    clear_all_shortcuts = true;
 
   # Colors
-  settings = {
-    background = "#1c1c1c";
-    foreground = "#afafaf";
+    background = black;
+    foreground = white;
 
-    color0 = "#1c1c1c";
-    color8 = "#515151";
+    color0 = black;
+    color8 = blackBright;
 
-    color1 = "#af004f";
-    color9 = "#b03f72";
+    color1 = red;
+    color9 = redBright;
 
-    color2 = "#1d5e44";
-    color10 = "#527c6b";
+    color2 = green;
+    color10 = greenBright;
 
-    color3 = "#af871c";
-    color11 = "#ae9b68";
+    color3 = yellow;
+    color11 = yellowBright;
 
-    color4 = "#1c5f87";
-    color12 = "#517c96";
+    color4 = blue;
+    color12 = blueBright;
 
-    color5 = "#5f1c5f";
-    color13 = "#7c517c";
+    color5 = magenta;
+    color13 = magentaBright;
 
-    color6 = "#307c77";
-    color14 = "#628784";
+    color6 = cyan;
+    color14 = cyanBright;
 
-    color7 = "#afafaf";
-    color15 = "#dcdcdc";
+    color7 = white;
+    color15 = whiteBright;
 
     selection_foreground = "none";
     selection_background = "none";
+  };
+
+  keybindings = {
+    "ctrl+shift+c" = "copy_to_clipboard";
+    "ctrl+shift+v" = "paste_from_clipboard";
   };
 };
 
