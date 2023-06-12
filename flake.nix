@@ -18,7 +18,7 @@ inputs = {
   };
 };
 
-outputs = { nixpkgs, home-manager, ... }: {
+outputs = { self, nixpkgs, home-manager }: {
   nixosConfigurations.sol = nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
