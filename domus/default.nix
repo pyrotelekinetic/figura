@@ -1,10 +1,8 @@
 { pkgs, ... }: rec {
 
 imports = [
-  ./sway.nix
-  ./kitty.nix
+  ./graphical
   ./vim.nix
-  ./games.nix
 ];
 
 home = {

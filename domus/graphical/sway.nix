@@ -1,7 +1,6 @@
-{ pkgs, colors, ... }: {
+{ config, lib, pkgs, colors, ... }: {
 
 wayland.windowManager.sway = {
-  enable = true;
   config = {
     defaultWorkspace = "workspace number 1";
     workspaceOutputAssign =
@@ -213,7 +212,6 @@ wayland.windowManager.sway = {
 };
 
 programs.mako = with colors; {
-  enable = true;
   anchor = "top-right";
   backgroundColor = black;
   borderColor = blackBright;
@@ -232,7 +230,7 @@ programs.mako = with colors; {
 };
 
 # Desktop specific packages
-home.packages = with pkgs; [
+home.packages = with pkgs; lib.mkIf config.graphical.enable [
   wl-clipboard
   xdg-utils
   bemenu
@@ -241,20 +239,13 @@ home.packages = with pkgs; [
   imv
 ];
 
-gtk = {
-  enable = true;
-};
-
-qt = {
-  enable = true;
-  style = {
-    package = pkgs.adwaita-qt;
-    name = "adwaita-dark";
-  };
+qt.style = {
+  package = pkgs.adwaita-qt;
+  name = "adwaita-dark";
 };
 
 # Set mouse cursor for gtk and x11
-home.pointerCursor = {
+home.pointerCursor = lib.mkIf config.graphical.enable {
   name = "breeze_cursors";
   package = pkgs.breeze-gtk;
   size = 24;
@@ -263,7 +254,7 @@ home.pointerCursor = {
 };
 
 # Tell things to use wayland
-home.sessionVariables = {
+home.sessionVariables = lib.mkIf config.graphical.enable {
   MOZ_ENABLE_WAYLAND = 1;
   XDG_CURRENT_DESKTOP = "sway";
   NIXOS_OZONE_WL="1";

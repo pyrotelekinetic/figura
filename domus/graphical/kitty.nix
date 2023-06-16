@@ -1,7 +1,6 @@
 { pkgs, colors, ... }: {
 
 programs.kitty = {
-  enable = true;
   font = {
     package = pkgs.ibm-plex;
     name = "IBM Plex Mono";
