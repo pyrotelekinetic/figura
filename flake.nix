@@ -37,14 +37,16 @@ outputs = { self, nixpkgs, home-manager, pyroscheme }: {
       }
 
       home-manager.nixosModules.home-manager {
-        home-manager.extraSpecialArgs = { colors = pyroscheme.colors; };
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.cison = {
-          imports = [ ./domus ];
-          graphical = {
-            enable = true;
-            games = true;
+        home-manager = {
+          extraSpecialArgs = { colors = pyroscheme.colors; };
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.cison = {
+            imports = [ ./domus ];
+            graphical = {
+              enable = true;
+              games = true;
+            };
           };
         };
       }
