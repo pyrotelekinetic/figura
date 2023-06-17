@@ -52,22 +52,6 @@ outputs = { self, nixpkgs, home-manager, pyroscheme }: {
       }
     ];
   };
-
-  homeConfigurations.cison = home-manager.lib.homeManagerConfiguration {
-    pkgs = import nixpkgs {
-      config.allowUnfree = true;
-      system = "x86_64-linux";
-    };
-    extraSpecialArgs = { colors = pyroscheme.colors; };
-    modules = [
-      ./domus
-      (args: {
-        nix.registry.nixpkgs.flake = nixpkgs;
-        xdg.configFile."nix/inputs/nixpkgs".source = nixpkgs.outPath;
-        home.sessionVariables.NIX_PATH = "nixpkgs=${args.config.xdg.configHome}/nix/inputs/nixpkgs$\{NIX_PATH:+:$NIX_PATH}";
-      })
-    ];
-  };
 };
 
 }
