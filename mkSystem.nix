@@ -1,4 +1,4 @@
-inputs: { host, system }: with inputs; {
+inputs: { host, system, homeOpts ? {} }: with inputs; {
 
 "${host}" = nixpkgs.lib.nixosSystem {
   system = system;
@@ -16,14 +16,8 @@ inputs: { host, system }: with inputs; {
         extraSpecialArgs = { colors = pyroscheme.colors; };
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.cison = {
-          imports = [
-            ./domus
-          ];
-          graphical = {
-            enable = true;
-            games = true;
-          };
+        users.cison = homeOpts // {
+          imports = [ ./domus ];
         };
       };
     }

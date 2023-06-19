@@ -31,6 +31,10 @@ in {
     mkSystem {
       host = "sol";
       system = "x86_64-linux";
+      homeOpts.graphical = {
+        enable = true;
+        games = true;
+      };
     }
   );
 };
