@@ -1,9 +1,4 @@
-{ inputs, config, pkgs, ... }: {
-
-imports = [
-  ./hardware-configuration.nix
-  ./pyrosite.nix
-];
+{ pkgs, ... }: {
 
 hardware = {
   opengl = {
@@ -42,7 +37,6 @@ nix = {
 
 networking = {
   networkmanager.enable = true;
-  hostName = "sol";
   hosts = {
     "192.168.1.2" = [ "luna" ];
   };
