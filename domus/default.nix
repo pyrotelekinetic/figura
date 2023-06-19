@@ -38,6 +38,11 @@ home = {
     # git shorthand
     gitstat = "git status";
   };
+
+  # Custom compose sequences
+  file.".XCompose".text = ''
+    <Multi_key> <backslash> <backslash>  : "λ" U03BB # GREEK SMALL LETTER LAMDA
+  '';
 };
 
 # Home Manager managed programs
