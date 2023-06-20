@@ -36,6 +36,15 @@ in {
         games = true;
       };
     }
+  ) // (
+    mkSystem {
+      host = "vega";
+      system = "x86_64-linux";
+      homeOpts.graphical = {
+        enable = true;
+        games = true;
+      };
+    }
   );
 };
 
