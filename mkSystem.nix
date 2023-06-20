@@ -6,6 +6,7 @@ inputs: { host, system, homeOpts ? {} }: with inputs; {
     ./mundus
     (self + "/mundus/" + host)
     {
+      system.configurationRevision = if self?rev then self.rev else "DIRTY";
       networking.hostName = host;
       nix.registry.nixpkgs.flake = nixpkgs;
       environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
