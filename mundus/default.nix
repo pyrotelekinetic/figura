@@ -33,6 +33,18 @@ nix = {
     dates = "monthly";
     options = "--delete-older-than 30d";
   };
+  registry.figura = {
+    from = {
+      type = "indirect";
+      id = "figura";
+    };
+    to = {
+      type = "github";
+      owner = "pyrotelekinetic";
+      repo = "figura";
+      ref = "main";
+    };
+  };
 };
 
 networking = {
