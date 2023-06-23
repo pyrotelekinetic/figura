@@ -21,7 +21,7 @@ fileSystems = {
     device = "/dev/disk/by-uuid/4aba06e6-443f-4277-aff0-0b40d37bc83c";
     fsType = "ext4";
   };
-  "/boot" = {
+  "/efi" = {
     device = "/dev/disk/by-uuid/1660-CB67";
     fsType = "vfat";
   };

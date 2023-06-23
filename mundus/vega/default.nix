@@ -19,6 +19,7 @@ boot = {
       editor = false;
     };
     efi = {
+      efiSysMountPoint = "/efi";
       canTouchEfiVariables = true;
     };
   };
