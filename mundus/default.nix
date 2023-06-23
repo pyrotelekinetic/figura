@@ -49,15 +49,7 @@ nix = {
 
 networking = {
   networkmanager.enable = true;
-  hosts = {
-    "192.168.1.2" = [ "luna" ];
-  };
-  firewall = {
-    enable = true;
-  };
-  interfaces = {
-    enp3s0.wakeOnLan.enable = true;
-  };
+  firewall.enable = true;
 };
 
 time.timeZone = "America/Phoenix";
