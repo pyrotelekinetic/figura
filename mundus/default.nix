@@ -8,20 +8,6 @@ hardware = {
   bluetooth.enable = true;
 };
 
-boot = {
-  loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 5;
-      editor = false;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-    };
-  };
-  plymouth.enable = true;
-};
-
 nix = {
   package = pkgs.nixVersions.nix_2_13;
   settings = {

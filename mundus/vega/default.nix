@@ -11,4 +11,18 @@ services.openssh.enable = lib.mkForce false;
 hardware.acpilight.enable = true;
 users.users.cison.extraGroups = [ "video" ];
 
+boot = {
+  loader = {
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+      editor = false;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+    };
+  };
+  plymouth.enable = true;
+};
+
 }
