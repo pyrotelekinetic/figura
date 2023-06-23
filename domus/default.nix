@@ -144,7 +144,6 @@ home.packages = with pkgs; [
   coreutils-full
   psmisc
   file
-  kitty
   libqalculate
 
   # Blazingly fast
