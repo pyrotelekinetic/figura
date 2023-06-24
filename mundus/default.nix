@@ -129,12 +129,6 @@ environment.systemPackages = with pkgs; [
   zip unzip xz gzip bzip2
 ];
 
-# Use librsvg's gdk-pixbuf loader cache file as it enables gdk-pixbuf to load
-# SVG files (important for icons)
-environment.sessionVariables = {
-  GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
-};
-
 fonts.fonts = [
   pkgs.freefont_ttf
   pkgs.ibm-plex

@@ -1,4 +1,4 @@
-{ config, lib, ... }: with lib; {
+{ config, lib, pkgs, ... }: with lib; {
 
 imports = [
   ./sway.nix
@@ -11,19 +11,27 @@ options.graphical = {
   games = mkEnableOption (mdDoc "games :)");
 };
 
-config = with config.graphical; {
-  wayland.windowManager.sway.enable = enable;
-  programs.kitty.enable = enable;
-  programs.mako.enable = enable;
-  gtk.enable = enable;
-  qt.enable = enable;
+config = mkMerge [
+  ( mkIf config.graphical.enable {
+    wayland.windowManager.sway.enable = true;
+    programs.kitty.enable = true;
+    programs.mako.enable = true;
+    gtk.enable = true;
+    qt.enable = true;
 
-  assertions = [
-    {
-      assertion = games -> enable;
-      message = "games need a graphical environment to run in";
-    }
-  ];
-};
+    # Use librsvg's gdk-pixbuf loader cache file as it enables gdk-pixbuf to load
+    # SVG files (important for icons)
+    home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
+  } )
+
+  {
+    assertions = with config.graphical; [
+      {
+        assertion = games -> enable;
+        message = "games need a graphical environment to run in";
+      }
+    ];
+  }
+];
 
 }
