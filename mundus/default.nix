@@ -69,20 +69,6 @@ users.users.cison = {
   ];
 };
 
-services.pipewire = {
-  enable = true;
-
-  alsa = {
-    enable = true;
-    support32Bit = true;
-  };
-
-  pulse.enable = true;
-
-  media-session.enable = false;
-  wireplumber.enable = true;
-};
-
 xdg = {
   portal = {
     enable = true;
@@ -140,6 +126,20 @@ console = {
 };
 
 services = {
+  pipewire = {
+    enable = true;
+
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+
+    pulse.enable = true;
+
+    media-session.enable = false;
+    wireplumber.enable = true;
+  };
+
   openssh = {
     enable = true;
     permitRootLogin = "no";
