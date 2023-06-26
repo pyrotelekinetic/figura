@@ -95,6 +95,7 @@ programs = {
     };
     aliases = {
       l = "log --graph";
+      hash = "log -n 1 --format=%H";
     };
     ignores = [
       "*.swp"
