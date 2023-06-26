@@ -22,6 +22,29 @@ config = mkMerge [
     # Use librsvg's gdk-pixbuf loader cache file as it enables gdk-pixbuf to load
     # SVG files (important for icons)
     home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
+
+    home.packages = with pkgs; [
+      # Social
+      signal-desktop-beta
+
+      # Tools
+      firefox-wayland
+      gimp
+      kicad-small
+      pavucontrol
+      pulsemixer
+      pamixer
+
+      # Media
+      plex-media-player
+      cider
+      playerctl
+      mpris-scrobbler
+      mpd
+      mpdris2
+      mpc-cli
+      ncmpcpp
+    ];
   } )
 
   {

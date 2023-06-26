@@ -154,27 +154,6 @@ home.packages = with pkgs; [
   neofetch
   bottom
   ibm-plex
-
-  # Social
-  signal-desktop-beta
-
-  # Tools
-  firefox-wayland
-  gimp
-  kicad-small
-  pavucontrol
-  pulsemixer
-  playerctl
-  pamixer
-
-  # Media
-  plex-media-player
-  cider
-  mpris-scrobbler
-  mpd
-  mpdris2
-  mpc-cli
-  ncmpcpp
 ];
 
 }
