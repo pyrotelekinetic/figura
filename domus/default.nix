@@ -1,8 +1,8 @@
 { pkgs, ... }: rec {
 
 imports = [
-  ./graphical
-  ./vim.nix
+  ./share/graphical
+  ./share/vim.nix
 ];
 
 home = {
@@ -53,7 +53,7 @@ programs = {
   # Make bash work with HM
   bash = let
     git-prompt = pkgs.writeScript "git-prompt.sh"
-      ( builtins.readFile ./git-prompt.sh );
+      ( builtins.readFile ./share/git-prompt.sh );
   in {
     enable = true;
     initExtra = ''
