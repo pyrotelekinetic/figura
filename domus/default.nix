@@ -137,8 +137,6 @@ xdg = {
   };
 };
 
-nixpkgs.config.allowUnfree = true;
-
 home.packages = with pkgs; [
   # Utilities
   coreutils-full
