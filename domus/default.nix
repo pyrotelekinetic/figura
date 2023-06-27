@@ -1,4 +1,4 @@
-{ pkgs, ... }: rec {
+{ lib, pkgs, ... }: rec {
 
 imports = [
   ./share/graphical
@@ -103,6 +103,23 @@ programs = {
     extraConfig = {
       init.defaultBranch = "main";
       log.abbrevCommit = true;
+    };
+  };
+
+  ssh = {
+    enable = true;
+    controlMaster = "yes";
+    controlPath = "~/.ssh/control/%r@%n:%p";
+    controlPersist = "5m";
+    matchBlocks = with lib.hm.dag; {
+      luna = {
+        hostname = "184.179.188.130";
+        port = 2885;
+      };
+      sol = entryAfter [ luna ] {
+        hostname = "192.168.1.8";
+        proxyJump = "luna";
+      };
     };
   };
 };
