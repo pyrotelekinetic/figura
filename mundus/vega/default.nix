@@ -2,6 +2,7 @@
 
 imports = [
   ./hardware.nix
+  ./tlp.nix
 ];
 
 # Don't want sshd on a portable machine that connects to lots of different networks
