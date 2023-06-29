@@ -27,4 +27,6 @@ boot = {
   plymouth.enable = true;
 };
 
+services.logind.lidSwitch = "hybrid-sleep";
+
 }
