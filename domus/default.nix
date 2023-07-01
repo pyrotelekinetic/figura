@@ -108,7 +108,7 @@ programs = {
 
   ssh = {
     enable = true;
-    controlMaster = "yes";
+    controlMaster = "auto";
     controlPath = "~/.ssh/control/%r@%n:%p";
     controlPersist = "5m";
     matchBlocks = with lib.hm.dag; {
