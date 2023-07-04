@@ -27,6 +27,6 @@ boot = {
   plymouth.enable = true;
 };
 
-services.logind.lidSwitch = "hybrid-sleep";
+services.logind.lidSwitch = "suspend-then-hibernate";
 
 }
