@@ -206,6 +206,7 @@ config = {
           "${mod}+BracketRight" = "exec makoctl restore";
           # Screenshot
           "${mod}+Print" = "exec grim";
+          "${mod}+p" = ''exec grim -g "$(slurp)"'';
         };
       menu = "bemenu-run -p '>' | xargs swaymsg exec --";
       modifier = "Mod4";
