@@ -9,6 +9,12 @@ inputs = {
     repo = "nixpkgs";
     ref = "nixos-22.11";
   };
+  nixpkgs-23 = {
+    type = "github";
+    owner = "NixOS";
+    repo = "nixpkgs";
+    ref = "nixos-23.05";
+  };
   home-manager = {
     type = "github";
     owner = "nix-community";
@@ -24,7 +30,7 @@ inputs = {
   };
 };
 
-outputs = { self, nixpkgs, home-manager, pyroscheme }@inputs: let
+outputs = { self, nixpkgs, nixpkgs-23, home-manager, pyroscheme }@inputs: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
   nixosConfigurations = (

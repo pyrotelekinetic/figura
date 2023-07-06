@@ -2,6 +2,7 @@ inputs: { host, system }: with inputs; {
 
 "${host}" = nixpkgs.lib.nixosSystem {
   system = system;
+  specialArgs = { doas-sudo-shim = nixpkgs-23.legacyPackages.${system}.doas-sudo-shim; };
   modules = [
     ./mundus
     (self + "/mundus/" + host)

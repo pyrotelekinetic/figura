@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, doas-sudo-shim, ... }: {
 
 hardware = {
   opengl = {
@@ -80,6 +80,16 @@ xdg = {
 };
 
 security = {
+  doas = {
+    enable = true;
+    extraRules = [ {
+      runAs = "root";
+      groups = [ "wheel" ];
+      noPass = false;
+      keepEnv = true;
+    } ];
+  };
+  sudo.enable = false;
   polkit.enable = true;
   rtkit.enable = true;
 };
@@ -101,6 +111,7 @@ environment.systemPackages = with pkgs; [
   coreutils-full
   git
   vim
+  doas-sudo-shim
 
   nix-tree
 

@@ -61,6 +61,9 @@ programs = {
 
       # Set ssh alias for kitty
       [ "$TERM" = "xterm-kitty" ] && alias ssh='kitty +kitten ssh'
+
+      # Tab complete after doas
+      complete -cf doas
     '';
   };
 
