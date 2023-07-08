@@ -219,7 +219,7 @@ config = {
     };
   };
 
-  programs.mako = with colors; {
+  services.mako = with colors; {
     anchor = "top-right";
     backgroundColor = black;
     borderColor = blackBright;

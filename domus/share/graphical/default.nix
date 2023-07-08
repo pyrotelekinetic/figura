@@ -15,7 +15,7 @@ config = mkMerge [
   ( mkIf config.graphical.enable {
     wayland.windowManager.sway.enable = true;
     programs.kitty.enable = true;
-    programs.mako.enable = true;
+    services.mako.enable = true;
     gtk.enable = true;
     qt.enable = true;
 

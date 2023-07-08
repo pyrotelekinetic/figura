@@ -1,4 +1,4 @@
-{ pkgs, doas-sudo-shim, ... }: {
+{ pkgs, ... }: {
 
 hardware = {
   opengl = {
@@ -147,15 +147,16 @@ services = {
 
     pulse.enable = true;
 
-    media-session.enable = false;
     wireplumber.enable = true;
   };
 
   openssh = {
     enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      permitRootLogin = "no";
+      passwordAuthentication = false;
+      kbdInteractiveAuthentication = false;
+    };
     openFirewall = true;
     ports = [ 22 26656 ];
   };
