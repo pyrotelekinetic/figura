@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
 programs.vim = {
   enable = true;
   defaultEditor = true;
+  plugins = lib.mkForce [ ]; # Don't install vim-sensible
   extraConfig = ''
     " *** Misc. ***
 
