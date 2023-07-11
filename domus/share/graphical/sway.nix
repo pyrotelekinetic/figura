@@ -252,6 +252,11 @@ config = {
     name = "adwaita-dark";
   };
 
+  gtk = {
+    gtk3.extraConfig = { "gtk-application-prefer-dark-theme" = true; };
+    gtk4.extraConfig = { "gtk-application-prefer-dark-theme" = true; };
+  };
+
 # Set mouse cursor for gtk and x11
   home.pointerCursor = lib.mkIf config.graphical.enable {
     name = "breeze_cursors";
