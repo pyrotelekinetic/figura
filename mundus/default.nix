@@ -153,9 +153,9 @@ services = {
   openssh = {
     enable = true;
     settings = {
-      permitRootLogin = "no";
-      passwordAuthentication = false;
-      kbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
     openFirewall = true;
     ports = [ 22 26656 ];
