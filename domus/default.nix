@@ -63,7 +63,7 @@ programs = {
       [ "$TERM" = "xterm-kitty" ] && alias ssh='kitty +kitten ssh'
 
       # Tab complete after doas
-      complete -cf doas
+      complete -F _root_command doas
     '';
   };
 
