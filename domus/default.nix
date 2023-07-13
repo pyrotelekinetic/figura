@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: rec {
+{ lib, pkgs, config, ... }: rec {
 
 imports = [
   ./share/graphical
@@ -40,11 +40,12 @@ home = {
   };
 
   # Custom compose sequences
-  file.".XCompose".text = ''
+  file.".XCompose" = lib.mkIf config.graphical.enable { text = ''
     include "%L"
     # For some reason including the unicode point seems to break some defualt sequences
     <Multi_key> <backslash> <backslash>  : "λ" # U03BB # GREEK SMALL LETTER LAMDA
   '';
+  };
 };
 
 # Home Manager managed programs
