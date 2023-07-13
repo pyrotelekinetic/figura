@@ -41,7 +41,9 @@ home = {
 
   # Custom compose sequences
   file.".XCompose".text = ''
-    <Multi_key> <backslash> <backslash>  : "λ" U03BB # GREEK SMALL LETTER LAMDA
+    include "%L"
+    # For some reason including the unicode point seems to break some defualt sequences
+    <Multi_key> <backslash> <backslash>  : "λ" # U03BB # GREEK SMALL LETTER LAMDA
   '';
 };
 
