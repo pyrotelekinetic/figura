@@ -8,6 +8,10 @@ programs.kitty = {
   };
 
   settings = with colors; {
+    bold_font = "IBM Plex Mono Bold";
+    italic_font = "IBM Plex Mono Italic";
+    bold_italic_font = "IBM Plex Mono Bold Italic";
+
     enable_audio_bell = false;
     disable_ligatures = "cursor";
     cursor_shape = "block";
