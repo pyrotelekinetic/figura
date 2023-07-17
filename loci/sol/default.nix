@@ -3,7 +3,6 @@
 imports = [
   ./hardware.nix
   ./sway.nix
-  ../../mundus/pyrosite.nix
 ];
 
 networking = {
@@ -27,6 +26,8 @@ boot = {
   };
   plymouth.enable = true;
 };
+
+pyrosite.enable = true;
 
 home-manager.users.cison = {
   graphical = {

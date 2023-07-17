@@ -1,5 +1,9 @@
 { pkgs, ... }: {
 
+imports = [
+  ./pyrosite.nix
+];
+
 hardware = {
   opengl = {
     enable = true;
