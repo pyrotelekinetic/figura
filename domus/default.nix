@@ -1,8 +1,8 @@
 { lib, pkgs, config, ... }: rec {
 
 imports = [
-  ./share/graphical
-  ./share/vim.nix
+  ./graphical
+  ./vim.nix
 ];
 
 home = {

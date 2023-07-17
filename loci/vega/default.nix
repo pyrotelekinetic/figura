@@ -3,6 +3,7 @@
 imports = [
   ./hardware.nix
   ./tlp.nix
+  ./sway.nix
 ];
 
 # Don't want sshd on a portable machine that connects to lots of different networks
@@ -28,5 +29,12 @@ boot = {
 };
 
 services.logind.lidSwitch = "suspend-then-hibernate";
+
+home-manager.users.cison = {
+  graphical = {
+    enable = true;
+    games = true;
+  };
+};
 
 }

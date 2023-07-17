@@ -4,7 +4,7 @@ inputs: { host, system }: with inputs; {
   system = system;
   modules = [
     ./mundus
-    (self + "/mundus/" + host)
+    "${self}/loci/${host}"
     {
       system.configurationRevision = self.rev or "DIRTY";
       networking.hostName = host;
@@ -17,12 +17,7 @@ inputs: { host, system }: with inputs; {
         extraSpecialArgs = { colors = pyroscheme.colors; };
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.cison = {
-          imports = [
-            ./domus
-            (self + "/domus/" + host)
-          ];
-        };
+        users.cison = { imports = [ ./domus ]; };
       };
     }
   ];

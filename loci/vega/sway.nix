@@ -1,5 +1,7 @@
 { pkgs, ... }: {
 
+home-manager.users.cison = {
+
 wayland.windowManager.sway.config.keybindings = {
   XF86MonBrightnessUp = "exec xbacklight +5";
   XF86MonBrightnessDown = "exec xbacklight -5";
@@ -18,5 +20,7 @@ sway.barStatus = pkgs.writeScript "barStatus"
 
     echo "$BATTERY% | $DATE"
   '';
+
+};
 
 }
