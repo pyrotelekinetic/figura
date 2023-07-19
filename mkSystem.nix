@@ -17,7 +17,7 @@ inputs: { host, system }: with inputs; {
         extraSpecialArgs = { colors = pyroscheme.colors; };
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.cison = { imports = [ ./domus ]; };
+        users.cison.imports = [ ./domus ];
       };
     }
   ];
