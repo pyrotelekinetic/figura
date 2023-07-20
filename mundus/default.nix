@@ -17,6 +17,7 @@ nix = {
   settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
+    bash-prompt-prefix = ''\[\e[0;34m\]❄ \[\e[0m\]'';
   };
   gc = {
     automatic = true;
