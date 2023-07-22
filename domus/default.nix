@@ -98,6 +98,7 @@ programs = {
     };
     aliases = {
       l = "log --graph";
+      d = "diff --color-words";
       hash = "log -n 1 --format=%H";
     };
     ignores = [
@@ -106,6 +107,7 @@ programs = {
     extraConfig = {
       init.defaultBranch = "main";
       log.abbrevCommit = true;
+      diff.colorMoved = "dimmed-zebra";
     };
   };
 
