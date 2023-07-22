@@ -90,9 +90,7 @@ config = {
           xkb_layout = "us";
           xkb_options = "compose:ralt";
         };
-        "type:touchpad" = {
-          natural_scroll = "enabled";
-        };
+        "type:touchpad".natural_scroll = "enabled";
       };
 
       keybindings =
@@ -207,8 +205,8 @@ config = {
   };
 
   gtk = {
-    gtk3.extraConfig = { "gtk-application-prefer-dark-theme" = true; };
-    gtk4.extraConfig = { "gtk-application-prefer-dark-theme" = true; };
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
   };
 
 # Set mouse cursor for gtk and x11
@@ -224,7 +222,7 @@ config = {
   home.sessionVariables = lib.mkIf config.graphical.enable {
     MOZ_ENABLE_WAYLAND = 1;
     XDG_CURRENT_DESKTOP = "sway";
-    NIXOS_OZONE_WL="1";
+    NIXOS_OZONE_WL = 1;
   };
 };
 

@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }: rec {
+{ lib, pkgs, config, ... }: {
 
 imports = [
   ./graphical
@@ -83,7 +83,7 @@ programs = {
   password-store = {
     enable = true;
     settings = {
-      PASSWORD_STORE_DIR = "$HOME/.password-store";
+      PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.password-store";
       PASSWORD_STORE_GENERATED_LENGTH = "64";
     };
   };
@@ -114,7 +114,7 @@ programs = {
   ssh = {
     enable = true;
     controlMaster = "auto";
-    controlPath = "~/.ssh/control/%r@%n:%p";
+    controlPath = "${config.home.homeDirectory}/.ssh/control/%r@%n:%p";
     controlPersist = "5m";
     matchBlocks = with lib.hm.dag; {
       luna = {
@@ -153,10 +153,10 @@ xdg = {
   enable = true;
   userDirs = {
     enable = true;
-    desktop = "${home.homeDirectory}/desktop";
-    documents = "${home.homeDirectory}/documents";
-    download = "${home.homeDirectory}/downloads";
-    pictures = "${home.homeDirectory}/pictures";
+    desktop = "${config.home.homeDirectory}/desktop";
+    documents = "${config.home.homeDirectory}/documents";
+    download = "${config.home.homeDirectory}/downloads";
+    pictures = "${config.home.homeDirectory}/pictures";
   };
 };
 
