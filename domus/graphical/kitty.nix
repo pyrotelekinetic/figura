@@ -2,7 +2,7 @@
 
 programs.kitty = {
   font = {
-    package = pkgs.ibm-plex;
+    package = pkgs.nerdfonts;
     name = "IBM Plex Mono";
     size = 14;
   };

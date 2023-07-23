@@ -175,7 +175,7 @@ home.packages = with pkgs; [
   # Drip
   neofetch
   bottom
-  ibm-plex
+  nerdfonts
 ];
 
 }

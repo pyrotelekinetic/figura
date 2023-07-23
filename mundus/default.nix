@@ -131,7 +131,7 @@ environment.systemPackages = with pkgs; [
 
 fonts.fonts = [
   pkgs.freefont_ttf
-  pkgs.ibm-plex
+  pkgs.nerdfonts
 ];
 
 console = {
