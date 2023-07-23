@@ -96,9 +96,9 @@ programs = {
       key = "3477FBCE6552E74A734485AD3312A18E7AE89BDE";
       signByDefault = true;
     };
+    delta.enable = true;
     aliases = {
       l = "log --graph";
-      d = "diff --color-words";
       hash = "log -n 1 --format=%H";
     };
     ignores = [
@@ -107,7 +107,7 @@ programs = {
     extraConfig = {
       init.defaultBranch = "main";
       log.abbrevCommit = true;
-      diff.colorMoved = "dimmed-zebra";
+      diff.colorMoved = "default";
     };
   };
 
