@@ -10,9 +10,7 @@ options.pyrosite = {
 };
 
 config = mkIf config.pyrosite.enable {
-  networking.hosts = {
-    "127.0.0.1" = [ "pyrosite" ];
-  };
+  networking.hosts."127.0.0.1" = [ "pyrosite" ];
 
   services.httpd = {
     enable = true;

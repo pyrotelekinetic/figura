@@ -13,13 +13,12 @@ wayland.windowManager.sway.config.keybindings = {
   "Control+Shift+XF86MonBrightnessDown" = "exec xbacklight 0";
 };
 
-sway.barStatus = pkgs.writeScript "barStatus"
-  ''
-    BATTERY=$(cat /sys/class/power_supply/BATT/capacity)
-    DATE=$(date +"%Y-%m-%d %H:%M:%S")
+sway.barStatus = pkgs.writeScript "barStatus" ''
+  BATTERY=$(cat /sys/class/power_supply/BATT/capacity)
+  DATE=$(date +"%Y-%m-%d %H:%M:%S")
 
-    echo "$BATTERY% | $DATE"
-  '';
+  echo "$BATTERY% | $DATE"
+'';
 
 };
 
