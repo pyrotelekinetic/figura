@@ -175,7 +175,6 @@ home.packages = with pkgs; [
   # Drip
   neofetch
   bottom
-  nerdfonts
 ];
 
 }

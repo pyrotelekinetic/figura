@@ -24,6 +24,9 @@ config = mkMerge [
     home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
 
     home.packages = with pkgs; [
+      # Drip
+      nerdfonts
+
       # Social
       signal-desktop-beta
 
