@@ -5,6 +5,8 @@ imports = [
   ./vim.nix
 ];
 
+nix.settings.bash-prompt-prefix = ''\[\e[0;34m\] \[\e[0m\]'';
+
 home = {
   username = "cison";
   homeDirectory = "/home/cison";
