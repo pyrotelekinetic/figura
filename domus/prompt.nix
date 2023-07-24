@@ -6,12 +6,12 @@
   pointer = ''$([ "$TERM" != "linux" ] && echo "${fancy}")$([ "$TERM" = "linux" ] && echo "${ascii}")'';
 in {
 
-nix.settings.bash-prompt-suffix = ''\[\e[0;34m\] ${pointer}'';
+nix.settings.bash-prompt-suffix = ''\[\e[2D\]\[\e[0;34m\] ${pointer}'';
 
 programs.bash.initExtra = ''
   source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=true
-  PS1="\[\e[1;34m\]\w\[\e[0;33m\]\$(__git_ps1 '(%s)')\[\e[0m\]\n${pointer}"
+  PS1="\[\e[3;34m\]\w\[\e[0;33m\]\$(__git_ps1 '(%s)')\[\e[0m\]\n${pointer}"
 '';
 
 }
