@@ -23,9 +23,11 @@ config = mkMerge [
     # SVG files (important for icons)
     home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
 
-    home.packages = with pkgs; [
+    home.packages = let
+      blex-mono = pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" ]; };
+    in with pkgs; [
       # Drip
-      nerdfonts
+      blex-mono
 
       # Social
       signal-desktop-beta

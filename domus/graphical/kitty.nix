@@ -2,15 +2,14 @@
 
 programs.kitty = {
   font = {
-    package = pkgs.nerdfonts;
-    name = "IBM Plex Mono";
+    name = "BlexMono Nerd Font";
     size = 14;
   };
 
   settings = with colors; {
-    bold_font = "IBM Plex Mono Bold";
-    italic_font = "IBM Plex Mono Italic";
-    bold_italic_font = "IBM Plex Mono Bold Italic";
+    bold_font = "BlexMono Nerd Font Bold";
+    italic_font = "BlexMono Nerd Font Italic";
+    bold_italic_font = "BlexMono Nerd Font Bold Italic";
 
     enable_audio_bell = false;
     disable_ligatures = "cursor";
