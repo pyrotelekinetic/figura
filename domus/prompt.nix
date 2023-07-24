@@ -11,6 +11,8 @@ nix.settings.bash-prompt-suffix = ''\[\e[2D\]\[\e[0;34m\] ${pointer}'';
 programs.bash.initExtra = ''
   source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  GIT_PS1_STATESEPARATOR=""
   PS1="\[\e[3;34m\]\w\[\e[0;33m\]\$(__git_ps1 '(%s)')\[\e[0m\]\n${pointer}"
 '';
 
