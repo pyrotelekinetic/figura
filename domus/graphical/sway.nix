@@ -151,6 +151,8 @@ config = {
           "${mod}+Left" = "exec playerctl previous";
           "${mod}+Right" = "exec playerctl next";
           "${mod}+Delete" = "exec playerctl play-pause";
+          "${mod}+Alt+Up" = "exec playerctl volume 0.05+";
+          "${mod}+Alt+Down" = "exec playerctl volume 0.05-";
           "${mod}+Down" = "exec pamixer -d 5";
           "${mod}+Up" = "exec pamixer -i 5";
           # Notifications
