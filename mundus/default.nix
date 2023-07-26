@@ -37,6 +37,8 @@ nix = {
   };
 };
 
+documentation.man.generateCaches = true;
+
 networking = {
   networkmanager.enable = true;
   firewall.enable = true;
