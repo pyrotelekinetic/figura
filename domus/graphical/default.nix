@@ -26,8 +26,9 @@ config = mkMerge [
     home.packages = let
       blex-mono = pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" ]; };
     in with pkgs; [
-      # Drip
+      # Fonts
       blex-mono
+      noto-fonts-emoji
 
       # Social
       signal-desktop-beta
