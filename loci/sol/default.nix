@@ -27,6 +27,9 @@ boot = {
 
 pyrosite.enable = true;
 
+services.syncthing.enable = true;
+home-manager.users.cison.services.syncthing.enable = true;
+
 home-manager.users.cison = {
   graphical = {
     enable = true;
