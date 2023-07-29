@@ -119,6 +119,7 @@ environment.systemPackages = with pkgs; [
 
   nix-tree
 
+  smartmontools
   usbutils
   pciutils
   lshw
@@ -138,6 +139,11 @@ console = {
 };
 
 services = {
+  smartd = {
+    enable = true;
+    notifications.x11.enable = true;
+  };
+
   pipewire = {
     enable = true;
     alsa = {
