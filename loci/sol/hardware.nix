@@ -30,7 +30,6 @@ fileSystems = {
   "/data" = {
     label = "data";
     fsType = "ext4";
-    noCheck = true;
   };
 };
 
