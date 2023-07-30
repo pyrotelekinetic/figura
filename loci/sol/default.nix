@@ -25,6 +25,8 @@ boot = {
   plymouth.enable = true;
 };
 
+hardware.keyboard.qmk.enable = true;
+
 pyrosite.enable = true;
 
 services.syncthing.enable = true;
