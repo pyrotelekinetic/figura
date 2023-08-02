@@ -5,9 +5,11 @@ inputs: { host, system }: with inputs; {
   modules = [
     ./mundus
     "${self}/loci/${host}"
+    sops-nix.nixosModules.sops
     {
       system.configurationRevision = self.rev or "DIRTY";
       networking.hostName = host;
+      nix.registry.sops-nix.flake = sops-nix;
       nix.registry.nixpkgs.flake = nixpkgs;
       environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
       nix.nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];

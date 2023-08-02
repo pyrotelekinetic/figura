@@ -16,6 +16,15 @@ inputs = {
     ref = "release-23.05";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  sops-nix = {
+    type = "github";
+    owner = "Mic92";
+    repo = "sops-nix";
+    inputs = {
+      nixpkgs.follows = "nixpkgs";
+      nixpkgs-stable.follows = "nixpkgs";
+    };
+  };
   pyroscheme = {
     type = "github";
     owner = "pyrotelekinetic";
@@ -24,7 +33,7 @@ inputs = {
   };
 };
 
-outputs = { self, nixpkgs, home-manager, pyroscheme }@inputs: let
+outputs = { self, nixpkgs, home-manager, sops-nix, pyroscheme }@inputs: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
   nixosConfigurations = (
