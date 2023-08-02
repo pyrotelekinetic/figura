@@ -3,6 +3,7 @@
 imports = [
   ./hardware.nix
   ./sway.nix
+  ./factorio-sync.nix
 ];
 
 networking = {
@@ -28,9 +29,6 @@ boot = {
 hardware.keyboard.qmk.enable = true;
 
 pyrosite.enable = true;
-
-services.syncthing.enable = true;
-home-manager.users.cison.services.syncthing.enable = true;
 
 home-manager.users.cison = {
   graphical = {
