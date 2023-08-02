@@ -6,7 +6,6 @@ imports = [
 
 sops = {
   defaultSopsFile = ../secrets.yaml;
-  age.sshKeyPaths = [];
   gnupg ={
     home = config.home-manager.users.cison.programs.gpg.homedir;
     sshKeyPaths = [];

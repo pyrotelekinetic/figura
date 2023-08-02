@@ -1,2 +1,7 @@
+keys:
+  - &carter FBC4744684FF0E9536C85BB1D8F164413DAAA9D2
+  - &sol age1w8qq3n7ak37g3dnhqa7ltj7yerwps2y934xh9lnzk4eumdmyd5csw8nzj4
 creation_rules:
-  - pgp: FBC4744684FF0E9536C85BB1D8F164413DAAA9D2
+  - pgp: *carter
+    age:
+      *sol
