@@ -125,6 +125,7 @@ environment.systemPackages = with pkgs; [
   coreutils-full
   git
   vim
+  sops
   doas-sudo-shim
 
   nix-tree
