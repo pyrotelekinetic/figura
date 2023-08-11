@@ -11,7 +11,6 @@ home.file.northstarproton = let
   northstarproton = pkgs.callPackage ./northstarproton.nix { };
 in {
   source = northstarproton;
-  recursive = true;
   target = ".local/share/Steam/compatibilitytools.d/${northstarproton.name}";
 };
 
