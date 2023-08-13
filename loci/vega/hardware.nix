@@ -18,7 +18,7 @@ boot = {
 
 fileSystems = {
   "/" = {
-    device = "/dev/disk/by-uuid/e10f3fa0-7170-45bf-b69d-feac5b550cd2";
+    device = "/dev/disk/by-uuid/6915fc5c-2a8f-4d60-ad1f-4ee522816011";
     fsType = "ext4";
   };
   "/efi" = {
@@ -28,7 +28,7 @@ fileSystems = {
 };
 
 swapDevices = [
-  { device = "/dev/disk/by-uuid/7bbd3840-68af-4b7f-a37e-70fde7fd112d"; }
+  { device = "/dev/disk/by-uuid/b865335a-3e01-4de4-acda-47428a103f14"; }
 ];
 
 # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
