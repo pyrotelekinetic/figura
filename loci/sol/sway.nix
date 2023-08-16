@@ -50,6 +50,7 @@ home-manager.users.cison.wayland.windowManager.sway.config = {
         workspace = "0";
       }
     ];
+    input."type:tablet_tool".map_to_output = primary;
 };
 
 }
