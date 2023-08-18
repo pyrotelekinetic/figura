@@ -1,6 +1,6 @@
 inputs: { host, system }: with inputs; {
 
-"${host}" = nixpkgs.lib.nixosSystem {
+${host} = nixpkgs.lib.nixosSystem {
   system = system;
   modules = [
     ./mundus
