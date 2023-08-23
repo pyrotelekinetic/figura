@@ -28,7 +28,7 @@ fileSystems = {
     fsType = "vfat";
   };
   "/data" = {
-    label = "data";
+    device = "/dev/disk/by-uuid/0f3118ff-215e-4eee-8d88-4688f467daa3";
     fsType = "ext4";
   };
 };
