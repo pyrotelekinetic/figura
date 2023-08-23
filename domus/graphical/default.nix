@@ -36,6 +36,7 @@ config = mkMerge [
       # Tools
       firefox-wayland
       gimp
+      inkscape
       kicad-small
       pavucontrol
       pulsemixer
