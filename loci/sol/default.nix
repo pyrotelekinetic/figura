@@ -6,6 +6,8 @@ imports = [
   ./factorio-sync.nix
 ];
 
+system.stateVersion = "22.11";
+
 networking = {
   hosts."192.168.1.2" = [ "luna" ];
   interfaces.enp3s0.wakeOnLan.enable = true;
