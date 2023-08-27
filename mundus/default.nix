@@ -120,6 +120,14 @@ programs = {
     remotePlay.openFirewall = false;
     dedicatedServer.openFirewall = false;
   };
+  gamemode = {
+    enable = configHM.graphical.games;
+    enableRenice = true;
+    settings.custom = {
+      start = "${pkgs.libnotify}/bin/notify-send 'GameMode Start'";
+      end = "${pkgs.libnotify}/bin/notify-send 'GameMode End'";
+    };
+  };
 };
 
 environment.systemPackages = with pkgs; [
