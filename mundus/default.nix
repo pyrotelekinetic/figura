@@ -112,7 +112,6 @@ security = {
 nixpkgs.config.allowUnfree = true;
 
 programs = {
-  dconf.enable = true;
   kdeconnect.enable = true;
   steam = {
     enable = true;
