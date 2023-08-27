@@ -1,4 +1,6 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }: let
+  configHM = config.home-manager.users.cison;
+in {
 
 imports = [
   ./pyrosite.nix
@@ -7,7 +9,7 @@ imports = [
 sops = {
   defaultSopsFile = ../secrets.yaml;
   gnupg ={
-    home = config.home-manager.users.cison.programs.gpg.homedir;
+    home = configHM.programs.gpg.homedir;
     sshKeyPaths = [];
   };
   secrets.testSecret = {};
@@ -15,7 +17,7 @@ sops = {
 
 hardware = {
   opengl = {
-    enable = true;
+    enable = configHM.graphical.enable;
     driSupport = true;
   };
   bluetooth.enable = true;
@@ -86,7 +88,7 @@ users.users.cison = {
 };
 
 xdg.portal = {
-  enable = true;
+  enable = configHM.graphical.enable;
   wlr.enable = true;
   extraPortals = with pkgs; [
     xdg-desktop-portal-gtk
@@ -112,9 +114,9 @@ security = {
 nixpkgs.config.allowUnfree = true;
 
 programs = {
-  kdeconnect.enable = true;
+  kdeconnect.enable = configHM.graphical.enable;
   steam = {
-    enable = true;
+    enable = configHM.graphical.games;
     remotePlay.openFirewall = false;
     dedicatedServer.openFirewall = false;
   };
@@ -151,11 +153,11 @@ console = {
 services = {
   smartd = {
     enable = true;
-    notifications.x11.enable = true;
+    notifications.x11.enable = configHM.graphical.enable;
   };
 
   pipewire = {
-    enable = true;
+    enable = configHM.graphical.enable;
     alsa = {
       enable = true;
       support32Bit = true;
