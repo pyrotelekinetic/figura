@@ -15,6 +15,10 @@ services.openssh.enable = lib.mkForce false;
 hardware.acpilight.enable = true;
 users.users.cison.extraGroups = [ "video" ];
 
+hardware.bluetooth.enable = true;
+
+networking.networkmanager.enable = true;
+
 boot = {
   loader = {
     systemd-boot = {

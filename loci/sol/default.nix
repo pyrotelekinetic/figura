@@ -28,7 +28,10 @@ boot = {
   plymouth.enable = true;
 };
 
-hardware.keyboard.qmk.enable = true;
+hardware = {
+  bluetooth.enable = true;
+  keyboard.qmk.enable = true;
+};
 
 pyrosite.enable = true;
 

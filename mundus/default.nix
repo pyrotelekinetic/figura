@@ -15,12 +15,9 @@ sops = {
   secrets.testSecret = {};
 };
 
-hardware = {
-  opengl = {
-    enable = configHM.graphical.enable;
-    driSupport = true;
-  };
-  bluetooth.enable = true;
+hardware.opengl = {
+  enable = configHM.graphical.enable;
+  driSupport = true;
 };
 
 nix = {
@@ -50,10 +47,7 @@ nix = {
 
 documentation.man.generateCaches = true;
 
-networking = {
-  networkmanager.enable = true;
-  firewall.enable = true;
-};
+networking.firewall.enable = true;
 
 time.timeZone = "America/Phoenix";
 
