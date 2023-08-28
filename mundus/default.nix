@@ -108,6 +108,7 @@ security = {
 nixpkgs.config.allowUnfree = true;
 
 programs = {
+  dconf.enable = configHM.graphical.enable;
   kdeconnect.enable = configHM.graphical.enable;
   steam = {
     enable = configHM.graphical.games;
