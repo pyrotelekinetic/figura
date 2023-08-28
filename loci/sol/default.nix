@@ -25,6 +25,7 @@ boot = {
       canTouchEfiVariables = true;
     };
   };
+  tmp.useTmpfs = true;
   plymouth.enable = true;
 };
 
