@@ -145,7 +145,7 @@ config = {
           "${mod}+Return" = "exec kitty";
           "${mod}+d" = "exec firefox --new-window https://discord.com/app";
           "${mod}+b" = "exec firefox";
-          "${mod}+s" = "exec steam";
+          "${mod}+s" = "exec steam -console";
           "${mod}+u" = "exec cider";
           # Music
           "${mod}+Left" = "exec playerctl previous";
