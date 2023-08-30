@@ -25,6 +25,7 @@ nix = {
   settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
+    flake-registry = "";
   };
   gc = {
     automatic = true;
