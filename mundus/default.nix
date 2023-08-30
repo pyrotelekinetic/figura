@@ -151,7 +151,7 @@ environment.systemPackages = with pkgs; [
   zip unzip xz gzip bzip2
 ];
 
-fonts.fonts = [ pkgs.freefont_ttf ];
+fonts.packages = [ pkgs.freefont_ttf ];
 
 console = {
   packages = [ pkgs.terminus_font ];
