@@ -118,9 +118,12 @@ programs = {
   gamemode = {
     enable = configHM.graphical.games;
     enableRenice = true;
-    settings.custom = {
-      start = "${pkgs.libnotify}/bin/notify-send 'GameMode Start'";
-      end = "${pkgs.libnotify}/bin/notify-send 'GameMode End'";
+    settings = {
+      general.inhibit_screensaver = 0;
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode Start'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode End'";
+      };
     };
   };
 };
