@@ -9,6 +9,12 @@ inputs = {
     repo = "nixpkgs";
     ref = "nixos-unstable";
   };
+  nixos-hardware = {
+    type = "github";
+    owner = "NixOS";
+    repo = "nixos-hardware";
+    ref = "master";
+  };
   home-manager = {
     type = "github";
     owner = "nix-community";
@@ -33,7 +39,14 @@ inputs = {
   };
 };
 
-outputs = { self, nixpkgs, home-manager, sops-nix, pyroscheme }@inputs: let
+outputs = inputs@{
+  self,
+  nixpkgs,
+  nixos-hardware,
+  home-manager,
+  sops-nix,
+  pyroscheme
+}: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
   nixosConfigurations = (
