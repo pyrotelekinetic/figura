@@ -43,6 +43,7 @@ nix = {
       repo = "figura";
       ref = "main";
     };
+    exact = false;
   };
 };
 
