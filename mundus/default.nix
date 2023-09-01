@@ -21,7 +21,7 @@ hardware.opengl = {
 };
 
 nix = {
-  package = pkgs.nixVersions.nix_2_13;
+  package = pkgs.nixVersions.nix_2_17;
   settings = {
     experimental-features = [ "nix-command" "flakes" ];
     auto-optimise-store = true;
