@@ -85,7 +85,7 @@ users.users.cison = {
 
 xdg.portal = {
   enable = configHM.graphical.enable;
-  wlr.enable = true;
+  wlr.enable = configHM.graphical.enable;
   extraPortals = with pkgs; [
     xdg-desktop-portal-gtk
   ];
