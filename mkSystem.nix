@@ -2,6 +2,7 @@ inputs: { host, system }: with inputs; {
 
 ${host} = nixpkgs.lib.nixosSystem {
   system = system;
+  specialArgs = { inherit inputs; };
   modules = [
     ./mundus
     "${self}/loci/${host}"

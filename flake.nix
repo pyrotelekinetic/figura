@@ -9,6 +9,12 @@ inputs = {
     repo = "nixpkgs";
     ref = "nixos-unstable";
   };
+  nixos-hardware = {
+    type = "github";
+    owner = "NixOS";
+    repo = "nixos-hardware";
+    ref = "master";
+  };
   home-manager = {
     type = "github";
     owner = "nix-community";
@@ -33,7 +39,14 @@ inputs = {
   };
 };
 
-outputs = { self, nixpkgs, home-manager, sops-nix, pyroscheme }@inputs: let
+outputs = inputs@{
+  self,
+  nixpkgs,
+  nixos-hardware,
+  home-manager,
+  sops-nix,
+  pyroscheme
+}: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
   nixosConfigurations = (
@@ -46,7 +59,27 @@ in {
       host = "vega";
       system = "x86_64-linux";
     }
+  ) // (
+    mkSystem {
+      host = "luna";
+      system  = "aarch64-linux";
+    }
   );
+
+  images.luna = let
+    luna-img = self.nixosConfigurations.luna.extendModules {
+      modules = [
+        "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+        {
+          nixpkgs.buildPlatform.system = "x86_64-linux";
+          users.users.cison.initialHashedPassword = "";
+          documentation.enable = false;
+        }
+      ];
+    };
+  in
+    luna-img.config.system.build.sdImage;
+
 };
 
 }

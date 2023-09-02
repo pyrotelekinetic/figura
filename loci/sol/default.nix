@@ -27,6 +27,7 @@ boot = {
   };
   tmp.useTmpfs = true;
   plymouth.enable = true;
+  binfmt.emulatedSystems = [ "aarch64-linux" ];
 };
 
 hardware = {
