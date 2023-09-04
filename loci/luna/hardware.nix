@@ -1,12 +1,10 @@
 { lib, modulesPath, ... }: {
 
-imports = [
-  (modulesPath + "/installer/scan/not-detected.nix")
-];
+imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
 boot = {
   initrd = {
-    availableKernelModules = [ "xhci_pci" ];
+    availableKernelModules = [ "xhci_pci" "usb_storage" ];
     kernelModules = [ ];
   };
   kernelModules = [ ];
@@ -15,7 +13,7 @@ boot = {
 
 fileSystems."/" =
   {
-    device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
+    device = "/dev/disk/by-uuid/8452721d-6394-48d0-97d3-20f6f2d0d3c0";
     fsType = "ext4";
   };
 
