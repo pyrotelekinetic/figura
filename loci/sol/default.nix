@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
 
 imports = [
   ./hardware.nix
@@ -41,6 +41,7 @@ home-manager.users.cison = {
     enable = true;
     games = true;
   };
+  home.packages = with pkgs; [ lmms ];
 };
 
 }
