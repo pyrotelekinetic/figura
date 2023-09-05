@@ -53,6 +53,22 @@
         "type": "github"
       }
     },
+    "pinputs": {
+      "locked": {
+        "lastModified": 1693871735,
+        "narHash": "sha256-5yQ2eaUKy2s8q0zQMFJYs7szmx+Yd05DGVOvQh/ozYA=",
+        "owner": "pyrotelekinetic",
+        "repo": "pinputs",
+        "rev": "e74de11bdf453e9a2e21cc4769a6ebba2a04bf70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pyrotelekinetic",
+        "ref": "main",
+        "repo": "pinputs",
+        "type": "github"
+      }
+    },
     "pyroscheme": {
       "locked": {
         "lastModified": 1686584835,
@@ -74,6 +90,7 @@
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "pinputs": "pinputs",
         "pyroscheme": "pyroscheme",
         "sops-nix": "sops-nix"
       }

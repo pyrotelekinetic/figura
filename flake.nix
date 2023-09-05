@@ -15,6 +15,12 @@ inputs = {
     repo = "nixos-hardware";
     ref = "master";
   };
+  pinputs = {
+    type = "github";
+    owner = "pyrotelekinetic";
+    repo = "pinputs";
+    ref = "main";
+  };
   home-manager = {
     type = "github";
     owner = "nix-community";
@@ -43,6 +49,7 @@ outputs = inputs@{
   self,
   nixpkgs,
   nixos-hardware,
+  pinputs,
   home-manager,
   sops-nix,
   pyroscheme
