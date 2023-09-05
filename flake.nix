@@ -3,56 +3,31 @@
 description = "Home Manager and NixOS configurations of pyrotelekinetic";
 
 inputs = {
-  nixpkgs = {
-    type = "github";
-    owner = "NixOS";
-    repo = "nixpkgs";
-    ref = "nixos-unstable";
-  };
-  nixos-hardware = {
-    type = "github";
-    owner = "NixOS";
-    repo = "nixos-hardware";
-    ref = "master";
-  };
-  pinputs = {
-    type = "github";
-    owner = "pyrotelekinetic";
-    repo = "pinputs";
-    ref = "main";
-  };
   home-manager = {
-    type = "github";
-    owner = "nix-community";
-    repo = "home-manager";
-    ref = "master";
+    url = "github:nix-community/home-manager/master";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+  nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  pinputs.url = "github:pyrotelekinetic/pinputs/main";
+  pyroscheme.url = "github:pyrotelekinetic/pyroscheme/main";
   sops-nix = {
-    type = "github";
-    owner = "Mic92";
-    repo = "sops-nix";
+    url = "github:Mic92/sops-nix/master";
     inputs = {
       nixpkgs.follows = "nixpkgs";
       nixpkgs-stable.follows = "nixpkgs";
     };
   };
-  pyroscheme = {
-    type = "github";
-    owner = "pyrotelekinetic";
-    repo = "pyroscheme";
-    ref = "main";
-  };
 };
 
 outputs = inputs@{
   self,
-  nixpkgs,
-  nixos-hardware,
-  pinputs,
   home-manager,
-  sops-nix,
-  pyroscheme
+  nixos-hardware,
+  nixpkgs,
+  pinputs,
+  pyroscheme,
+  sops-nix
 }: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
