@@ -1,4 +1,4 @@
-{ inputs, lib, ... }: {
+{ inputs, lib, pkgs, ... }: {
 
 imports = [
   ./hardware.nix
@@ -18,6 +18,8 @@ documentation.man.generateCaches = lib.mkForce false;
 
 # luna doesn't have any SMART enabled devices
 services.smartd.enable = lib.mkForce false;
+
+home-manager.users.cison.home.packages = [ pkgs.screen ];
 
 system.stateVersion = "23.11";
 
