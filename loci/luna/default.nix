@@ -13,6 +13,9 @@ nixpkgs.overlays = [
   })
 ];
 
+# Use different port for external ssh
+services.openssh.ports = [ 2885 ];
+
 # Generating man cache is really slow, I don't really need it anyway
 documentation.man.generateCaches = lib.mkForce false;
 
