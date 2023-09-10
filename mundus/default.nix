@@ -4,6 +4,7 @@ in {
 
 imports = [
   ./pyrosite.nix
+  ./hosts.nix
 ];
 
 sops = {
