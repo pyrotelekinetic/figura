@@ -8,7 +8,7 @@ imports = [
 ];
 
 sops = {
-  defaultSopsFile = ../secrets.yaml;
+  defaultSopsFile = ./secrets.yaml;
   gnupg ={
     home = configHM.programs.gpg.homedir;
     sshKeyPaths = [];

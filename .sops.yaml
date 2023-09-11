@@ -4,7 +4,7 @@ keys:
   - &sol age1w8qq3n7ak37g3dnhqa7ltj7yerwps2y934xh9lnzk4eumdmyd5csw8nzj4
   - &vega age1wxzerm7w75g25vyajsypjznuveww5dg23gj2ecu9gh5jt3u3gdts5xmjh8
 creation_rules:
-- path_regex: ^secrets\.yaml$
+- path_regex: ^mundus/secrets\.yaml$
   key_groups:
   - pgp:
     - *carter
