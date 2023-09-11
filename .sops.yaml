@@ -1,7 +1,23 @@
 keys:
   - &carter FBC4744684FF0E9536C85BB1D8F164413DAAA9D2
+  - &luna age1qxyfrujl9zxw5rzyjdexf3l3vyly3r648658qnt394fgnmw52u9sq3p7jl
   - &sol age1w8qq3n7ak37g3dnhqa7ltj7yerwps2y934xh9lnzk4eumdmyd5csw8nzj4
+  - &vega age1wxzerm7w75g25vyajsypjznuveww5dg23gj2ecu9gh5jt3u3gdts5xmjh8
 creation_rules:
-  - pgp: *carter
+- path_regex: ^secrets\.yaml$
+  key_groups:
+  - pgp:
+    - *carter
     age:
-      *sol
+    - *luna
+    - *sol
+    - *vega
+- path_regex: ^loci/luna/secrets\.yaml$
+  pgp: *carter
+  age: *luna
+- path_regex: ^loci/sol/secrets\.yaml$
+  pgp: *carter
+  age: *sol
+- path_regex: ^loci/vega/secrets\.yaml$
+  pgp: *carter
+  age: *vega
