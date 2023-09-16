@@ -22,7 +22,10 @@ documentation.man.generateCaches = lib.mkForce false;
 # luna doesn't have any SMART enabled devices
 services.smartd.enable = lib.mkForce false;
 
-home-manager.users.cison.home.packages = [ pkgs.screen ];
+home-manager.users.cison.home.packages = [ pkgs.screen pkgs.wakeonlan ];
+
+# Power on sol with 'wakesol'
+home-manager.users.cison.home.shellAliases.wakesol = "wakeonlan d4:5d:64:d4:c8:4f";
 
 system.stateVersion = "23.11";
 
