@@ -16,12 +16,41 @@ config = mkMerge [
     wayland.windowManager.sway.enable = true;
     programs.kitty.enable = true;
     services.mako.enable = true;
-    gtk.enable = true;
-    qt.enable = true;
 
     # Use librsvg's gdk-pixbuf loader cache file as it enables gdk-pixbuf to load
     # SVG files (important for icons)
-    home.sessionVariables.GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
+    home.sessionVariables.GDK_PIXBUF_MODULE_FILE =
+      "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)";
+
+    # Tell things to use wayland
+    home.sessionVariables = {
+      MOZ_ENABLE_WAYLAND = 1;
+      XDG_CURRENT_DESKTOP = "sway";
+      NIXOS_OZONE_WL = 1;
+    };
+
+    # Set mouse cursor for gtk and x11
+    home.pointerCursor = {
+      name = "breeze_cursors";
+      package = pkgs.breeze-gtk;
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
+    };
+
+    qt = {
+      enable = true;
+      style = {
+        package = pkgs.adwaita-qt;
+        name = "adwaita-dark";
+      };
+    };
+
+    gtk = {
+      enable = true;
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
+      gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+    };
 
     home.packages = let
       blex-mono = pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" ]; };

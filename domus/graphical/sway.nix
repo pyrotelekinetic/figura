@@ -191,7 +191,7 @@ config = {
     textColor = white;
   };
 
-# Desktop specific packages
+  # Desktop specific packages
   home.packages = with pkgs; lib.mkIf config.graphical.enable [
     wl-clipboard
     xdg-utils
@@ -200,32 +200,6 @@ config = {
     slurp
     imv
   ];
-
-  qt.style = {
-    package = pkgs.adwaita-qt;
-    name = "adwaita-dark";
-  };
-
-  gtk = {
-    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
-    gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
-  };
-
-# Set mouse cursor for gtk and x11
-  home.pointerCursor = lib.mkIf config.graphical.enable {
-    name = "breeze_cursors";
-    package = pkgs.breeze-gtk;
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
-
-# Tell things to use wayland
-  home.sessionVariables = lib.mkIf config.graphical.enable {
-    MOZ_ENABLE_WAYLAND = 1;
-    XDG_CURRENT_DESKTOP = "sway";
-    NIXOS_OZONE_WL = 1;
-  };
 };
 
 }
