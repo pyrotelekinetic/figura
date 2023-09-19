@@ -5,6 +5,7 @@ home.packages = with pkgs; [
   osu-lazer
   heroic
   renpy
+  yuzu-mainline
 ];
 
 home.file.northstarproton = let
