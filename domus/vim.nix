@@ -71,8 +71,7 @@ programs.vim = {
     set tabstop=2
 
     " automatically convert/expand tabs to spaces
-    "set expandtab
-    set noexpandtab
+    set expandtab
 
     " automatically indent new lines smartly
     set autoindent
