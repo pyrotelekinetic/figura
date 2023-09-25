@@ -25,6 +25,7 @@ nix = {
   package = pkgs.nixVersions.nix_2_17;
   settings = {
     experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ "root" "cison" ];
     auto-optimise-store = true;
     flake-registry = "";
   };
