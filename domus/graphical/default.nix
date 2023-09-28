@@ -73,6 +73,7 @@ config = mkMerge [
 
       # Media
       plex-media-player
+      mpv
       cider
       playerctl
       mpris-scrobbler
