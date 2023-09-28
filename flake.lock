@@ -54,12 +54,17 @@
       }
     },
     "pinputs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1693871735,
-        "narHash": "sha256-5yQ2eaUKy2s8q0zQMFJYs7szmx+Yd05DGVOvQh/ozYA=",
+        "lastModified": 1695878741,
+        "narHash": "sha256-9WoKYqKgpKUb0TpwFUHX/o1Cw+WMh+OQikIJn0sKDco=",
         "owner": "pyrotelekinetic",
         "repo": "pinputs",
-        "rev": "e74de11bdf453e9a2e21cc4769a6ebba2a04bf70",
+        "rev": "a9ebb74e13edcbb606e480d8bc4f52f31ee6eb65",
         "type": "github"
       },
       "original": {

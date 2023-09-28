@@ -9,7 +9,10 @@ inputs = {
   };
   nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-  pinputs.url = "github:pyrotelekinetic/pinputs/main";
+  pinputs = {
+    url = "github:pyrotelekinetic/pinputs/main";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   pyroscheme.url = "github:pyrotelekinetic/pyroscheme/main";
   sops-nix = {
     url = "github:Mic92/sops-nix/master";
