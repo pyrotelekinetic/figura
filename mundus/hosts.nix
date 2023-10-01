@@ -17,14 +17,18 @@ programs.ssh = {
       Port 2885
       HostName ${wan}
       ProxyJump none
-    Host *-
-      ProxyJump luna-
     Host luna
       HostName ${luna}
     Host sol
       HostName ${sol}
+    Host sol-
+      HostName ${sol}
+      ProxyJump luna-
     Host vega
       HostName ${vega}
+    Host vega-
+      HostName ${vega}
+      ProxyJump luna-
     Host github
       HostName github.com
       User git
