@@ -6,6 +6,7 @@ home.packages = with pkgs; [
   heroic
   renpy
   yuzu-mainline
+  dolphin-emu-primehack
 ];
 
 home.file.northstarproton = let
