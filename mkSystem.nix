@@ -15,7 +15,7 @@ ${host} = nixpkgs.lib.nixosSystem {
     }
     home-manager.nixosModules.home-manager {
       home-manager = {
-        extraSpecialArgs = { colors = pyroscheme.colors; };
+        extraSpecialArgs = { inherit (pyroscheme.lib) colors; };
         useGlobalPkgs = true;
         useUserPackages = true;
         users.cison.imports = [ ./domus ];
