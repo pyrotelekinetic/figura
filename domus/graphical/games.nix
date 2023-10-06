@@ -3,6 +3,7 @@
 home.packages = with pkgs; [
   prismlauncher
   osu-lazer
+  clonehero
   heroic
   renpy
   yuzu-mainline
