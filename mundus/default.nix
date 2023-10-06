@@ -150,7 +150,7 @@ environment.systemPackages = with pkgs; [
 
   ntfs3g
 
-  zip unzip xz gzip bzip2
+  zip unzip p7zip xz gzip bzip2
 ];
 
 fonts.packages = [ pkgs.unifont ];
