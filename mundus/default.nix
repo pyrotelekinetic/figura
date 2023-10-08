@@ -5,6 +5,7 @@ in {
 imports = [
   ./pyrosite.nix
   ./hosts.nix
+  ./remoteBuild.nix
 ];
 
 sops = {

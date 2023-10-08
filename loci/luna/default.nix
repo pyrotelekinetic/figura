@@ -13,6 +13,8 @@ nixpkgs.overlays = [
   })
 ];
 
+remoteBuild.enable = true;
+
 # Use different port for external ssh
 services.openssh.ports = [ 2885 ];
 

@@ -10,6 +10,8 @@ system.stateVersion = "22.11";
 
 networking.interfaces.enp3s0.wakeOnLan.enable = true;
 
+remoteBuild.builder = true;
+
 boot = {
   loader = {
     systemd-boot = {
