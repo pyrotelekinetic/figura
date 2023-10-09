@@ -24,7 +24,7 @@ config = let
     else null;
   substituter = host: let name = host.config.networking.hostName; in
     if host.config.system.name != config.system.name
-    then "ssh-ng://nix-ssh@${name}?priority=50"
+    then "ssh-ng://nix-ssh@${name}?priority=30"
     else null;
   hosts = lib.attrValues inputs.self.nixosConfigurations;
   substituters = lib.remove null (map substituter hosts);
