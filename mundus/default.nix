@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: let
+{ pkgs, config, lib, inputs, ... }: let
   configHM = config.home-manager.users.cison;
 in {
 
@@ -159,6 +159,26 @@ fonts.packages = [ pkgs.unifont ];
 console = {
   packages = [ pkgs.terminus_font ];
   font = "Lat2-Terminus16";
+  colors = let
+    colors' = lib.mapAttrs (lib.const (lib.removePrefix "#")) inputs.pyroscheme.lib.colors;
+  in with colors'; [
+    black
+    red
+    green
+    yellow
+    blue
+    magenta
+    cyan
+    white
+    blackBright
+    redBright
+    greenBright
+    yellowBright
+    blueBright
+    magentaBright
+    cyanBright
+    whiteBright
+  ];
 };
 
 services = {
