@@ -16,9 +16,6 @@ hardware.bluetooth.enable = true;
 
 networking.networkmanager.enable = true;
 
-# Avoid race condition between font and videodriver
-boot.initrd.kernelModules = [ "amdgpu" ];
-
 boot = {
   loader = {
     systemd-boot = {
