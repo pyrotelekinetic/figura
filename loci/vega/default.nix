@@ -31,7 +31,6 @@ boot = {
       canTouchEfiVariables = true;
     };
   };
-  plymouth.enable = true;
 };
 
 services.logind.lidSwitch = "suspend-then-hibernate";

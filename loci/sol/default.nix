@@ -24,7 +24,6 @@ boot = {
       canTouchEfiVariables = true;
     };
   };
-  plymouth.enable = true;
   binfmt.emulatedSystems = [ "aarch64-linux" ];
 };
 
