@@ -23,15 +23,7 @@ inputs = {
   };
 };
 
-outputs = inputs@{
-  self,
-  home-manager,
-  nixos-hardware,
-  nixpkgs,
-  pinputs,
-  pyroscheme,
-  sops-nix
-}: let
+outputs = inputs: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
   nixosConfigurations = (
@@ -52,9 +44,9 @@ in {
   );
 
   images.luna = let
-    luna-img = self.nixosConfigurations.luna.extendModules {
+    luna-img = inputs.self.nixosConfigurations.luna.extendModules {
       modules = [
-        "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+        "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
         {
           nixpkgs.buildPlatform.system = "x86_64-linux";
           users.users.cison.initialHashedPassword = "";
