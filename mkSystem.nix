@@ -18,7 +18,7 @@ ${host} = nixpkgs.lib.nixosSystem {
         extraSpecialArgs = { inherit (pyroscheme.lib) colors; };
         useGlobalPkgs = true;
         useUserPackages = true;
-        users.cison.imports = [ ./domus ];
+        users.cison.imports = [ ./domus/hm ];
       };
     }
   ];
