@@ -4,7 +4,7 @@ home.packages = with pkgs; [
   prismlauncher
   osu-lazer
   clonehero
-  heroic
+  #heroic - depends on EOL electron version
   renpy
   yuzu-mainline
   dolphin-emu-primehack
