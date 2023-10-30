@@ -135,6 +135,11 @@ security = {
 nixpkgs.config.allowUnfree = true;
 
 programs = {
+  sway = {
+    enable = configHM.graphical.enable;
+    extraPackages = [ ];
+    wrapperFeatures.gtk = true;
+  };
   dconf.enable = configHM.graphical.enable;
   kdeconnect.enable = configHM.graphical.enable;
   steam = {

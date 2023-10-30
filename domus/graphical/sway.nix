@@ -8,6 +8,7 @@ options.sway.barStatus = with lib; mkOption {
 
 config = {
   wayland.windowManager.sway = {
+    package = null;
     config = {
       defaultWorkspace = "workspace number 1";
       bars = [ {
