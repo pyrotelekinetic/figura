@@ -6,6 +6,7 @@ ${host} = nixpkgs.lib.nixosSystem {
   modules = [
     ./mundus
     "${self}/loci/${host}"
+    ./domus
     sops-nix.nixosModules.sops
     pinputs.nixosModules.default
     {

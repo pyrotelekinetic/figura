@@ -2,7 +2,6 @@
 
 imports = [
   ./graphical
-  ./vim.nix
   ./prompt.nix
 ];
 

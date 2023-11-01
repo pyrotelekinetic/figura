@@ -116,7 +116,8 @@
         "nixpkgs": "nixpkgs",
         "pinputs": "pinputs",
         "pyroscheme": "pyroscheme",
-        "sops-nix": "sops-nix"
+        "sops-nix": "sops-nix",
+        "wrapper-manager": "wrapper-manager"
       }
     },
     "sops-nix": {
@@ -140,6 +141,27 @@
         "owner": "Mic92",
         "ref": "master",
         "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1696533974,
+        "narHash": "sha256-SYRE2nf/C40G1DZi93EeZTdTyU+5llEjXDI+jGx9pQI=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "d0f2277e1b1e0d95e29015e602991a1cf4e7fcf7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "ref": "master",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     }

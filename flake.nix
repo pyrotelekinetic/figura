@@ -21,6 +21,10 @@ inputs = {
       nixpkgs-stable.follows = "nixpkgs";
     };
   };
+  wrapper-manager = {
+    url = "github:viperML/wrapper-manager?ref=master";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 };
 
 outputs = inputs: let
