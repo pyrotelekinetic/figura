@@ -15,6 +15,7 @@ home = {
   enableNixpkgsReleaseCheck = true;
 
   sessionVariables = {
+    EDITOR = "vim";
     # Set less options
     LESS = "-FR";
     PAGER = "less";
