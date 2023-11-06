@@ -143,7 +143,7 @@ config = {
           "${mod}+Shift+c" = "reload";
           "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
           # Apps
-          "${mod}+Return" = "exec kitty";
+          "${mod}+Return" = "exec alacritty";
           "${mod}+d" = "exec firefox --new-window https://discord.com/app";
           "${mod}+b" = "exec firefox";
           "${mod}+s" = "exec steam -console";
@@ -165,7 +165,7 @@ config = {
         };
       menu = "bemenu-run -p '>' | xargs swaymsg exec --";
       modifier = "Mod4";
-      terminal = "kitty";
+      terminal = "alacritty";
       window = {
         border = 1;
         titlebar = false;

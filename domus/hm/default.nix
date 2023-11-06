@@ -55,13 +55,7 @@ programs = {
   home-manager.enable = true;
 
   # Make bash work with HM
-  bash = {
-    enable = true;
-    initExtra = lib.mkIf config.graphical.enable ''
-      # Set ssh alias for kitty
-      [ "$TERM" = "xterm-kitty" ] && alias ssh='kitty +kitten ssh'
-    '';
-  };
+  bash.enable = true;
 
   gpg = {
     enable = true;

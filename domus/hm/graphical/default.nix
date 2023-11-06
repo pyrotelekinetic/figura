@@ -2,7 +2,6 @@
 
 imports = [
   ./sway.nix
-  ./kitty.nix
   ./games.nix
 ];
 
@@ -14,7 +13,6 @@ options.graphical = {
 config = mkMerge [
   ( mkIf config.graphical.enable {
     wayland.windowManager.sway.enable = true;
-    programs.kitty.enable = true;
     services.mako.enable = true;
 
     # Use librsvg's gdk-pixbuf loader cache file as it enables gdk-pixbuf to load
