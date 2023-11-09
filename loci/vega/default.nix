@@ -6,6 +6,8 @@ imports = [
   ./sway.nix
 ];
 
+head.graphical = true;
+
 system.stateVersion = "23.05";
 
 # Control screen backlight, must be in video group
@@ -32,11 +34,6 @@ boot = {
 
 services.logind.lidSwitch = "suspend-then-hibernate";
 
-home-manager.users.cison = {
-  graphical = {
-    enable = true;
-    games = true;
-  };
-};
+home-manager.users.cison.graphical.games = true;
 
 }

@@ -5,6 +5,8 @@ imports = [
   inputs.nixos-hardware.nixosModules.raspberry-pi-4
 ];
 
+head.headless = true;
+
 nixpkgs.overlays = [
   # Some modules are missing for aarch64
   (self: super: {

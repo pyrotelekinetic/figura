@@ -6,6 +6,8 @@ imports = [
   ./factorio-sync.nix
 ];
 
+head.graphical = true;
+
 system.stateVersion = "22.11";
 
 networking.interfaces.enp3s0.wakeOnLan.enable = true;
@@ -35,10 +37,7 @@ hardware = {
 pyrosite.enable = true;
 
 home-manager.users.cison = {
-  graphical = {
-    enable = true;
-    games = true;
-  };
+  graphical.games = true;
   home.packages = with pkgs; [ lmms ];
 };
 

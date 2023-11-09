@@ -3,10 +3,13 @@
 in {
 
 imports = [
+  ./head.nix
   ./pyrosite.nix
   ./hosts.nix
   ./remoteBuild.nix
 ];
+
+home-manager.users.cison.graphical.enable = config.head.graphical;
 
 sops = {
   defaultSopsFile = ./secrets.yaml;
@@ -18,7 +21,7 @@ sops = {
 };
 
 hardware.opengl = {
-  enable = configHM.graphical.enable;
+  enable = config.head.graphical;
   driSupport = true;
 };
 
@@ -87,8 +90,8 @@ users.users.cison = {
 };
 
 xdg.portal = {
-  enable = configHM.graphical.enable;
-  wlr.enable = configHM.graphical.enable;
+  enable = config.head.graphical;
+  wlr.enable = config.head.graphical;
   extraPortals = with pkgs; [
     xdg-desktop-portal-gtk
   ];
@@ -136,19 +139,19 @@ nixpkgs.config.allowUnfree = true;
 
 programs = {
   sway = {
-    enable = configHM.graphical.enable;
+    enable = config.head.graphical;
     extraPackages = [ ];
     wrapperFeatures.gtk = true;
   };
-  dconf.enable = configHM.graphical.enable;
-  kdeconnect.enable = configHM.graphical.enable;
+  dconf.enable = config.head.graphical;
+  kdeconnect.enable = config.head.graphical;
   steam = {
-    enable = configHM.graphical.games;
+    enable = config.head.graphical;
     remotePlay.openFirewall = false;
     dedicatedServer.openFirewall = false;
   };
   gamemode = {
-    enable = configHM.graphical.games;
+    enable = config.head.graphical;
     enableRenice = true;
     settings = {
       general.inhibit_screensaver = 0;
@@ -211,11 +214,11 @@ console = {
 services = {
   smartd = {
     enable = true;
-    notifications.x11.enable = configHM.graphical.enable;
+    notifications.x11.enable = config.head.graphical;
   };
 
   pipewire = {
-    enable = configHM.graphical.enable;
+    enable = config.head.graphical;
     alsa = {
       enable = true;
       support32Bit = true;
