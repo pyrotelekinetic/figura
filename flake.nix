@@ -45,6 +45,11 @@ in {
       host = "luna";
       system  = "aarch64-linux";
     }
+  ) // (
+    mkSystem {
+      host = "altair";
+      system = "x86_64-linux";
+    }
   );
 
   images.luna = let
