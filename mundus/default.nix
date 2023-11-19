@@ -84,38 +84,6 @@ users.users.cison = {
 };
 
 security = {
-  doas = {
-    enable = true;
-    extraRules = [ {
-      runAs = "root";
-      groups = [ "wheel" ];
-      noPass = false;
-      keepEnv = true;
-      # Add all variables that should have been read from PAM_env
-      # See https://github.com/NixOS/nixpkgs/issues/158988
-      setEnv = with lib; let
-        suffixedVariables =
-          flip mapAttrs config.environment.profileRelativeSessionVariables (envVar: suffixes:
-            flip concatMap config.environment.profiles (profile:
-              map (suffix: profile + suffix ) suffixes
-            )
-          );
-        suffixedVariables' = (zipAttrsWith (const concatLists) [
-          # Make sure security wrappers are prioritized without polluting
-          # shell environments with an extra entry.
-          { PATH = [ config.security.wrapperDir ]; }
-
-          (mapAttrs (const toList) config.environment.sessionVariables)
-          suffixedVariables
-        ]);
-        fixEnvVars = replaceStrings
-          [ "$HOME" "$USER" "\${XDG_STATE_HOME}" ]
-          [ "/root" "root" "$XDG_STATE_HOME" ];
-        doasVariable = k: v: k + "=" + concatStringsSep ":" (map fixEnvVars (toList v));
-      in mapAttrsToList doasVariable suffixedVariables';
-    } ];
-  };
-  sudo.enable = false;
   polkit.enable = true;
   rtkit.enable = true;
 };
@@ -128,7 +96,6 @@ environment.systemPackages = with pkgs; [
   git
   vim
   sops
-  doas-sudo-shim
 
   nix-tree
 
