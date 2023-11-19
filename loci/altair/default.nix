@@ -21,6 +21,9 @@ boot = {
 # Generating man cache is really slow, I don't really need it anyway
 documentation.man.generateCaches = lib.mkForce false;
 
+# altair is a vm... no SMART support
+services.smartd.enable = lib.mkForce false;
+
 system.stateVersion = "23.11";
 
 }
