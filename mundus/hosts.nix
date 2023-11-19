@@ -2,6 +2,7 @@
   ips = {
     wan = "184.179.188.130";
     gate = "192.168.1.1";
+    altair = "129.146.87.209";
     luna = "192.168.1.2";
     sol = "192.168.1.8";
     halley = "192.168.1.9";
@@ -13,6 +14,8 @@ networking.hosts = lib.concatMapAttrs (x: y: { ${y} = [ x ]; }) ips;
 
 programs.ssh = {
   extraConfig = with ips; ''
+    Host altair
+      HostName ${altair}
     Host luna-
       Port 2885
       HostName ${wan}
@@ -34,6 +37,10 @@ programs.ssh = {
       User git
   '';
   knownHosts = {
+    altair = {
+      extraHostNames = [ ips.altair ];
+      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeBhkBt7wNdRqBOSiKF+afBFR+QXCbSusk9UhTcCy+n";
+    };
     luna = {
       extraHostNames = [
         "luna-"
