@@ -58,7 +58,6 @@ in {
         "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
         {
           nixpkgs.buildPlatform.system = "x86_64-linux";
-          users.users.cison.initialHashedPassword = "";
           documentation.enable = false;
         }
       ];
