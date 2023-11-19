@@ -18,6 +18,61 @@ config = lib.mkMerge [
       documentation.man.generateCaches = lib.mkForce false;
     }
   )
+
+  (
+    lib.mkIf cfg.graphical {
+      home-manager.users.cison.graphical.enable = true;
+
+      hardware.opengl = {
+        enable = true;
+        driSupport = true;
+      };
+
+      xdg.portal = {
+        enable = true;
+        wlr.enable = true;
+        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      };
+
+      programs = {
+        sway = {
+          enable = true;
+          extraPackages = [ ];
+          wrapperFeatures.gtk = true;
+        };
+        dconf.enable = true;
+        kdeconnect.enable = true;
+        steam = {
+          enable = true;
+          remotePlay.openFirewall = false;
+          dedicatedServer.openFirewall = false;
+        };
+        gamemode = {
+          enable = true;
+          enableRenice = true;
+          settings = {
+            general.inhibit_screensaver = 0;
+            custom = {
+              start = "${pkgs.libnotify}/bin/notify-send 'GameMode Start'";
+              end = "${pkgs.libnotify}/bin/notify-send 'GameMode End'";
+            };
+          };
+        };
+      };
+
+      services.pipewire = {
+        enable = true;
+        alsa = {
+          enable = true;
+          support32Bit = true;
+        };
+        pulse.enable = true;
+        wireplumber.enable = true;
+      };
+
+    }
+  )
+
   {
     assertions = [
       {

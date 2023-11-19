@@ -9,8 +9,6 @@ imports = [
   ./remoteBuild.nix
 ];
 
-home-manager.users.cison.graphical.enable = config.head.graphical;
-
 sops = {
   defaultSopsFile = ./secrets.yaml;
   gnupg ={
@@ -18,11 +16,6 @@ sops = {
     sshKeyPaths = [];
   };
   secrets.testSecret = {};
-};
-
-hardware.opengl = {
-  enable = config.head.graphical;
-  driSupport = true;
 };
 
 nix = {
@@ -90,14 +83,6 @@ users.users.cison = {
   initialHashedPassword = "";
 };
 
-xdg.portal = {
-  enable = config.head.graphical;
-  wlr.enable = config.head.graphical;
-  extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
-  ];
-};
-
 security = {
   doas = {
     enable = true;
@@ -137,32 +122,6 @@ security = {
 
 # Sorry Richard
 nixpkgs.config.allowUnfree = true;
-
-programs = {
-  sway = {
-    enable = config.head.graphical;
-    extraPackages = [ ];
-    wrapperFeatures.gtk = true;
-  };
-  dconf.enable = config.head.graphical;
-  kdeconnect.enable = config.head.graphical;
-  steam = {
-    enable = config.head.graphical;
-    remotePlay.openFirewall = false;
-    dedicatedServer.openFirewall = false;
-  };
-  gamemode = {
-    enable = config.head.graphical;
-    enableRenice = true;
-    settings = {
-      general.inhibit_screensaver = 0;
-      custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'GameMode Start'";
-        end = "${pkgs.libnotify}/bin/notify-send 'GameMode End'";
-      };
-    };
-  };
-};
 
 environment.systemPackages = with pkgs; [
   coreutils-full
@@ -216,16 +175,6 @@ services = {
   smartd = {
     enable = true;
     notifications.x11.enable = config.head.graphical;
-  };
-
-  pipewire = {
-    enable = config.head.graphical;
-    alsa = {
-      enable = true;
-      support32Bit = true;
-    };
-    pulse.enable = true;
-    wireplumber.enable = true;
   };
 
   openssh = {
