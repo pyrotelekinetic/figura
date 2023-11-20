@@ -15,13 +15,16 @@ config = lib.mkMerge [
       # screen is nice for leaving a session running while disconnecting ssh
       environment.systemPackages = [ pkgs.screen ];
       # Generating man cache is really slow, I can just use it from local system
-      documentation.man.generateCaches = lib.mkForce false;
+      documentation.man.generateCaches = false;
     }
   )
 
   (
     lib.mkIf cfg.graphical {
       home-manager.users.cison.graphical.enable = true;
+
+      # Needed for 'man -k' and 'apropos'
+      documentation.man.generateCaches = true;
 
       hardware.opengl = {
         enable = true;

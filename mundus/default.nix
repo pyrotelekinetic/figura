@@ -46,8 +46,6 @@ nix = {
   };
 };
 
-documentation.man.generateCaches = true;
-
 networking.firewall.enable = true;
 
 time.timeZone = "America/Phoenix";
