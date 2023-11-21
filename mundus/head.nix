@@ -10,13 +10,13 @@ options.head = with lib; {
 config = lib.mkMerge [
   (
     lib.mkIf cfg.headless (
-      import (modulesPath + "/profiles/headless.nix") args
-    ) // {
+      (import (modulesPath + "/profiles/headless.nix") args)
+    // {
       # screen is nice for leaving a session running while disconnecting ssh
       environment.systemPackages = [ pkgs.screen ];
       # Generating man cache is really slow, I can just use it from local system
       documentation.man.generateCaches = false;
-    }
+    })
   )
 
   (
