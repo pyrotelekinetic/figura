@@ -18,6 +18,9 @@ boot = {
   };
 };
 
+remoteBuild.builder = true;
+boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
 # altair is a vm... no SMART support
 services.smartd.enable = lib.mkForce false;
 
