@@ -97,7 +97,6 @@ environment.systemPackages = with pkgs; [
 
   nix-tree
 
-  smartmontools
   usbutils
   pciutils
   lshw
@@ -107,7 +106,7 @@ environment.systemPackages = with pkgs; [
   ntfs3g
 
   zip unzip p7zip xz gzip bzip2
-];
+] ++ lib.optional config.services.smartd.enable pkgs.smartmontools;
 
 fonts.packages = [ pkgs.unifont ];
 
