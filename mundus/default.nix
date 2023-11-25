@@ -154,7 +154,7 @@ services = {
   };
 
   # Enable (pgp) smartcard support
-  pcscd.enable = true;
+  pcscd.enable = !config.head.headless;
 };
 
 }
