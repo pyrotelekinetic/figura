@@ -57,7 +57,7 @@ programs = {
   # Make bash work with HM
   bash = {
     enable = true;
-    initExtra = ''
+    initExtra = lib.mkIf config.graphical.enable ''
       # Set ssh alias for kitty
       [ "$TERM" = "xterm-kitty" ] && alias ssh='kitty +kitten ssh'
     '';
