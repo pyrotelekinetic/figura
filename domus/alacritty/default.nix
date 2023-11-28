@@ -5,7 +5,7 @@ wrappers.alacritty = {
   flags = let
     inherit (inputs.pyroscheme.lib) colors;
     config = pkgs.writeText "alacritty.yml"
-      (import ./alacritty.nix colors);
+      (import ./config.nix colors);
   in [ "--config-file" config ];
 };
 
