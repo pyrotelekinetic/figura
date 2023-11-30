@@ -3,7 +3,7 @@
 imports = [
   ./hardware.nix
   ./sway.nix
-  ./factorio-sync.nix
+  ./sync
 ];
 
 head.graphical = true;
