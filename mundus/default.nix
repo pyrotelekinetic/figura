@@ -95,13 +95,11 @@ environment.systemPackages = with pkgs; [
   vim
   sops
 
-  nix-tree
+  alacritty.terminfo
 
-  usbutils
-  pciutils
+  usbutils pciutils
   lshw
   lm_sensors
-  fwts
 
   ntfs3g
 
