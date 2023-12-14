@@ -4,11 +4,14 @@ imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
 boot = {
   initrd = {
+    luks.devices.cryptlvm.device = "/dev/disk/by-uuid/ae6c7b6a-9763-4a76-8e13-69ac237ee4f0";
     availableKernelModules = [
       "nvme"
       "xhci_pci"
       "usb_storage"
       "sd_mod"
+      "cryptd"
+      "crypto-aes"
     ];
     kernelModules = [ ];
   };
@@ -18,17 +21,17 @@ boot = {
 
 fileSystems = {
   "/" = {
-    device = "/dev/disk/by-uuid/6915fc5c-2a8f-4d60-ad1f-4ee522816011";
+    device = "/dev/disk/by-uuid/8fcf1c81-d18d-4168-ab6f-0536196b801b";
     fsType = "ext4";
   };
   "/efi" = {
-    device = "/dev/disk/by-uuid/1660-CB67";
+    device = "/dev/disk/by-uuid/9493-B952";
     fsType = "vfat";
   };
 };
 
 swapDevices = [
-  { device = "/dev/disk/by-uuid/b865335a-3e01-4de4-acda-47428a103f14"; }
+  { device = "/dev/disk/by-uuid/89b91b3c-40fd-4e03-8d35-f8f98dda3fc9"; }
 ];
 
 # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

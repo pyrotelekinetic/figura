@@ -61,7 +61,7 @@ programs.ssh = {
        "vega-"
         ips.vega
       ];
-      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDaBlETlaKNERfG4jLIIssvq95syQ/wBslmGxvyJdjMI";
+      publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEzg0L3GO8bRTEqR2tgoNbMTtWlkV64R0LIlyFYgxEqY";
     };
     github = {
       extraHostNames = [ "github.com" ];
