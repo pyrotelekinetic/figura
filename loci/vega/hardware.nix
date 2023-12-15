@@ -8,12 +8,10 @@ boot = {
     availableKernelModules = [
       "nvme"
       "xhci_pci"
-      "usb_storage"
-      "sd_mod"
       "cryptd"
       "crypto-aes"
     ];
-    kernelModules = [ ];
+    kernelModules = [ "dm-snapshot" ];
   };
   kernelModules = [ "kvm-amd" ];
   extraModulePackages = [ ];
