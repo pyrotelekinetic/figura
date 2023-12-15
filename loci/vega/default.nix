@@ -32,6 +32,12 @@ boot = {
   };
 };
 
+# This bitch is secured with fde, we can autologin
+security.sudo.wheelNeedsPassword = false;
+users.mutableUsers = false;
+users.users.cison.initialHashedPassword = lib.mkForce null;
+services.getty.autologinUser = "cison";
+
 services.logind.lidSwitch = "suspend-then-hibernate";
 
 home-manager.users.cison.graphical.games = true;
