@@ -25,6 +25,7 @@ fileSystems = {
   "/efi" = {
     device = "/dev/disk/by-uuid/9493-B952";
     fsType = "vfat";
+    options = [ "umask=0077" ];
   };
 };
 
