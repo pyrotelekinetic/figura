@@ -1,6 +1,9 @@
 { inputs, lib, ... }: {
 
-imports = [ ./hardware.nix ];
+imports = [
+  ./hardware.nix
+  ./mc.nix
+];
 
 head.headless = true;
 
