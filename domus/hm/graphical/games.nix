@@ -8,6 +8,7 @@ home.packages = with pkgs; [
   renpy
   yuzu-mainline
   dolphin-emu-primehack
+  r2modman
 ];
 
 home.file.northstarproton = let
