@@ -7,6 +7,10 @@ inputs = {
     url = "github:nix-community/home-manager/master";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  lanzaboote = {
+    url = "github:nix-community/lanzaboote?ref=v0.3.0";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   pinputs = {

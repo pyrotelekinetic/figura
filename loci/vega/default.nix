@@ -1,6 +1,7 @@
-{ lib, ... }: {
+{ inputs, lib, pkgs, ... }: {
 
 imports = [
+  inputs.lanzaboote.nixosModules.lanzaboote
   ./hardware.nix
   ./tlp.nix
   ./sway.nix
@@ -18,10 +19,17 @@ hardware.bluetooth.enable = true;
 
 networking.networkmanager.enable = true;
 
+# For working with Secure Boot
+environment.systemPackages = [ pkgs.sbctl ];
+
 boot = {
+  lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
+  };
   loader = {
     systemd-boot = {
-      enable = true;
+      enable = lib.mkForce false;
       configurationLimit = 5;
       editor = false;
     };
