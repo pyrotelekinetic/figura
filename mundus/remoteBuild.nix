@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
 
 options.remoteBuild = with lib; {
   enable = mkEnableOption (mdDoc "Whether to build on remote hosts");
@@ -15,7 +15,7 @@ config = let
     if cfg.remoteBuild.builder && cfg.system.name != config.system.name
     then {
       hostName = cfg.networking.hostName;
-      systems = [ cfg.nixpkgs.system ] ++ cfg.nix.settings.extra-platforms or [ ];
+      systems = [ pkgs.stdenv.hostPlatform.system ] ++ cfg.nix.settings.extra-platforms or [ ];
       supportedFeatures = cfg.nix.settings.system-features;
       sshUser = "nix-ssh";
       speedFactor = cfg.remoteBuild.speed;

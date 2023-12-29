@@ -35,25 +35,10 @@ outputs = inputs: let
   mkSystem = import ./mkSystem.nix inputs;
 in {
   nixosConfigurations = (
-    mkSystem {
-      host = "sol";
-      system = "x86_64-linux";
-    }
-  ) // (
-    mkSystem {
-      host = "vega";
-      system = "x86_64-linux";
-    }
-  ) // (
-    mkSystem {
-      host = "luna";
-      system  = "aarch64-linux";
-    }
-  ) // (
-    mkSystem {
-      host = "altair";
-      system = "x86_64-linux";
-    }
+    mkSystem "sol" //
+    mkSystem "vega" //
+    mkSystem "luna" //
+    mkSystem "altair"
   );
 
   images.luna = let
