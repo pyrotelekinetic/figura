@@ -4,22 +4,22 @@ description = "Home Manager and NixOS configurations of pyrotelekinetic";
 
 inputs = {
   home-manager = {
-    url = "github:nix-community/home-manager/master";
+    url = "github:nix-community/home-manager?ref=master";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   lanzaboote = {
     url = "github:nix-community/lanzaboote?ref=v0.3.0";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-  nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+  nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
+  nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
   pinputs = {
-    url = "github:pyrotelekinetic/pinputs/main";
+    url = "github:pyrotelekinetic/pinputs?ref=main";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  pyroscheme.url = "github:pyrotelekinetic/pyroscheme/main";
+  pyroscheme.url = "github:pyrotelekinetic/pyroscheme?ref=main";
   sops-nix = {
-    url = "github:Mic92/sops-nix/master";
+    url = "github:Mic92/sops-nix?ref=master";
     inputs = {
       nixpkgs.follows = "nixpkgs";
       nixpkgs-stable.follows = "nixpkgs";
