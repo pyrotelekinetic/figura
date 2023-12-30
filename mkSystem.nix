@@ -1,6 +1,6 @@
-inputs: host: with inputs; {
+inputs: host: with inputs;
 
-${host} = nixpkgs.lib.nixosSystem {
+nixpkgs.lib.nixosSystem {
   specialArgs = { inherit inputs; };
   modules = [
     ./mundus
@@ -22,6 +22,4 @@ ${host} = nixpkgs.lib.nixosSystem {
       };
     }
   ];
-};
-
 }

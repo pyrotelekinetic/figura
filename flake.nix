@@ -32,14 +32,16 @@ inputs = {
 };
 
 outputs = inputs: let
+  lib = inputs.nixpkgs.lib;
   mkSystem = import ./mkSystem.nix inputs;
+  hosts = lib.flip lib.genAttrs mkSystem;
 in {
-  nixosConfigurations = (
-    mkSystem "sol" //
-    mkSystem "vega" //
-    mkSystem "luna" //
-    mkSystem "altair"
-  );
+  nixosConfigurations = hosts [
+    "sol"
+    "vega"
+    "luna"
+    "altair"
+  ];
 
   images.luna = let
     luna-img = inputs.self.nixosConfigurations.luna.extendModules {
