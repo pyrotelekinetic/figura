@@ -52,6 +52,8 @@ home-manager.users.cison = {
         }
       ];
       input."type:tablet_tool".map_to_output = primary;
+      # Stop PS5 controller from being a touchpad
+      input."1356:3302:Sony_Interactive_Entertainment_DualSense_Wireless_Controller_Touchpad".events = "disabled";
   };
   services.mako.output = primary;
 };
