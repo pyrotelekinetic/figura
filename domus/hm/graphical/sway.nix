@@ -159,10 +159,16 @@ config = {
           # Notifications
           "${mod}+BracketLeft" = "exec makoctl dismiss";
           "${mod}+BracketRight" = "exec makoctl restore";
-          # Screenshot
-          "${mod}+Print" = "exec grim";
-          "${mod}+p" = ''exec grim -g "$(slurp)"'';
-        };
+        } // (
+        # Screenshot
+          let screenshotDir = "$XDG_PICTURES_DIR/screenshots/$(date +%F_%T).png";
+        in {
+          "${mod}+Print" = "exec grim - | wl-copy";
+          "${mod}+Shift+Print" = "exec grim - | tee ${screenshotDir} | wl-copy";
+          "${mod}+p" = ''exec grim -g "$(slurp)" - | wl-copy'';
+          "${mod}+Shift+p" = ''exec grim -g "$(slurp)" - | tee ${screenshotDir} | wl-copy'';
+        }
+      );
       menu = "bemenu-run -p '>' | xargs swaymsg exec --";
       modifier = "Mod4";
       terminal = "alacritty";
