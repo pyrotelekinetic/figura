@@ -37,7 +37,7 @@ fileSystems = {
 swapDevices = [
   {
     device = "/var/swap";
-    size = 2048;
+    size = 16384;
   }
 ];
 
