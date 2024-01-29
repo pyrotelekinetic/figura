@@ -1,130 +1,85 @@
 colors: with colors; ''
-window:
-  decorations: none
+ipc_socket = false
+live_config_reload = false
 
-  # Prefer resizing window by discrete steps equal to cell dimensions.
-  resize_increments: true
+[colors.primary]
+background = "${black}"
+foreground = "${white}"
+bright_foreground = "${whiteBright}"
 
+[colors.normal]
+black = "${black}"
+red = "${red}"
+green = "${green}"
+yellow = "${yellow}"
+blue = "${blue}"
+magenta = "${magenta}"
+cyan = "${cyan}"
+white = "${white}"
 
-font:
-  normal:
-    family: BlexMono Nerd Font
-    #style: Regular
+[colors.bright]
+black = "${blackBright}"
+red = "${redBright}"
+green = "${greenBright}"
+yellow = "${yellowBright}"
+blue = "${blueBright}"
+magenta = "${magentaBright}"
+cyan = "${cyanBright}"
+white = "${whiteBright}"
 
-  bold:
-    family: BlexMono Nerd Font
-    #style: Bold
+[cursor]
+unfocused_hollow = true
 
-  italic:
-    family: BlexMono Nerd Font
-    #style: Italic
+[cursor.style]
+blinking = "Off"
+shape = "Block"
 
-  bold_italic:
-    family: BlexMono Nerd Font
-    #style: Bold Italic
+[font]
+size = 14.0
 
-  size: 14.0
+[font.bold]
+family = "BlexMono Nerd Font"
 
+[font.bold_italic]
+family = "BlexMono Nerd Font"
 
-colors:
-  primary:
-    background: '${black}'
-    foreground: '${white}'
-    #dim_foreground: '#828482'
-    bright_foreground: '${whiteBright}'
+[font.italic]
+family = "BlexMono Nerd Font"
 
-  normal:
-    black:   '${black}'
-    red:     '${red}'
-    green:   '${green}'
-    yellow:  '${yellow}'
-    blue:    '${blue}'
-    magenta: '${magenta}'
-    cyan:    '${cyan}'
-    white:   '${white}'
+[font.normal]
+family = "BlexMono Nerd Font"
 
-  bright:
-    black:   '${blackBright}'
-    red:     '${redBright}'
-    green:   '${greenBright}'
-    yellow:  '${yellowBright}'
-    blue:    '${blueBright}'
-    magenta: '${magentaBright}'
-    cyan:    '${cyanBright}'
-    white:   '${whiteBright}'
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Key0"
+mods = "Control"
 
-  #dim:
-  #  black:   '#131415'
-  #  red:     '#864343'
-  #  green:   '#777c44'
-  #  yellow:  '#9e824c'
-  #  blue:    '#556a7d'
-  #  magenta: '#75617b'
-  #  cyan:    '#5b7d78'
-  #  white:   '#828482'
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Equals"
+mods = "Control"
 
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Plus"
+mods = "Control"
 
-#bell:
-  # Visual Bell Animation
-  #
-  # Animation effect for flashing the screen when the visual bell is rung.
-  #
-  # Values for `animation`:
-  #   - Ease
-  #   - EaseOut
-  #   - EaseOutSine
-  #   - EaseOutQuad
-  #   - EaseOutCubic
-  #   - EaseOutQuart
-  #   - EaseOutQuint
-  #   - EaseOutExpo
-  #   - EaseOutCirc
-  #   - Linear
-  #animation: EaseOutExpo
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "NumpadAdd"
+mods = "Control"
 
-  # Duration of the visual bell flash in milliseconds. A `duration` of `0` will
-  # disable the visual bell animation.
-  #duration: 0
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "Minus"
+mods = "Control"
 
-  # Visual bell animation color.
-  #color: '#ffffff'
+[[keyboard.bindings]]
+action = "ReceiveChar"
+key = "NumpadSubtract"
+mods = "Control"
 
-  # Bell Command
-  #
-  # This program is executed whenever the bell is rung.
-  #
-  # When set to `command: None`, no command will be executed.
-  #
-  # Example:
-  #   command:
-  #     program: notify-send
-  #     args: ["Hello, World!"]
-  #
-  #command: None
-
-
-cursor:
-  style:
-    shape: Block
-    blinking: Off
-  unfocused_hollow: true
-
-
-# Live config reload (changes require restart)
-# Useless since config is built by nix
-live_config_reload: false
-
-
-# Offer IPC using `alacritty msg` (unix only)
-ipc_socket: false
-
-
-key_bindings:
-  # Unset default font size modifiers
-  - { key: Key0,           mods: Control, action: ReceiveChar }
-  - { key: Equals,         mods: Control, action: ReceiveChar }
-  - { key: Plus,           mods: Control, action: ReceiveChar }
-  - { key: NumpadAdd,      mods: Control, action: ReceiveChar }
-  - { key: Minus,          mods: Control, action: ReceiveChar }
-  - { key: NumpadSubtract, mods: Control, action: ReceiveChar }
+[window]
+decorations = "none"
+resize_increments = true
 ''
