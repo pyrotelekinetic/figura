@@ -21,11 +21,6 @@ home = {
     PAGER = "less";
   };
 
-  # Include local binary path
-  sessionPath = [
-    "$HOME/.local/bin"
-  ];
-
   shellAliases = {
     # ls shorthand and auto-coloring
     ls = "ls --color=auto";
