@@ -37,6 +37,7 @@ config = mkMerge [
     };
 
     qt = {
+      platformTheme = "gtk";
       enable = true;
       style = {
         package = pkgs.adwaita-qt;
@@ -46,8 +47,8 @@ config = mkMerge [
 
     gtk = {
       enable = true;
-      gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
-      gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+      gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     };
 
     home.packages = let
