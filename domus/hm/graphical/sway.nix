@@ -13,7 +13,7 @@ config = {
       defaultWorkspace = "workspace number 1";
       bars = [ {
         command = "swaybar";
-        colors = with colors; {
+        colors = with (lib.mapAttrs (_: x: "#" + x) colors); {
           background = black;
           statusline = white;
           focusedWorkspace = {
@@ -43,7 +43,7 @@ config = {
         statusCommand = "while ${config.sway.barStatus}; do sleep 1; done;";
       } ];
 
-      colors = with colors; {
+      colors = with (lib.mapAttrs (_: x: "#" + x) colors); {
         focused = {
           border = green;
           background = green;
@@ -180,7 +180,7 @@ config = {
     };
   };
 
-  services.mako = with colors; {
+  services.mako = with (lib.mapAttrs (_: x: "#" + x) colors); {
     anchor = "top-right";
     backgroundColor = black;
     borderColor = blackBright;

@@ -110,9 +110,7 @@ fonts.packages = [ pkgs.unifont ];
 console = {
   packages = [ pkgs.terminus_font ];
   font = "Lat2-Terminus16";
-  colors = let
-    colors' = lib.mapAttrs (lib.const (lib.removePrefix "#")) inputs.pyroscheme.lib.colors;
-  in with colors'; [
+  colors = with inputs.pyroscheme.lib.colors; [
     black
     red
     green

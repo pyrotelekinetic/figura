@@ -6,7 +6,6 @@ home.packages = with pkgs; [
   clonehero
   #heroic - depends on EOL electron version
   renpy
-  yuzu-mainline
   dolphin-emu-primehack
   r2modman
 ];

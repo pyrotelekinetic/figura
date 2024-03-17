@@ -110,7 +110,7 @@ services = {
     enableSshSupport = true;
     sshKeys = [ "3C305675F93CC000802C4DE9F6DDF464ACDD3DE3" ];
     grabKeyboardAndMouse = true;
-    pinentryFlavor = "qt";
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
   # Connect to phone with kdeconnect app
