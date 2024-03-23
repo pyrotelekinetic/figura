@@ -45,7 +45,7 @@ in {
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOeBhkBt7wNdRqBOSiKF+afBFR+QXCbSusk9UhTcCy+n altair"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfm7DyzSbKkoTJKlVZiiS3XWedEkFSZZSAKH8ZgtW9q luna"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDvXEmYV/+fWAoJuxmJqXl13TqGEfvrPtkhMcvHplq1E sol"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDDcOf+fZdGrU5vKMLzD1M4MaxC3zbWUzF5+NRkLJia vega"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPiQUmfv39EtznFGbeDN9EKSAXX4dmcoRtslRWa2fhM7 vega"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL9+dKDU8ouFL8NzYjGa2bDCxd4Tfgqg08cKSyhTgdFw christine@nixos"
       ];
     };
