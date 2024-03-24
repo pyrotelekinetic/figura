@@ -21,7 +21,7 @@ swapDevices = [
   { device = "/dev/disk/by-uuid/3dd42a93-7ace-4fd7-856c-74099341c257"; }
 ];
 
-networking.useDHCP = lib.mkDefault true;
+networking.interfaces.ens3.useDHCP = lib.mkDefault true;
 
 nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 

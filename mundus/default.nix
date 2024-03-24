@@ -52,6 +52,7 @@ documentation = {
 };
 
 networking.firewall.enable = true;
+networking.useNetworkd = true;
 
 time.timeZone = "America/Phoenix";
 
