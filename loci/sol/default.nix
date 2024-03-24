@@ -8,6 +8,8 @@ imports = [
 
 head.graphical = true;
 
+wireguard.enable = true;
+
 system.stateVersion = "22.11";
 
 networking.interfaces.enp3s0.wakeOnLan.enable = true;

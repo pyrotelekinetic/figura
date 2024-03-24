@@ -7,6 +7,7 @@ imports = [
   ./pyrosite.nix
   ./hosts.nix
   ./remoteBuild.nix
+  ./wireguard.nix
 ];
 
 sops = {

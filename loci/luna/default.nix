@@ -7,6 +7,8 @@ imports = [
 
 head.headless = true;
 
+wireguard.enable = true;
+
 nixpkgs.overlays = [
   # Some modules are missing for aarch64
   (self: super: {
