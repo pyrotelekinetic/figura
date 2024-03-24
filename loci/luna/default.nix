@@ -2,6 +2,7 @@
 
 imports = [
   ./hardware.nix
+  ./wireguard.nix
   inputs.nixos-hardware.nixosModules.raspberry-pi-4
 ];
 
