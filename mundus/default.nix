@@ -45,6 +45,12 @@ nix = {
   };
 };
 
+documentation = {
+  info.enable = false;
+  # Generating man cache is really slow
+  man.generateCaches = false;
+};
+
 networking.firewall.enable = true;
 
 time.timeZone = "America/Phoenix";
