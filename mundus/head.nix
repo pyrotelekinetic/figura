@@ -34,6 +34,8 @@ config = lib.mkMerge [
         extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       };
 
+      systemd.packages = [ pkgs.mpris-scrobbler ];
+
       programs = {
         sway = {
           enable = true;
