@@ -47,9 +47,11 @@ config = mkMerge [
 
     gtk = {
       enable = true;
-      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-      gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+      gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
     };
+
+    # libadwaita dark theme
+    dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
     home.packages = let
       blex-mono = pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" ]; };
