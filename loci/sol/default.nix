@@ -4,6 +4,7 @@ imports = [
   ./hardware.nix
   ./sway.nix
   ./sync
+  ./obs.nix
 ];
 
 head.graphical = true;
