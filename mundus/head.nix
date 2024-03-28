@@ -35,6 +35,7 @@ config = lib.mkMerge [
       };
 
       systemd.packages = [ pkgs.mpris-scrobbler ];
+      systemd.user.services.mpris-scrobbler.wantedBy = [ "default.target" ];
 
       programs = {
         sway = {
