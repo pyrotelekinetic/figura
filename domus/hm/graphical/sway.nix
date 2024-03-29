@@ -159,6 +159,17 @@ config = {
           # Notifications
           "${mod}+BracketLeft" = "exec makoctl dismiss";
           "${mod}+BracketRight" = "exec makoctl restore";
+          "${mod}+Shift+BracketLeft+BracketRight" = let
+            toggleDND = pkgs.writeShellScript "toggleDND" ''
+              if makoctl mode | grep -q dnd; then
+                makoctl mode -r dnd
+                ${lib.getExe pkgs.libnotify} "DND disabled"
+              else
+                ${lib.getExe pkgs.libnotify} "DND enabled"
+                makoctl mode -a dnd
+              fi
+            '';
+          in "exec ${toggleDND}";
         } // (
         # Screenshot
           let screenshotDir = "$XDG_PICTURES_DIR/screenshots/$(date +%F_%T).png";
@@ -196,6 +207,10 @@ config = {
     padding = "5";
     progressColor = "over ${green}";
     textColor = white;
+    extraConfig = ''
+      [mode=dnd]
+      invisible=true
+    '';
   };
 
   # Desktop specific packages
