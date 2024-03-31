@@ -137,6 +137,8 @@ console = {
   ];
 };
 
+programs.nano.enable = false;
+
 services = {
   smartd = {
     enable = true;
