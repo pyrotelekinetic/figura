@@ -92,6 +92,8 @@ config = {
           xkb_options = "compose:ralt";
         };
         "type:touchpad".natural_scroll = "enabled";
+        "type:mouse".accel_profile = "flat";
+        "5426:97:Razer_Atheris_Mouse".pointer_accel = "-1";
       };
 
       keybindings =
