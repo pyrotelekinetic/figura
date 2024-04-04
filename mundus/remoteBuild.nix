@@ -31,10 +31,10 @@ config = let
   cfg = config.remoteBuild;
 in {
   nix = {
-    settings = {
-      extra-substituters = substituters;
-      extra-trusted-substituters = substituters;
-    };
+    #settings = {
+    #  extra-substituters = substituters;
+    #  extra-trusted-substituters = substituters;
+    #};
     buildMachines = lib.remove null (map buildMachine hosts);
     distributedBuilds = cfg.enable;
     sshServe = {
