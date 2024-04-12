@@ -68,9 +68,11 @@ config = mkMerge [
       gimp
       inkscape
       kicad-small
+
+      # Audio
       pavucontrol
-      pulsemixer
-      pamixer
+      helvum
+      easyeffects
 
       # Media
       plex-media-player
