@@ -2,7 +2,10 @@
 
 environment.systemPackages = with pkgs; [
   (wrapOBS {
-    plugins =  [ obs-studio-plugins.obs-pipewire-audio-capture ];
+    plugins =  with obs-studio-plugins; [
+      obs-pipewire-audio-capture
+      obs-vaapi
+    ];
   })
   losslesscut-bin
   ffmpeg
