@@ -7,7 +7,25 @@ imports = [
   ./pyrosite.nix
   ./hosts.nix
   ./remoteBuild.nix
+  ./mouse.nix
 ];
+
+mouse.edpi = 1100;
+
+mouse.mice = {
+  ploopy = {
+    udevID = "mouse:usb:v5043p4d6f:name:PloopyCo Mouse:";
+    swayID = "20547:19823:PloopyCo_Mouse";
+    dpi = 12000;
+    refresh = 1000;
+  };
+  razer = {
+    udevID = "mouse:bluetooth:v1532p0061:name:Razer Atheris Mouse:";
+    swayID = "5426:97:Razer_Atheris_Mouse";
+    dpi = 7200;
+    refresh = 1000;
+  };
+};
 
 sops = {
   defaultSopsFile = ./secrets.yaml;
