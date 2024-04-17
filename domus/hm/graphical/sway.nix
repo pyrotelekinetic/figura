@@ -155,8 +155,8 @@ config = {
           "${mod}+Delete" = "exec playerctl play-pause";
           "${mod}+Alt+Up" = "exec playerctl volume 0.05+";
           "${mod}+Alt+Down" = "exec playerctl volume 0.05-";
-          "${mod}+Down" = "exec pamixer -d 5";
-          "${mod}+Up" = "exec pamixer -i 5";
+          "${mod}+Down" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1";
+          "${mod}+Up" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1";
           # Notifications
           "${mod}+BracketLeft" = "exec makoctl dismiss";
           "${mod}+BracketRight" = "exec makoctl restore";
