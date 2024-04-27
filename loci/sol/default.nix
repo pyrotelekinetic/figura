@@ -5,6 +5,7 @@ imports = [
   ./sway.nix
   ./sync
   ./obs.nix
+  ./boot-chime.nix
 ];
 
 head.graphical = true;
