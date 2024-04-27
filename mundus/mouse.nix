@@ -22,8 +22,7 @@ in {
   };
 };
 
-config = let
-in lib.mkIf config.head.graphical {
+config = lib.mkIf config.head.graphical {
   services.udev.packages = let
     makeHwdb = _: { udevID, dpi, refresh, ... }: ''
       ${udevID}

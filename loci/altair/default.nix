@@ -1,4 +1,4 @@
-{ inputs, lib, ... }: {
+{ lib, ... }: {
 
 imports = [ ./hardware.nix ];
 

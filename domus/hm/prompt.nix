@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: let
+{ pkgs, ... }: let
   fancy = ''\[\e[1;32m\]❯ \[\e[0m\]'';
   ascii = ''\[\e[1;32m\]> \[\e[0m\]'';
 

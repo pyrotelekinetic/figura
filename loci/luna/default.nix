@@ -9,7 +9,7 @@ head.headless = true;
 
 nixpkgs.overlays = [
   # Some modules are missing for aarch64
-  (self: super: {
+  (_self: super: {
     makeModulesClosure = x:
       super.makeModulesClosure (x // { allowMissing = true; });
   })

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ lib, ... }: {
 
 options.remoteBuild = with lib; {
   enable = mkEnableOption (mdDoc "Whether to build on remote hosts");

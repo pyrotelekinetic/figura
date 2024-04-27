@@ -7,7 +7,6 @@
 , libudev-zero
 , libusb1
 , ocl-icd
-, python3
 , stdenv
 }:
 
