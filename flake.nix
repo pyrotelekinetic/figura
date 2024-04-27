@@ -31,13 +31,14 @@ inputs = {
   };
 };
 
-outputs = inputs: {
-  nixosConfigurations = let
-    lib = inputs.nixpkgs.lib;
-    mkSystem = import ./mkSystem.nix inputs;
-    hosts = lib.flip lib.genAttrs mkSystem;
-  in
-    hosts [
+outputs = inputs: let
+  inherit (inputs) nixpkgs;
+  inherit (nixpkgs.lib) flip genAttrs;
+  hosts = flip genAttrs (import ./mkSystem.nix inputs);
+  allSystems = output: genAttrs nixpkgs.lib.systems.flakeExposed
+    (system: output nixpkgs.legacyPackages.${system});
+in {
+  nixosConfigurations = hosts [
       "sol"
       "vega"
       "luna"
@@ -47,7 +48,7 @@ outputs = inputs: {
   images.luna = let
     luna-img = inputs.self.nixosConfigurations.luna.extendModules {
       modules = [
-        "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+        "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
         {
           nixpkgs.buildPlatform.system = "x86_64-linux";
           documentation.enable = false;
@@ -56,6 +57,13 @@ outputs = inputs: {
     };
   in
     luna-img.config.system.build.sdImage;
+
+  checks = allSystems (pkgs: {
+    default = pkgs.runCommand "deadnix-check" {} ''
+      ${pkgs.lib.getExe pkgs.deadnix} --fail ${inputs.self}
+      touch $out
+    '';
+  });
 
 };
 
