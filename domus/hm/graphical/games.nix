@@ -5,7 +5,6 @@ home.packages = with pkgs; [
   osu-lazer
   clonehero
   #heroic - depends on EOL electron version
-  renpy
   dolphin-emu-primehack
   r2modman
 ];
