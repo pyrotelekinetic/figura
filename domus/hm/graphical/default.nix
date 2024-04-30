@@ -37,7 +37,7 @@ config = mkMerge [
     };
 
     qt = {
-      platformTheme = "gtk";
+      platformTheme.name = "gtk";
       enable = true;
       style = {
         package = pkgs.adwaita-qt;
