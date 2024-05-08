@@ -48,18 +48,33 @@ nix = {
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-  registry.figura = {
-    from = {
-      type = "indirect";
-      id = "figura";
+  registry = {
+    figura = {
+      from = {
+        type = "indirect";
+        id = "figura";
+      };
+      to = {
+        type = "github";
+        owner = "pyrotelekinetic";
+        repo = "figura";
+        ref = "main";
+      };
+      exact = false;
     };
-    to = {
-      type = "github";
-      owner = "pyrotelekinetic";
-      repo = "figura";
-      ref = "main";
+    templates = {
+      from = {
+        type = "indirect";
+        id = "templates";
+      };
+      to = {
+        type = "github";
+        owner = "pyrotelekinetic";
+        repo = "templates";
+        ref = "main";
+      };
+      exact = false;
     };
-    exact = false;
   };
 };
 
