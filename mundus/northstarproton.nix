@@ -7,15 +7,15 @@
 , libudev-zero
 , libusb1
 , ocl-icd
-, stdenv
+, stdenvNoCC
 }:
 
-stdenv.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "NorthstarProton";
   version = "8.1-1";
 
   src = fetchzip {
-    url = "https://github.com/cyrv6737/NorthstarProton/releases/download/v8.1-1/NorthstarProton-8.1-1.tar.gz";
+    url = "https://github.com/cyrv6737/${finalAttrs.pname}/releases/download/v${finalAttrs.version}/${finalAttrs.pname}-${finalAttrs.version}.tar.gz";
     hash = "sha256-xJecETwsCOcU+rGTTF9hpS3whgpwsY3WsasQWMTLyns=";
   };
 
@@ -38,4 +38,4 @@ stdenv.mkDerivation {
     libusb1
     ocl-icd
   ];
-}
+})

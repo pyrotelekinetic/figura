@@ -47,6 +47,7 @@ config = lib.mkMerge [
         kdeconnect.enable = true;
         steam = {
           enable = true;
+          extraCompatPackages = [ (pkgs.callPackage ./northstarproton.nix {}) ];
           remotePlay.openFirewall = false;
           dedicatedServer.openFirewall = false;
         };

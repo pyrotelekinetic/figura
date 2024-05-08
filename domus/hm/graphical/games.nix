@@ -9,11 +9,4 @@ home.packages = with pkgs; [
   r2modman
 ];
 
-home.file.northstarproton = let
-  northstarproton = pkgs.callPackage ./northstarproton.nix { };
-in {
-  source = northstarproton;
-  target = ".local/share/Steam/compatibilitytools.d/${northstarproton.name}";
-};
-
 }
