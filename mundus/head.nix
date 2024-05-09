@@ -48,6 +48,32 @@ config = lib.mkMerge [
         steam = {
           enable = true;
           extraCompatPackages = [ (pkgs.callPackage ./northstarproton.nix {}) ];
+          package = pkgs.steam.override {
+            extraPkgs = pkgs: [ pkgs.libkrb5 pkgs.keyutils ];
+          };
+        };
+        gamescope = {
+          enable = true;
+          args = [
+            "--expose-wayland"
+            "--steam"
+            "--fullscreen"
+            "--nested-unfocused-refresh 30"
+            "--filter fsr"
+            "--rt"
+          ];
+          capSysNice = false; # causes a permissions error
+          # current version is broken :(
+          package = pkgs.gamescope.overrideAttrs (finalAttrs: _: {
+            version = "3.14.2";
+            src = pkgs.fetchFromGitHub {
+              owner = "ValveSoftware";
+              repo = "gamescope";
+              rev = "refs/tags/${finalAttrs.version}";
+              fetchSubmodules = true;
+              hash = "sha256-Ym1kl9naAm1MGlxCk32ssvfiOlstHiZPy7Ga8EZegus=";
+            };
+          });
         };
         gamemode = {
           enable = true;
