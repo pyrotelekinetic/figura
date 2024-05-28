@@ -48,8 +48,6 @@ config = lib.mkMerge [
         steam = {
           enable = true;
           extraCompatPackages = [ (pkgs.callPackage ./northstarproton.nix {}) ];
-          remotePlay.openFirewall = false;
-          dedicatedServer.openFirewall = false;
         };
         gamemode = {
           enable = true;
