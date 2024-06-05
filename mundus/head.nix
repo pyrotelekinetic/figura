@@ -61,6 +61,7 @@ config = lib.mkMerge [
             "--nested-unfocused-refresh 30"
             "--filter fsr"
             "--rt"
+            "--force-grab-cursor"
           ];
           capSysNice = false; # causes a permissions error
           # current version is broken :(
