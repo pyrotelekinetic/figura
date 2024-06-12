@@ -175,10 +175,10 @@ config = {
         # Screenshot
           let screenshotDir = "$XDG_PICTURES_DIR/screenshots/$(date +%F_%T).png";
         in {
-          "${mod}+Print" = "exec grim - | wl-copy";
-          "${mod}+Shift+Print" = "exec grim - | tee ${screenshotDir} | wl-copy";
-          "${mod}+p" = ''exec grim -g "$(slurp)" - | wl-copy'';
-          "${mod}+Shift+p" = ''exec grim -g "$(slurp)" - | tee ${screenshotDir} | wl-copy'';
+          "${mod}+Print" = "exec grimshot copy output";
+          "${mod}+Shift+Print" = "exec grimshot savecopy output ${screenshotDir}";
+          "${mod}+p" = "exec grimshot copy anything";
+          "${mod}+Shift+p" = "exec grimshot savecopy anything ${screenshotDir}";
         }
       );
       menu = "bemenu-run -p '>' | xargs swaymsg exec --";
@@ -219,8 +219,7 @@ config = {
     wl-clipboard
     xdg-utils
     bemenu
-    grim
-    slurp
+    sway-contrib.grimshot
     imv
   ];
 };
