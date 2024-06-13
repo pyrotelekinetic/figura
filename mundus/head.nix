@@ -89,14 +89,24 @@ config = lib.mkMerge [
         };
       };
 
-      services.pipewire = {
-        enable = true;
-        alsa = {
+      services = {
+        greetd = {
           enable = true;
-          support32Bit = true;
+          settings = {
+            default_session = {
+              command = lib.getExe' pkgs.greetd.greetd "agreety" + " --cmd sway";
+            };
+          };
         };
-        pulse.enable = true;
-        wireplumber.enable = true;
+        pipewire = {
+          enable = true;
+          alsa = {
+            enable = true;
+            support32Bit = true;
+          };
+          pulse.enable = true;
+          wireplumber.enable = true;
+        };
       };
 
     }

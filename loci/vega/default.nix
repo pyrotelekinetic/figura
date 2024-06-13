@@ -44,7 +44,17 @@ boot = {
 security.sudo.wheelNeedsPassword = false;
 users.mutableUsers = false;
 users.users.cison.initialHashedPassword = lib.mkForce null;
-services.getty.autologinUser = "cison";
+services.greetd.settings = {
+  initial_session = {
+    command = "/run/current-system/sw/bin/sway";
+    user = "cison";
+  };
+  # Drop to shell if session is killed
+  default_session = lib.mkForce {
+    command = "/run/current-system/sw/bin/bash";
+    user = "cison";
+  };
+};
 
 services.logind.lidSwitch = "suspend-then-hibernate";
 
