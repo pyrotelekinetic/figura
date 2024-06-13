@@ -44,7 +44,9 @@ boot = {
 security.sudo.wheelNeedsPassword = false;
 users.mutableUsers = false;
 users.users.cison.initialHashedPassword = lib.mkForce null;
-services.getty.autologinUser = "cison";
+services.greetd.settings = lib.mkForce {
+  initial_session.command = lib.getExe' pkgs.greetd.greetd "agreety" + " --cmd sway";
+};
 
 services.logind.lidSwitch = "suspend-then-hibernate";
 
