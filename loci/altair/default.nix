@@ -1,6 +1,9 @@
 { lib, ... }: {
 
-imports = [ ./hardware.nix ];
+imports = [
+  ./hardware.nix
+  ./oci-script
+];
 
 head.headless = true;
 
