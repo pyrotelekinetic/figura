@@ -59,22 +59,9 @@ config = lib.mkMerge [
             "--steam"
             "--fullscreen"
             "--nested-unfocused-refresh 30"
-            "--filter fsr"
             "--rt"
-            "--force-grab-cursor"
           ];
           capSysNice = false; # causes a permissions error
-          # current version is broken :(
-          package = pkgs.gamescope.overrideAttrs (finalAttrs: _: {
-            version = "3.14.2";
-            src = pkgs.fetchFromGitHub {
-              owner = "ValveSoftware";
-              repo = "gamescope";
-              rev = "refs/tags/${finalAttrs.version}";
-              fetchSubmodules = true;
-              hash = "sha256-Ym1kl9naAm1MGlxCk32ssvfiOlstHiZPy7Ga8EZegus=";
-            };
-          });
         };
         gamemode = {
           enable = true;
