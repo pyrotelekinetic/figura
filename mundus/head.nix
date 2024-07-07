@@ -23,11 +23,6 @@ config = lib.mkMerge [
     lib.mkIf cfg.graphical {
       home-manager.users.cison.graphical.enable = true;
 
-      hardware.opengl = {
-        enable = true;
-        driSupport = true;
-      };
-
       xdg.portal = {
         enable = true;
         wlr.enable = true;
