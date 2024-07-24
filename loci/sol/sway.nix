@@ -6,8 +6,14 @@ in {
 home-manager.users.cison = {
   wayland.windowManager.sway.config = {
     output = {
-      ${primary}.pos = "0 0";
-      ${secondary}.pos = "1920 0";
+      ${primary} = {
+        position = "0 0";
+        subpixel = "rgb";
+      };
+      ${secondary} = {
+        position = "1920 0";
+        subpixel = "rgb";
+      };
     };
     workspaceOutputAssign = [
         {
