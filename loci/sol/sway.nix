@@ -1,6 +1,6 @@
 { ... }: let
-  primary = "DP-3";
-  secondary = "HDMI-A-1";
+  primary = "HDMI-A-1";
+  secondary = "DP-3";
 in {
 
 home-manager.users.cison = {
@@ -11,7 +11,7 @@ home-manager.users.cison = {
         subpixel = "rgb";
       };
       ${secondary} = {
-        position = "1920 0";
+        position = "-1920 0";
         subpixel = "rgb";
       };
     };
