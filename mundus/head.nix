@@ -53,7 +53,6 @@ config = lib.mkMerge [
             "--expose-wayland"
             "--steam"
             "--fullscreen"
-            "--nested-unfocused-refresh 30"
             "--rt"
           ];
           capSysNice = false; # causes a permissions error
