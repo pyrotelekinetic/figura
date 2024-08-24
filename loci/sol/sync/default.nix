@@ -16,10 +16,10 @@ services.syncthing = {
 
 sops.secrets = {
   "syncthing/key.pem" = {
-    sopsFile = ./secrets.yaml;
+    sopsFile = ../secrets.yaml;
   };
   "syncthing/cert.pem" = {
-    sopsFile = ./secrets.yaml;
+    sopsFile = ../secrets.yaml;
   };
 };
 
