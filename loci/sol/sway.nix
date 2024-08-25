@@ -1,6 +1,6 @@
 { ... }: let
-  primary = "HDMI-A-1";
-  secondary = "DP-3";
+  primary = "ViewSonic Corporation VA2265 SERIES U99153701230";
+  secondary = "Ancor Communications Inc ASUS VS228 H5LMTF142883";
 in {
 
 home-manager.users.cison = {
@@ -57,7 +57,7 @@ home-manager.users.cison = {
           workspace = "0";
         }
       ];
-      input."type:tablet_tool".map_to_output = primary;
+      input."type:tablet_tool".map_to_output = ''"${primary}"'';
       # Stop PS5 controller from being a touchpad
       input."1356:3302:Sony_Interactive_Entertainment_DualSense_Wireless_Controller_Touchpad".events = "disabled"; # USB
       input."1356:3302:DualSense_Wireless_Controller_Touchpad".events = "disabled"; # Bluetooth
