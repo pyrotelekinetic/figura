@@ -23,6 +23,8 @@ config = lib.mkMerge [
     lib.mkIf cfg.graphical {
       home-manager.users.cison.graphical.enable = true;
 
+      users.users.cison.packages = [ pkgs.webcord ];
+
       xdg.portal = {
         enable = true;
         wlr.enable = true;

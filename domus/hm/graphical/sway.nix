@@ -145,7 +145,7 @@ config = {
           "${mod}+Shift+e" = "exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'";
           # Apps
           "${mod}+Return" = "exec alacritty";
-          "${mod}+d" = "exec firefox --new-window https://discord.com/app";
+          "${mod}+d" = "exec ${lib.getExe pkgs.webcord}";
           "${mod}+b" = "exec firefox";
           "${mod}+s" = "exec steam -console";
           "${mod}+u" = "exec cider";
