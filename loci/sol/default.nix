@@ -6,6 +6,7 @@ imports = [
   ./sync
   ./obs.nix
   ./boot-chime.nix
+  ./dualsense.nix
 ];
 
 head.graphical = true;
