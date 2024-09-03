@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }: {
+{ config, inputs, lib, pkgs, ... }: {
 
 imports = [
   inputs.lanzaboote.nixosModules.lanzaboote
@@ -51,7 +51,7 @@ services.greetd.settings = {
   };
   # Drop to shell if session is killed
   default_session = lib.mkForce {
-    command = "/run/current-system/sw/bin/bash";
+    command = config.users.users.cison.shell;
     user = "cison";
   };
 };
