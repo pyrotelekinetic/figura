@@ -1,12 +1,8 @@
 { pkgs, ... }: {
 
 systemd.services.boot-chime = {
-  wantedBy = [ "multi-user.target" ];
-  after = [ "multi-user.target" ];
-  serviceConfig = {
-    Type = "oneshot";
-    RemainAfterExit = false;
-  };
+  wantedBy = [ "sound.target" ];
+  after = [ "sound.target" ];
 
   environment = {
     RIFFS = pkgs.fetchFromGitHub {
