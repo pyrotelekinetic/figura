@@ -33,7 +33,10 @@ boot = {
 };
 
 hardware = {
-  bluetooth.enable = true;
+  bluetooth = {
+    enable = true;
+    input.General.ClassicBondedOnly = false; # Enable wiimote pairing
+  };
   keyboard.qmk.enable = true;
 };
 
