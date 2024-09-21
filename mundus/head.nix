@@ -25,6 +25,12 @@ config = lib.mkMerge [
 
       users.users.cison.packages = [ pkgs.webcord ];
 
+      qt = {
+        enable = true;
+        style = "adwaita-dark";
+        platformTheme = "gnome";
+      };
+
       xdg.portal = {
         enable = true;
         wlr.enable = true;
