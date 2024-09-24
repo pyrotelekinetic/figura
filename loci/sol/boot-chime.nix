@@ -1,6 +1,7 @@
 { pkgs, ... }: {
 
 systemd.services.boot-chime = {
+  enable = false;
   wantedBy = [ "sound.target" ];
   after = [ "sound.target" ];
 
