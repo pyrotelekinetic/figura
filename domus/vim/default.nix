@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ nixosConfig, pkgs, ... }: {
 
 wrappers.vim = {
   basePackage = pkgs.vim_configurable.override {
@@ -18,7 +18,11 @@ wrappers.vim = {
     ftNixSupport = true;
   };
   flags = let
-    vimrc = pkgs.writeText "vimrc" (import ./vimrc.nix);
+    vimDir = ./vimdir;
+    homeDir = nixosConfig.users.users.cison.home;
+    vimrc = pkgs.runCommand "vimrc" {
+      inherit vimDir homeDir;
+    } "substituteAll ${./vimrc} $out";
   in [ "-u" vimrc ];
 };
 

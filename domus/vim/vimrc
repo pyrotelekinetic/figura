@@ -1,7 +1,6 @@
-''
 " Only use paths from the store
-set runtimepath^=${./vimdir}
-set runtimepath+=${./vimdir}/after
+set runtimepath^=@vimDir@
+set runtimepath+=@vimDir@/after
 set runtimepath-=~/.vim
 set runtimepath-=~/.vim/after
 set packpath-=~/.vim
@@ -22,7 +21,7 @@ set wildmode=list:longest,longest:full
 set visualbell
 
 set undofile
-set undodir=~/.vim/undo
+set undodir=@homeDir@/.vim/undo
 
 " spellcheck for US English
 setlocal spelllang=en_us
@@ -168,4 +167,3 @@ if v:version >= 700
   autocmd BufLeave * call AutoSaveWinView()
   autocmd BufEnter * call AutoRestoreWinView()
 endif
-''
