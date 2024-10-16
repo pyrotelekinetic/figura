@@ -42,9 +42,8 @@ hardware = {
 
 pyrosite.enable = true;
 
-home-manager.users.cison = {
-  graphical.games = true;
-  home.packages = with pkgs; [ lmms ];
-};
+users.users.cison.packages = [ pkgs.lmms ];
+
+home-manager.users.cison.graphical.games = true;
 
 }
