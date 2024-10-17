@@ -18,10 +18,11 @@ wrappers.vim = {
     ftNixSupport = true;
   };
   flags = let
+    inherit (nixosConfig.users.users.cison) home;
     vimDir = ./vimdir;
-    homeDir = nixosConfig.users.users.cison.home;
+    stateDir = home + "/.local/state/vim";
     vimrc = pkgs.runCommand "vimrc" {
-      inherit vimDir homeDir;
+      inherit vimDir stateDir;
     } "substituteAll ${./vimrc} $out";
   in [ "-u" vimrc ];
 };

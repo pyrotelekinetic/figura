@@ -21,7 +21,8 @@ set wildmode=list:longest,longest:full
 set visualbell
 
 set undofile
-set undodir=@homeDir@/.vim/undo
+set undodir=@stateDir@/undo
+set viminfofile=@stateDir@/viminfo
 
 " spellcheck for US English
 setlocal spelllang=en_us
