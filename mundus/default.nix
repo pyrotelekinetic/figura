@@ -134,6 +134,14 @@ environment.systemPackages = with pkgs; [
   vim
   sops
 
+  # Add completion for 'nixos-version --configuration-revision'
+  (nix-bash-completions.overrideAttrs (_: prev: {
+    patches = prev.patches ++ [ (fetchpatch {
+      url = "https://patch-diff.githubusercontent.com/raw/hedning/nix-bash-completions/pull/27.patch";
+      hash = "sha256-VaUDLMJqITRmBFrZ9Y6nJGHGCCA8yEptqBUprqIQpng=";
+    }) ];
+  }))
+
   alacritty.terminfo
 
   usbutils pciutils
