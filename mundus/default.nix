@@ -133,6 +133,7 @@ environment.systemPackages = with pkgs; [
   git
   vim
   sops
+  cntr
 
   # Add completion for 'nixos-version --configuration-revision'
   (nix-bash-completions.overrideAttrs (_: prev: {
