@@ -10,6 +10,9 @@ imports = [
   ./mouse.nix
 ];
 
+# I'm a huge fan of opaque binary blobs
+hardware.enableAllFirmware = true;
+
 mouse.edpi = 1100;
 
 mouse.mice = {
