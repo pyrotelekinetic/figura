@@ -23,7 +23,7 @@ config = lib.mkMerge [
     lib.mkIf cfg.graphical {
       home-manager.users.cison.graphical.enable = true;
 
-      users.users.cison.packages = [ pkgs.webcord ];
+      users.users.cison.packages = [ pkgs.webcord pkgs.netflix ];
 
       qt = {
         enable = true;
