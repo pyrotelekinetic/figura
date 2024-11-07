@@ -40,6 +40,14 @@ hardware = {
   keyboard.qmk.enable = true;
 };
 
+systemd.user.services.auto-mute-disable = {
+  description = "Disable alsa auto mute mode";
+  wantedBy = [ "pipewire.service" ];
+  after = [ "pipewire.service" ];
+  path = [ pkgs.alsa-utils ];
+  script = ''amixer -c1 sset "Auto-Mute Mode" Disabled'';
+};
+
 pyrosite.enable = true;
 
 users.users.cison.packages = with pkgs; [
