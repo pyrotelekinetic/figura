@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: let
+  hid-wiimote-plus = config.boot.kernelPackages.callPackage ./hid-wiimote-plus.nix {};
+in {
 
 imports = [
   ./hardware.nix
@@ -30,7 +32,10 @@ boot = {
     };
   };
   binfmt.emulatedSystems = [ "aarch64-linux" ];
+  extraModulePackages = [ hid-wiimote-plus ];
 };
+
+services.udev.packages = [ hid-wiimote-plus.udev ];
 
 hardware = {
   bluetooth = {
