@@ -43,11 +43,11 @@ outputs = inputs: let
     (system: output nixpkgs.legacyPackages.${system});
 in {
   nixosConfigurations = hosts [
-      "sol"
-      "vega"
-      "luna"
-      "altair"
-    ];
+    "sol"
+    "vega"
+    "luna"
+    "altair"
+  ];
 
   images.luna = let
     luna-img = inputs.self.nixosConfigurations.luna.extendModules {
