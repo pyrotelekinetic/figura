@@ -69,7 +69,10 @@ config = lib.mkMerge [
           enable = true;
           enableRenice = true;
           settings = {
-            general.inhibit_screensaver = 0;
+            general = {
+              renice = 10;
+              inhibit_screensaver = 0;
+            };
             custom = {
               start = "${pkgs.libnotify}/bin/notify-send 'GameMode Start'";
               end = "${pkgs.libnotify}/bin/notify-send 'GameMode End'";
