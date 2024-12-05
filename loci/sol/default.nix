@@ -55,10 +55,15 @@ systemd.user.services.auto-mute-disable = {
 
 pyrosite.enable = true;
 
-users.users.cison.packages = with pkgs; [
-  lmms
-  renoise
-];
+users.users.cison = {
+  packages = with pkgs; [
+    lmms
+    renoise
+  ];
+  extraGroups = [ "adbusers" ];
+};
+
+programs.adb.enable = true;
 
 home-manager.users.cison.graphical.games = true;
 
