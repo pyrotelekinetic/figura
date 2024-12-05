@@ -50,7 +50,7 @@ systemd.user.services.auto-mute-disable = {
   wantedBy = [ "pipewire.service" ];
   after = [ "pipewire.service" ];
   path = [ pkgs.alsa-utils ];
-  script = ''amixer -c1 sset "Auto-Mute Mode" Disabled'';
+  script = ''amixer -D sysdefault:CARD=Generic sset "Auto-Mute Mode" Disabled'';
 };
 
 pyrosite.enable = true;
