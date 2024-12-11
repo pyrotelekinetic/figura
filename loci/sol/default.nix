@@ -55,8 +55,12 @@ systemd.user.services.auto-mute-disable = {
 
 pyrosite.enable = true;
 
+# crypto lib used for matrix clients; I only use matrix for unencrypted groups anyway
+nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
+
 users.users.cison = {
   packages = with pkgs; [
+    element-desktop-wayland
     lmms
     renoise
   ];
