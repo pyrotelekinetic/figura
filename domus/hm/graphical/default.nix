@@ -44,15 +44,13 @@ config = mkMerge [
     # libadwaita dark theme
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
 
-    home.packages = let
-      blex-mono = pkgs.nerdfonts.override { fonts = [ "IBMPlexMono" ]; };
-    in with pkgs; [
+    home.packages = with pkgs; [
       # Fonts
-      blex-mono
+      nerd-fonts.blex-mono
       noto-fonts-emoji
 
       # Social
-      signal-desktop-beta
+      signal-desktop
 
       # Tools
       firefox-wayland
