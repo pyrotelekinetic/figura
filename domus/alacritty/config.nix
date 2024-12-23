@@ -1,4 +1,5 @@
 colors: with colors; ''
+[general]
 ipc_socket = false
 live_config_reload = false
 
