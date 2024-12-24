@@ -24,10 +24,7 @@ inputs = {
   pyroscheme.url = "github:pyrotelekinetic/pyroscheme?ref=main";
   sops-nix = {
     url = "github:Mic92/sops-nix?ref=master";
-    inputs = {
-      nixpkgs.follows = "nixpkgs";
-      nixpkgs-stable.follows = "nixpkgs";
-    };
+    inputs.nixpkgs.follows = "nixpkgs";
   };
   wrapper-manager = {
     url = "github:viperML/wrapper-manager?ref=master";
