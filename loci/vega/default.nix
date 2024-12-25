@@ -41,7 +41,6 @@ boot = {
 };
 
 # This bitch is secured with fde, we can autologin
-security.sudo.wheelNeedsPassword = false;
 users.mutableUsers = false;
 users.users.cison.initialHashedPassword = lib.mkForce null;
 services.greetd.settings = {
@@ -55,6 +54,12 @@ services.greetd.settings = {
     user = "cison";
   };
 };
+# Passwordless, so allow polkit actions without auth as well
+security.polkit.extraConfig = ''
+  polkit.addRule(function(action, subject) {
+    if (subject.isInGroup("wheel")) return polkit.Result.YES;
+  });
+'';
 
 services.logind.lidSwitch = "suspend-then-hibernate";
 
