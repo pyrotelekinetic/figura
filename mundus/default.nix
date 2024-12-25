@@ -126,7 +126,16 @@ users.users.cison = {
 security = {
   polkit.enable = true;
   rtkit.enable = true;
+  sudo.enable = false;
+  # workaround for systemd-run0 <https://github.com/NixOS/nixpkgs/issues/361592>
+  pam.services.systemd-run0 = {
+    setEnvironment = true;
+    pamMount = false;
+  };
 };
+
+# rewrite that deals with dependencies correctly, works with systemd-run0
+system.rebuild.enableNg = true;
 
 # Sorry Richard
 nixpkgs.config.allowUnfree = true;
