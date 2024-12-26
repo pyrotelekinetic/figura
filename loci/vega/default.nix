@@ -61,7 +61,12 @@ security.polkit.extraConfig = ''
   });
 '';
 
-services.logind.lidSwitch = "suspend-then-hibernate";
+services.logind = {
+  lidSwitch = "suspend-then-hibernate";
+  # Stop accidentally shutting off
+  powerKey = "ignore";
+  powerKeyLongPress = "poweroff";
+};
 
 home-manager.users.cison.graphical.games = true;
 
