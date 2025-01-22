@@ -3,6 +3,7 @@
 imports = [
   ./hardware.nix
   ./oci-script
+  ./webdav.nix
 ];
 
 head.headless = true;
