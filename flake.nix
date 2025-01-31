@@ -44,6 +44,7 @@ in {
     "vega"
     "luna"
     "altair"
+    "alsafi"
   ];
 
   images.luna = let
