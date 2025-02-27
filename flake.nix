@@ -22,6 +22,7 @@ inputs = {
     inputs.nixpkgs.follows = "nixpkgs";
   };
   pyroscheme.url = "github:pyrotelekinetic/pyroscheme?ref=main";
+  pyrosite.url = "github:pyrotelekinetic/pyrotelekinetic.github.io?ref=main";
   sops-nix = {
     url = "github:Mic92/sops-nix?ref=master";
     inputs.nixpkgs.follows = "nixpkgs";

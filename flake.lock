@@ -281,6 +281,54 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1740367490,
+        "narHash": "sha256-WGaHVAjcrv+Cun7zPlI41SerRtfknGQap281+AakSAw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0196c0175e9191c474c26ab5548db27ef5d34b05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1705133751,
+        "narHash": "sha256-rCIsyE80jgiOU78gCWN3A0wE0tR2GI5nH6MlS+HaaSQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9b19f5e77dd906cb52dade0b7bd280339d2a1f3d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1704722960,
+        "narHash": "sha256-mKGJ3sPsT6//s+Knglai5YflJUF2DGj7Ai6Ynopz0kI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "317484b1ead87b9c1b8ac5261a8d2dd748a0492d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pinputs": {
       "inputs": {
         "nixpkgs": [
@@ -348,6 +396,46 @@
         "type": "github"
       }
     },
+    "pyroscheme_2": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1708288899,
+        "narHash": "sha256-Dzz8Mc0RuPKEmnFz+Z2xLQtu8MqIRHF/kyDNxrxFWTM=",
+        "owner": "pyrotelekinetic",
+        "repo": "pyroscheme",
+        "rev": "49ed6ece84641396f51d31d47bcf1f19505d478f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pyrotelekinetic",
+        "ref": "main",
+        "repo": "pyroscheme",
+        "type": "github"
+      }
+    },
+    "pyrosite": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3",
+        "pyroscheme": "pyroscheme_2",
+        "yip": "yip"
+      },
+      "locked": {
+        "lastModified": 1740636717,
+        "narHash": "sha256-nTyKvJ0yzFygbvmrAhBoUFlj2zNqeR9WnuIusTcLReI=",
+        "owner": "pyrotelekinetic",
+        "repo": "pyrotelekinetic.github.io",
+        "rev": "b7c8dffff603c855f07add0dc277b6ebba3ac960",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pyrotelekinetic",
+        "ref": "main",
+        "repo": "pyrotelekinetic.github.io",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -357,6 +445,7 @@
         "nixpkgs": "nixpkgs",
         "pinputs": "pinputs",
         "pyroscheme": "pyroscheme",
+        "pyrosite": "pyrosite",
         "sops-nix": "sops-nix",
         "wrapper-manager": "wrapper-manager"
       }
@@ -455,6 +544,25 @@
         "owner": "viperML",
         "ref": "master",
         "repo": "wrapper-manager",
+        "type": "github"
+      }
+    },
+    "yip": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1707858316,
+        "narHash": "sha256-sjJmezHNDNgwBnSq1Hm+LLF+5lwSblHuJ8ANGvaqpck=",
+        "owner": "pyrotelekinetic",
+        "repo": "yip",
+        "rev": "3ef04526e57f0f40d71a3a5a4615f3200ac2f38b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pyrotelekinetic",
+        "ref": "main",
+        "repo": "yip",
         "type": "github"
       }
     }

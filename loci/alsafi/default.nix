@@ -2,6 +2,7 @@
 
 imports = [
   ./hardware.nix
+  ./www.nix
 ];
 
 head.headless = true;
