@@ -60,7 +60,7 @@ nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
 
 users.users.cison = {
   packages = with pkgs; [
-    element-desktop-wayland
+    element-desktop
     lmms
     renoise
   ];

@@ -30,7 +30,7 @@ config = mkMerge [
     # Set mouse cursor for gtk and x11
     home.pointerCursor = {
       name = "breeze_cursors";
-      package = pkgs.breeze-gtk;
+      package = pkgs.kdePackages.breeze-gtk;
       size = 24;
       gtk.enable = true;
       x11.enable = true;
