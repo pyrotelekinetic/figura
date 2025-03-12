@@ -20,11 +20,11 @@ boot = {
 
 fileSystems = {
   "/" = {
-    device = "/dev/disk/by-uuid/5a16f4f3-b01d-469d-9d10-087ec6cdd9e0";
+    device = "/dev/disk/by-uuid/533e2a79-661f-45ad-9352-8e1bb379763f";
     fsType = "ext4";
   };
   "/efi" = {
-    device = "/dev/disk/by-uuid/004D-096C";
+    device = "/dev/disk/by-uuid/6788-8268";
     fsType = "vfat";
     options = [ "umask=0077" ];
   };
@@ -35,7 +35,7 @@ fileSystems = {
 };
 
 swapDevices = [
-  { device = "/dev/disk/by-uuid/36c68f75-ecb4-4b5e-9b2e-789607d5b694"; }
+  { device = "/dev/disk/by-uuid/2712e6ac-e593-4032-952d-4a8d78df2c26"; }
 ];
 
 networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
