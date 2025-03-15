@@ -33,19 +33,14 @@ config = lib.mkMerge [
 
       xdg.portal = {
         enable = true;
-        wlr.enable = true;
         extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
       };
 
-      systemd.packages = [ pkgs.mpris-scrobbler ];
+      systemd.packages = [ pkgs.mpris-scrobbler pkgs.xwayland-satellite ];
       systemd.user.services.mpris-scrobbler.wantedBy = [ "default.target" ];
 
       programs = {
-        sway = {
-          enable = true;
-          extraPackages = [ ];
-          wrapperFeatures.gtk = true;
-        };
+        niri.enable = true;
         dconf.enable = true;
         kdeconnect.enable = true;
         steam = {
@@ -86,7 +81,7 @@ config = lib.mkMerge [
           enable = true;
           settings = {
             default_session = {
-              command = lib.getExe' pkgs.greetd.greetd "agreety" + " --cmd sway";
+              command = lib.getExe' pkgs.greetd.greetd "agreety" + " --cmd 'niri-session'";
             };
           };
         };
