@@ -1,5 +1,7 @@
 { config, pkgs, inputs, ... }: {
 
+imports = [ ./invidious.nix ];
+
 sops.secrets."duckdns.token".sopsFile = ./secrets.yaml;
 
 services = {
@@ -13,7 +15,7 @@ services = {
     enable = true;
     virtualHosts."cloverp.duckdns.org" = {
       root = inputs.pyrosite.packages.${pkgs.system}.default + "/site";
-      addSSL = true;
+      forceSSL = true;
       enableACME = true;
     };
   };
