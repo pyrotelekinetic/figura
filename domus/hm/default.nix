@@ -75,7 +75,8 @@ programs = {
     userName = "Carter Ison";
     userEmail = "carter@isons.org";
     signing = {
-      key = "3477FBCE6552E74A734485AD3312A18E7AE89BDE";
+      key = "${config.home.homeDirectory}/.ssh/id_ed25519";
+      format = "ssh";
       signByDefault = true;
     };
     delta.enable = true;
