@@ -6,7 +6,6 @@ imports = [
   ./head.nix
   ./pyrosite.nix
   ./hosts.nix
-  ./remoteBuild.nix
   ./mouse.nix
 ];
 
