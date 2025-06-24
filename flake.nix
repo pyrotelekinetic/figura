@@ -44,7 +44,6 @@ in {
     "sol"
     "vega"
     "luna"
-    "altair"
     "alsafi"
   ];
 
