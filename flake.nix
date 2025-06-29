@@ -3,6 +3,10 @@
 description = "Home Manager and NixOS configurations of pyrotelekinetic";
 
 inputs = {
+  disko = {
+    url = "github:nix-community/disko?ref=latest";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
   home-manager = {
     url = "github:nix-community/home-manager?ref=master";
     inputs.nixpkgs.follows = "nixpkgs";

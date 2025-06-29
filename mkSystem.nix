@@ -9,6 +9,7 @@ nixpkgs.lib.nixosSystem {
     sops-nix.nixosModules.sops
     pinputs.nixosModules.default
     lix-module.nixosModules.default
+    disko.nixosModules.default
     {
       system.configurationRevision = self.rev or self.dirtyRev;
       networking.hostName = host;
