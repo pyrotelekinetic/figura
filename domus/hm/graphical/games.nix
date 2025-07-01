@@ -7,6 +7,7 @@ home.packages = with pkgs; [
   #heroic - depends on EOL electron version
   dolphin-emu-primehack
   r2modman
+  ryubing
 ];
 
 }
