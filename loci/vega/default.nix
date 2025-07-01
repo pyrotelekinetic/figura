@@ -5,7 +5,6 @@ imports = [
   ./hardware.nix
   ./disko.nix
   ./tlp.nix
-  ./sway.nix
 ];
 
 head.graphical = true;

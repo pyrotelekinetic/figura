@@ -27,7 +27,7 @@ config = lib.mkMerge [
 
       qt = {
         enable = true;
-        style = "adwaita-dark";
+        style = "breeze";
         platformTheme = "gnome";
       };
 
@@ -38,11 +38,21 @@ config = lib.mkMerge [
         config.common.default = [ "wlr" "gtk" ];
       };
 
-      systemd.packages = [ pkgs.mpris-scrobbler pkgs.xwayland-satellite ];
-      systemd.user.services.mpris-scrobbler.wantedBy = [ "default.target" ];
+      systemd.packages = [
+        pkgs.mpris-scrobbler
+        pkgs.xwayland-satellite
+        pkgs.hyprpolkitagent
+      ];
+
+      systemd.user.services = {
+        mpris-scrobbler.wantedBy = [ "default.target" ];
+        xwayland-satellite.wantedBy = [ "graphical-session.target" ];
+        hyprpolkitagent.wantedBy = [ "graphical-session.target" ];
+      };
 
       programs = {
         niri.enable = true;
+        waybar.enable = true;
         dconf.enable = true;
         kdeconnect.enable = true;
         steam = {
