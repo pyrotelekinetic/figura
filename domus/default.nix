@@ -15,6 +15,7 @@ in {
 
 users.users.cison.packages = [
   wrappers.config.build.toplevel
+  pkgs.flow-control
 ];
 
 }
