@@ -194,7 +194,7 @@ config = {
     };
   };
 
-  services.mako = with (lib.mapAttrs (_: x: "#" + x) colors); {
+  services.mako.settings = with (lib.mapAttrs (_: x: "#" + x) colors); {
     anchor = "top-right";
     backgroundColor = black;
     borderColor = blackBright;

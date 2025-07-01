@@ -2,7 +2,7 @@
 
 wrappers.alacritty = {
   basePackage = pkgs.alacritty;
-  flags = let
+  prependFlags = let
     colors = lib.mapAttrs (_: x: "#" + x) inputs.pyroscheme.lib.colors;
     config = pkgs.writeText "alacritty.toml"
       (import ./config.nix colors);

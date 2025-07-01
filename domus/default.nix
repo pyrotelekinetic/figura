@@ -1,7 +1,5 @@
-{ config, lib, inputs, pkgs, ... }: {
-
-users.users.cison.packages = [
-  (inputs.wrapper-manager.lib.build {
+{ config, lib, inputs, pkgs, ... }: let
+  wrappers = inputs.wrapper-manager.lib {
     inherit pkgs;
     specialArgs = {
       inherit inputs;
@@ -12,7 +10,11 @@ users.users.cison.packages = [
     ] ++ lib.optionals config.head.graphical [
       ./alacritty
     ];
-  })
+  };
+in {
+
+users.users.cison.packages = [
+  wrappers.config.build.toplevel
 ];
 
 }

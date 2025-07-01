@@ -64,7 +64,7 @@ config = mkMerge [
       easyeffects
 
       # Media
-      plex-media-player
+      plex-desktop
       jellyfin-media-player
       mpv
       cider

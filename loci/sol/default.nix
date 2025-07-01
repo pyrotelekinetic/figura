@@ -59,7 +59,7 @@ nixpkgs.config.permittedInsecurePackages = [ "olm-3.2.16" ];
 users.users.cison = {
   packages = with pkgs; [
     element-desktop
-    lmms
+    #lmms  # broken dependency
     renoise
   ];
   extraGroups = [ "adbusers" ];

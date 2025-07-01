@@ -17,7 +17,7 @@ wrappers.vim = {
     darwinSupport = pkgs.stdenv.isDarwin;
     ftNixSupport = true;
   };
-  flags = let
+  prependFlags = let
     inherit (nixosConfig.users.users.cison) home;
     vimDir = ./vimdir;
     stateDir = home + "/.local/state/vim";
