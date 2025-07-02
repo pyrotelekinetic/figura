@@ -3,6 +3,7 @@
 imports = [
   inputs.lanzaboote.nixosModules.lanzaboote
   ./hardware.nix
+  ./disko.nix
   ./tlp.nix
   ./sway.nix
 ];
