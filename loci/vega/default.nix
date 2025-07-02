@@ -10,7 +10,7 @@ imports = [
 
 head.graphical = true;
 
-system.stateVersion = "23.05";
+system.stateVersion = "25.05";
 
 # Control screen backlight, must be in video group
 hardware.acpilight.enable = true;
