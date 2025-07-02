@@ -118,6 +118,7 @@ users.users.cison = {
   ] ++ lib.optional config.programs.gamemode.enable "gamemode";
   openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINtQWB9sas10nnFPFaWYMTY+8QrXaJ64bBJz/iGnCtFO cison@sol"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAaOgvgz6SPLK488uiy+U0Vpq2szWzsS6RuvQZ8w9qWP cison@vega"
   ];
   initialHashedPassword = "";
 };
