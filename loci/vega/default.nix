@@ -45,12 +45,12 @@ users.mutableUsers = false;
 users.users.cison.initialHashedPassword = lib.mkForce null;
 services.greetd.settings = {
   initial_session = {
-    command = "/run/current-system/sw/bin/sway";
+    command = "niri-session";
     user = "cison";
   };
   # Drop to shell if session is killed
   default_session = lib.mkForce {
-    command = config.users.users.cison.shell;
+    command = lib.getExe config.users.users.cison.shell;
     user = "cison";
   };
 };
