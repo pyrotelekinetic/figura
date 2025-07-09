@@ -29,7 +29,7 @@ config = mkMerge [
       kicad-small
 
       # Audio
-      pavucontrol
+      pwvucontrol
       helvum
       easyeffects
 
