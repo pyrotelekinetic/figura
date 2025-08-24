@@ -72,8 +72,8 @@ programs = {
 
   git = {
     enable = true;
-    userName = "Carter Ison";
-    userEmail = "carter@isons.org";
+    userName = "Clover Ison";
+    userEmail = "clover@isons.org";
     signing = {
       key = "${config.home.homeDirectory}/.ssh/id_ed25519";
       format = "ssh";
