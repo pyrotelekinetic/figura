@@ -4,7 +4,6 @@ in {
 
 imports = [
   ./hardware.nix
-  ./sway.nix
   ./sync
   ./obs.nix
   ./boot-chime.nix
