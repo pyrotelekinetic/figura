@@ -33,7 +33,9 @@ config = lib.mkMerge [
 
       xdg.portal = {
         enable = true;
+        wlr.enable = lib.mkForce true;
         extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+        config.common.default = [ "wlr" "gtk" ];
       };
 
       systemd.packages = [ pkgs.mpris-scrobbler pkgs.xwayland-satellite ];
@@ -77,6 +79,7 @@ config = lib.mkMerge [
       };
 
       services = {
+        gnome.gnome-keyring.enable = false; # enabled by niri module but I don't use it
         greetd = {
           enable = true;
           settings = {
