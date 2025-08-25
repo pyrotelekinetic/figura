@@ -155,6 +155,7 @@ environment.systemPackages = with pkgs; [
     }) ];
   }))
 
+  foot.terminfo
   alacritty.terminfo
 
   usbutils pciutils

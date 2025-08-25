@@ -9,6 +9,7 @@
       ./vim
     ] ++ lib.optionals config.head.graphical [
       ./alacritty
+      ./foot
     ];
   };
 in {
