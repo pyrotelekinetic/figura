@@ -91,6 +91,7 @@ programs = {
       init.defaultBranch = "main";
       log.abbrevCommit = true;
       diff.colorMoved = "default";
+      gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
     };
   };
 
