@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: with lib; {
 
 imports = [
-  ./sway.nix
+  ./mako.nix
   ./games.nix
 ];
 
@@ -74,6 +74,12 @@ config = mkMerge [
       mpdris2
       mpc-cli
       ncmpcpp
+
+      # Utils
+      wl-clipboard
+      xdg-utils
+      bemenu
+      imv
     ];
   } )
 
