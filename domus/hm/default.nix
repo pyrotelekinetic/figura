@@ -89,7 +89,10 @@ programs = {
     ];
     extraConfig = {
       init.defaultBranch = "main";
-      log.abbrevCommit = true;
+      log = {
+        abbrevCommit = true;
+        showSignature = true;
+      };
       diff.colorMoved = "default";
       gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
     };
