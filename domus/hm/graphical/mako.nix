@@ -2,24 +2,23 @@
 
 services.mako.settings = with (lib.mapAttrs (_: x: "#" + x) colors); {
   anchor = "top-right";
-  backgroundColor = black;
-  borderColor = blackBright;
-  borderRadius = 10;
-  borderSize = 1;
-  defaultTimeout = 5000;
+  background-color = black;
+  border-color = blackBright;
+  border-radius = 10;
+  border-size = 1;
+  default-timeout = 5000;
   font = "IBM Plex Mono";
-  ignoreTimeout = true;
+  ignore-timeout = true;
   layer = "overlay";
   margin = "10";
   markup = true;
-  maxVisible = 10;
+  max-visible = 10;
   padding = "5";
-  progressColor = "over ${green}";
-  textColor = white;
-  extraConfig = ''
-    [mode=dnd]
-    invisible=true
-  '';
+  progress-color = "over ${green}";
+  text-color = white;
+  "mode=dnd" = {
+    invisible = true;
+  };
 };
 
 }
