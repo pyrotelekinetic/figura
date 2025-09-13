@@ -6,7 +6,8 @@
   pointer = ''$([ "$TERM" != "linux" ] && echo "${fancy}")$([ "$TERM" = "linux" ] && echo "${ascii}")'';
 in {
 
-nix.settings.bash-prompt-suffix = ''\[\e[2D\]\[\e[0;34m\] ${pointer}'';
+# Breaks nix configuration build (*-nix.conf.drv). lol.
+#nix.settings.bash-prompt-suffix = ''\[\e[2D\]\[\e[0;34m\] ${pointer}'';
 
 programs.bash.initExtra = ''
   source ${pkgs.git}/share/bash-completion/completions/git-prompt.sh
