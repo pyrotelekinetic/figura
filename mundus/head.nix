@@ -110,7 +110,7 @@ config = lib.mkMerge [
           enable = true;
           settings = {
             default_session = {
-              command = lib.getExe' pkgs.greetd.greetd "agreety" + " --cmd 'niri-session'";
+              command = lib.getExe' pkgs.greetd "agreety" + " --cmd 'niri-session'";
             };
           };
         };

@@ -61,7 +61,7 @@ security.polkit.extraConfig = ''
   });
 '';
 
-services.logind = {
+services.logind.settings.Login = {
   lidSwitch = "suspend-then-hibernate";
   # Stop accidentally shutting off
   powerKey = "ignore";

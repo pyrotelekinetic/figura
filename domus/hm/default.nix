@@ -100,9 +100,15 @@ programs = {
 
   ssh = {
     enable = true;
-    controlMaster = "auto";
-    controlPath = "${config.home.homeDirectory}/.ssh/control/%r@%n:%p";
-    controlPersist = "5m";
+    enableDefaultConfig = false;
+    matchBlocks."*" = {
+      controlMaster = "auto";
+      controlPath = "${config.home.homeDirectory}/.ssh/control/%r@%n:%p";
+      controlPersist = "5m";
+      forwardAgent = false;
+      addKeysToAgent = "no";
+      compression = false;
+    };
   };
 };
 
