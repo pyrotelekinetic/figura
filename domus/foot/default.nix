@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }: {
+{ pkgs, inputs, ... }: {
 
 wrappers.foot = {
   basePackage = pkgs.foot;
