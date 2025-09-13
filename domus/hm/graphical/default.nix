@@ -35,7 +35,6 @@ config = mkMerge [
 
       # Media
       plex-desktop
-      jellyfin-media-player
       mpv
       cider
       playerctl
