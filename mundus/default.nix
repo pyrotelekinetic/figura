@@ -7,6 +7,7 @@ imports = [
   ./pyrosite.nix
   ./hosts.nix
   ./mouse.nix
+  ./lix.nix
 ];
 
 # I'm a huge fan of opaque binary blobs

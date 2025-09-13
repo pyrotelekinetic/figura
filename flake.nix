@@ -15,10 +15,6 @@ inputs = {
     url = "github:nix-community/lanzaboote?ref=v0.4.2";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  lix-module = {
-    url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.91";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
   nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
   nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
   pinputs = {
