@@ -24,6 +24,7 @@ config = lib.mkMerge [
       home-manager.users.cison.graphical.enable = true;
 
       users.users.cison.packages = [ pkgs.webcord pkgs.netflix ];
+      environment.systemPackages = [ pkgs.xwayland-satellite ];
 
       qt = {
         enable = true;
@@ -40,13 +41,11 @@ config = lib.mkMerge [
 
       systemd.packages = [
         pkgs.mpris-scrobbler
-        pkgs.xwayland-satellite
         pkgs.hyprpolkitagent
       ];
 
       systemd.user.services = {
         mpris-scrobbler.wantedBy = [ "default.target" ];
-        xwayland-satellite.wantedBy = [ "graphical-session.target" ];
         hyprpolkitagent.wantedBy = [ "graphical-session.target" ];
         waybar.path = let
           toggle-headphones = pkgs.writeShellApplication {
