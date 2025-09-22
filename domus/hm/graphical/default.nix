@@ -47,7 +47,6 @@ config = mkMerge [
       # Utils
       wl-clipboard
       xdg-utils
-      bemenu
       imv
     ];
   } )

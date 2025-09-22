@@ -10,6 +10,7 @@
     ] ++ lib.optionals config.head.graphical [
       ./alacritty
       ./foot
+      ./fuzzel
     ];
   };
 in {
