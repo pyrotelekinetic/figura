@@ -6,6 +6,7 @@
       nixosConfig = config;
     };
     modules = [
+      ./ripgrep
       ./vim
     ] ++ lib.optionals config.head.graphical [
       ./alacritty

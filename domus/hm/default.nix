@@ -151,7 +151,6 @@ home.packages = with pkgs; [
   libqalculate
 
   # Blazingly fast
-  ripgrep
   fd
   du-dust
 
