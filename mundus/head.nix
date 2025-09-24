@@ -23,12 +23,18 @@ config = lib.mkMerge [
     lib.mkIf cfg.graphical {
       home-manager.users.cison.graphical.enable = true;
 
-      users.users.cison.packages = [ pkgs.webcord pkgs.netflix ];
+      users.users.cison.packages = [
+        pkgs.webcord
+        pkgs.netflix
+        pkgs.adwaita-qt6
+        pkgs.phinger-cursors
+        pkgs.adwaita-icon-theme
+      ];
       environment.systemPackages = [ pkgs.xwayland-satellite ];
 
       qt = {
         enable = true;
-        style = "breeze";
+        style = "adwaita-dark";
         platformTheme = "gnome";
       };
 
@@ -67,7 +73,12 @@ config = lib.mkMerge [
       programs = {
         niri.enable = true;
         waybar.enable = true;
-        dconf.enable = true;
+        dconf = {
+          enable = true;
+          profiles.user.databases = [ {
+            settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+          } ];
+        };
         kdeconnect.enable = true;
         steam = {
           enable = true;
