@@ -72,7 +72,7 @@ config = lib.mkMerge [
               fi
             '';
           };
-        in [ toggle-headphones pkgs.pwvucontrol ];
+        in [ toggle-headphones pkgs.pwvucontrol pkgs.killall ];
       };
 
       programs = {
