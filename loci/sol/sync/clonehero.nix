@@ -3,7 +3,7 @@
 services.syncthing = {
   settings = {
     devices.onyx.id =
-      "EK4W4BH-7BFCSBI-OGVO46Y-VYF4NPS-FB35OZZ-DZ72XCA-Q42B5PG-5GY2KA2";
+      "UM5VJDH-JHTQ7M3-M6OGU72-IQUDI6W-HQNFJ6R-PMDYYJI-VOHKL4E-B76J4AM";
     folders.clonehero-songs = {
       path = "~/data/clonehero-songs";
       id = "rjbfx-zwfxf";
