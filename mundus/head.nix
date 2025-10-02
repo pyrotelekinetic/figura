@@ -87,7 +87,10 @@ config = lib.mkMerge [
         kdeconnect.enable = true;
         steam = {
           enable = true;
-          extraCompatPackages = [ (pkgs.callPackage ./northstarproton.nix {}) ];
+          extraCompatPackages = [
+            pkgs.proton-ge-bin
+            (pkgs.callPackage ./northstarproton.nix {})
+          ];
           package = pkgs.steam.override {
             extraPkgs = pkgs: [ pkgs.libkrb5 pkgs.keyutils ];
           };
