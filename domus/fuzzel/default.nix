@@ -4,8 +4,8 @@ wrappers.fuzzel = {
   basePackage = pkgs.fuzzel;
   prependFlags = let
     config = pkgs.runCommand "fuzzel.ini"
-    inputs.pyroscheme.lib.colors
-    "substituteAll ${./fuzzel.ini} $out";
+      inputs.pyroscheme.lib.colors
+      "substituteAll ${./fuzzel.ini} $out";
   in [ "--config" config ];
     postBuild = ''
       echo "checking config"
