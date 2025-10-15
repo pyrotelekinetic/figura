@@ -23,7 +23,7 @@ services = {
 
 security.acme = {
   defaults = {
-    email = "carter+acme@isons.org";
+    email = "clover+acme@isons.org";
     # just setting dnsProvider doesn't seem to work
     extraLegoFlags = [ "--dns" "duckdns" ];
     dnsProvider = "duckdns";

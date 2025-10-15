@@ -110,7 +110,7 @@ i18n = {
 
 users.users.cison = {
   isNormalUser = true;
-  description = "Carter";
+  description = "Clover";
   extraGroups = [
     "networkmanager"
     "wheel"
