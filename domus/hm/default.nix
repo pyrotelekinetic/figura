@@ -24,15 +24,12 @@ home = {
   shellAliases = {
     # ls shorthand and auto-coloring
     ls = "ls --color=auto";
-    la = "ls -a";
+    la = "ls -A";
     ll = "ls -l";
     "l." = "ls -d .*";
 
     # cd shorthand
     ".." = "cd ..";
-
-    # git shorthand
-    gitstat = "git status";
   };
 
   # Custom compose sequences
