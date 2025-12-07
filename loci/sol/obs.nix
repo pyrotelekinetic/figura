@@ -12,8 +12,7 @@ environment.systemPackages = with pkgs; [
 ];
 
 hardware.graphics.extraPackages = with pkgs; [
-  amdvlk
-  vaapiVdpau
+  libva-vdpau-driver
   libvdpau-va-gl
 ];
 

@@ -69,22 +69,20 @@ programs = {
 
   git = {
     enable = true;
-    userName = "Clover Ison";
-    userEmail = "clover@isons.org";
     signing = {
       key = "${config.home.homeDirectory}/.ssh/id_ed25519";
       format = "ssh";
       signByDefault = true;
     };
-    delta.enable = true;
-    aliases = {
-      l = "log --graph";
-      hash = "log -n 1 --format=%H";
-    };
-    ignores = [
-      "*.swp"
-    ];
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Clover Ison";
+        email = "clover@isons.org";
+      };
+      aliases = {
+        l = "log --graph";
+        hash = "log -n 1 --format=%H";
+      };
       init.defaultBranch = "main";
       log = {
         abbrevCommit = true;
@@ -93,6 +91,9 @@ programs = {
       diff.colorMoved = "default";
       gpg.ssh.allowedSignersFile = "${config.home.homeDirectory}/.ssh/allowed_signers";
     };
+    ignores = [
+      "*.swp"
+    ];
   };
 
   ssh = {
@@ -106,6 +107,10 @@ programs = {
       addKeysToAgent = "no";
       compression = false;
     };
+  };
+  delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 };
 
@@ -149,7 +154,7 @@ home.packages = with pkgs; [
 
   # Blazingly fast
   fd
-  du-dust
+  dust
 
   # Drip
   neofetch

@@ -14,7 +14,7 @@ services = {
   nginx = {
     enable = true;
     virtualHosts."cloverp.duckdns.org" = {
-      root = inputs.pyrosite.packages.${pkgs.system}.default + "/site";
+      root = inputs.pyrosite.packages.${pkgs.stdenv.hostPlatform.system}.default + "/site";
       forceSSL = true;
       enableACME = true;
     };

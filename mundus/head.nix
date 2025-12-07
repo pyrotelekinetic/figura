@@ -24,12 +24,7 @@ config = lib.mkMerge [
       home-manager.users.cison.graphical.enable = true;
 
       users.users.cison.packages = [
-        (pkgs.webcord.overrideAttrs (_: _: {
-          patches = [ (pkgs.fetchurl {
-            url = "https://github.com/SpacingBat3/WebCord/commit/6b29ae702e7eeab598b3da42a99475cd2094c01b.patch";
-            hash = "sha256-+ztTidzgbGX/CPJgf3jDPmS+riIzypXl5yAVALJLKqo=";
-          }) ];
-        }))
+        pkgs.webcord
         pkgs.netflix
         pkgs.adwaita-qt6
         pkgs.phinger-cursors

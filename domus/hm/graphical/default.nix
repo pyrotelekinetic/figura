@@ -17,13 +17,12 @@ config = mkMerge [
     home.packages = with pkgs; [
       # Fonts
       nerd-fonts.blex-mono
-      noto-fonts-emoji
-
+      noto-fonts-color-emoji
       # Social
       signal-desktop
 
       # Tools
-      firefox-wayland
+      firefox
       gimp
       inkscape
       kicad-small
@@ -41,7 +40,7 @@ config = mkMerge [
       mpris-scrobbler
       mpd
       mpdris2
-      mpc-cli
+      mpc
       ncmpcpp
 
       # Utils

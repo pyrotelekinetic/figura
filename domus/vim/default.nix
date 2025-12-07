@@ -1,7 +1,7 @@
 { nixosConfig, pkgs, ... }: {
 
 wrappers.vim = {
-  basePackage = pkgs.vim_configurable.override {
+  basePackage = pkgs.vim-full.override {
     features = "normal";
     guiSupport = false;
     luaSupport = false;
