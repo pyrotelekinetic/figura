@@ -135,9 +135,6 @@ security = {
   };
 };
 
-# rewrite that deals with dependencies correctly, works with systemd-run0
-system.rebuild.enableNg = true;
-
 # Sorry Richard
 nixpkgs.config.allowUnfree = true;
 
