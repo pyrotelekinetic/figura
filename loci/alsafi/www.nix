@@ -1,6 +1,9 @@
 { config, pkgs, inputs, ... }: {
 
-imports = [ ./invidious.nix ];
+imports = [
+  ./invidious.nix
+  ./webdav.nix
+];
 
 sops.secrets."duckdns.token".sopsFile = ./secrets.yaml;
 
