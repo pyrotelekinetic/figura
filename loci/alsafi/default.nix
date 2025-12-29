@@ -1,9 +1,9 @@
 { lib, ... }: {
 
 imports = [
+  ./www
   ./hardware.nix
   ./disko.nix
-  ./www.nix
 ];
 
 head.headless = true;

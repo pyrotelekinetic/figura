@@ -6,7 +6,7 @@ imports = [
   ./calibre.nix
 ];
 
-sops.secrets."duckdns.token".sopsFile = ./secrets.yaml;
+sops.secrets."duckdns.token".sopsFile = ../secrets.yaml;
 
 services = {
   duckdns = {

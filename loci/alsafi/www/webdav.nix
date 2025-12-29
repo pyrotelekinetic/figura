@@ -46,6 +46,6 @@ services = {
   };
 };
 
-sops.secrets."webdav.env".sopsFile = ./secrets.yaml;
+sops.secrets."webdav.env".sopsFile = ../secrets.yaml;
 
 }
