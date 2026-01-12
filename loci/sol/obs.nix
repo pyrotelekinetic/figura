@@ -1,12 +1,16 @@
 { pkgs, ... }: {
 
+programs.obs-studio = {
+  enable = true;
+  enableVirtualCamera = true;
+  plugins = [
+    pkgs.obs-studio-plugins.obs-pipewire-audio-capture
+    pkgs.obs-studio-plugins.obs-vaapi
+    pkgs.obs-studio-plugins.wlrobs
+  ];
+};
+
 environment.systemPackages = with pkgs; [
-  (wrapOBS {
-    plugins =  with obs-studio-plugins; [
-      obs-pipewire-audio-capture
-      obs-vaapi
-    ];
-  })
   losslesscut-bin
   ffmpeg
 ];
