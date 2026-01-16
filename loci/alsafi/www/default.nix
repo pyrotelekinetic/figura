@@ -1,7 +1,6 @@
 { config, pkgs, inputs, ... }: {
 
 imports = [
-  ./invidious.nix
   ./webdav.nix
   ./calibre.nix
 ];
