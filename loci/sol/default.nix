@@ -56,7 +56,7 @@ users.users.cison = {
   extraGroups = [ "adbusers" ];
 };
 
-programs.adb.enable = true;
+environment.systemPackages = [ pkgs.android-tools ];
 
 home-manager.users.cison.graphical.games = true;
 
