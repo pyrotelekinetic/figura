@@ -19,10 +19,13 @@ services = {
     virtualHosts."cloverp.duckdns.org" = {
       root = inputs.pyrosite.packages.${pkgs.stdenv.hostPlatform.system}.default + "/site";
       forceSSL = true;
+      # Generate a cert for cloverp.duckdns.org (not a subdomain)
       enableACME = true;
     };
   };
 };
+
+users.users.nginx.extraGroups = [ "acme" ];
 
 security.acme = {
   defaults = {
@@ -32,6 +35,7 @@ security.acme = {
     dnsProvider = "duckdns";
     credentialFiles."DUCKDNS_TOKEN_FILE" = config.sops.secrets."duckdns.token".path;
   };
+  certs."sub-cloverp.duckdns.org".domain = "*.cloverp.duckdns.org";
   acceptTerms = true;
 };
 

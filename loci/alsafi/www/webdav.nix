@@ -21,7 +21,7 @@ services = {
 
   nginx.virtualHosts."webdav.cloverp.duckdns.org" = {
     forceSSL = true;
-    enableACME = true;
+    useACMEHost = "sub-cloverp.duckdns.org";
     locations."/" = {
       proxyPass = "http://[::1]:" + toString port;
       extraConfig = ''
