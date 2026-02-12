@@ -22,7 +22,6 @@ config = mkMerge [
       signal-desktop
 
       # Tools
-      firefox
       gimp
       inkscape
       kicad-small

@@ -19,6 +19,8 @@ in {
 users.users.cison.packages = [
   wrappers.config.build.toplevel
   pkgs.flow-control
+] ++ lib.optionals config.head.graphical [
+  pkgs.chromium
 ];
 
 }
