@@ -36,7 +36,6 @@ config = mkMerge [
       mpv
       cider
       playerctl
-      mpris-scrobbler
       mpd
       mpdris2
       mpc

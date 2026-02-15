@@ -48,10 +48,7 @@ config = lib.mkMerge [
       # gtk polkit auth agent
       security.soteria.enable = true;
 
-      systemd.packages = [ pkgs.mpris-scrobbler ];
-
       systemd.user.services = {
-        mpris-scrobbler.wantedBy = [ "default.target" ];
         waybar.path = let
           toggle-headphones = pkgs.writeShellApplication {
             name = "toggle-headphones";
