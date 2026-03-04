@@ -21,6 +21,7 @@ users.users.cison.packages = [
   pkgs.flow-control
 ] ++ lib.optionals config.head.graphical [
   (pkgs.ungoogled-chromium.override { enableWideVine = true; })
+  pkgs.jellyfin-desktop
 ];
 
 }
