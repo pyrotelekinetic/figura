@@ -12,23 +12,19 @@ services = {
     enableWebHttps = true;
     listenWeb = 443;
     settings = {
-      listen.hostname = "::1";
+      listen.hostname = "127.0.0.1"; # configureNginx expects ipv4 loopback
     };
     secrets.secretsFile = config.sops.secrets."peertube".path;
     redis.createLocally = true;
     database.createLocally = true;
     localDomain = "tv.cloverp.duckdns.org";
-    configureNginx = false;
+    configureNginx = true;
   };
 
   nginx = {
     virtualHosts."tv.cloverp.duckdns.org" = {
       forceSSL = true;
       useACMEHost = "sub-cloverp.duckdns.org";
-      locations."/" = {
-        proxyPass = "http://[::1]:" + toString config.services.peertube.listenHttp;
-        recommendedProxySettings = true;
-      };
     };
   };
 };
