@@ -28,7 +28,7 @@ config = mkMerge [
 
       # Audio
       pwvucontrol
-      helvum
+      crosspipe
       easyeffects
 
       # Media

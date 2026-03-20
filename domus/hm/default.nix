@@ -157,8 +157,8 @@ home.packages = with pkgs; [
   dust
 
   # Drip
-  neofetch
   bottom
+  fastfetch
 ];
 
 }

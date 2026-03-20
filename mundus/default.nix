@@ -84,7 +84,7 @@ nix = {
 documentation = {
   info.enable = false;
   # Generating man cache is really slow
-  man.generateCaches = false;
+  man.cache.enable = false;
 };
 
 networking.firewall.enable = true;
