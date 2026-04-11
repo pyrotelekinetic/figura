@@ -114,6 +114,7 @@ config = lib.mkMerge [
       };
 
       services = {
+        blueman.enable = config.hardware.bluetooth.enable;
         gnome.gnome-keyring.enable = false; # enabled by niri module but I don't use it
         greetd = {
           enable = true;
