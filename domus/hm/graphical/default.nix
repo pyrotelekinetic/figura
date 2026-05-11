@@ -34,7 +34,6 @@ config = mkMerge [
       # Media
       plex-desktop
       mpv
-      cider
       playerctl
       mpd
       mpdris2
