@@ -32,6 +32,7 @@ boot = {
 hardware = {
   bluetooth = {
     enable = true;
+    settings.General.FastConnectable = true; # Increases power usage but I don't care
     input.General.ClassicBondedOnly = false; # Enable wiimote pairing
   };
   keyboard.qmk.enable = true;
