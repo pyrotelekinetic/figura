@@ -22,6 +22,7 @@ users.users.cison.packages = [
 ] ++ lib.optionals config.head.graphical [
   (pkgs.ungoogled-chromium.override { enableWideVine = true; })
   pkgs.libreoffice
+  pkgs.vesktop
 ];
 
 }

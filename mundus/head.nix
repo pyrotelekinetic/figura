@@ -24,7 +24,6 @@ config = lib.mkMerge [
       home-manager.users.cison.graphical.enable = true;
 
       users.users.cison.packages = [
-        pkgs.webcord
         pkgs.netflix
         pkgs.adwaita-qt6
         pkgs.phinger-cursors
