@@ -4,6 +4,7 @@ imports = [
   ./webdav.nix
   ./calibre.nix
   ./peertube.nix
+  ./immich.nix
 ];
 
 sops.secrets."duckdns.token".sopsFile = ../secrets.yaml;
