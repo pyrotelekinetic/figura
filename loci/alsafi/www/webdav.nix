@@ -19,9 +19,9 @@ services = {
     };
   };
 
-  nginx.virtualHosts."webdav.cloverp.duckdns.org" = {
+  nginx.virtualHosts."webdav.clover.isons.org" = {
     forceSSL = true;
-    useACMEHost = "sub-cloverp.duckdns.org";
+    useACMEHost = "clover.isons.org";
     locations."/" = {
       proxyPass = "http://[::1]:" + toString port;
       extraConfig = ''
@@ -37,7 +37,7 @@ services = {
         # Ensure COPY and MOVE commands work. Change https://example.com to the
         # correct address where the WebDAV server will be deployed at.
         set $dest $http_destination;
-        if ($http_destination ~ "^https://webdav.cloverp.duckdns.org(?<path>(.+))") {
+        if ($http_destination ~ "^https://webdav.clover.isons.org(?<path>(.+))") {
           set $dest /$path;
         }
         proxy_set_header Destination $dest;

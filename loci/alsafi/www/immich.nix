@@ -10,9 +10,9 @@ services = {
   };
 
   nginx = {
-    virtualHosts."pics.cloverp.duckdns.org" = {
+    virtualHosts."pics.clover.isons.org" = {
       forceSSL = true;
-      useACMEHost = "sub-cloverp.duckdns.org";
+      useACMEHost = "clover.isons.org";
       locations."/" = {
         proxyPass = "http://[::1]:" + toString cfg.port;
         recommendedProxySettings = true;

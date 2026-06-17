@@ -17,14 +17,14 @@ services = {
     secrets.secretsFile = config.sops.secrets."peertube".path;
     redis.createLocally = true;
     database.createLocally = true;
-    localDomain = "tv.cloverp.duckdns.org";
+    localDomain = "tv.clover.isons.org";
     configureNginx = true;
   };
 
   nginx = {
-    virtualHosts."tv.cloverp.duckdns.org" = {
+    virtualHosts."tv.clover.isons.org" = {
       forceSSL = true;
-      useACMEHost = "sub-cloverp.duckdns.org";
+      useACMEHost = "clover.isons.org";
     };
   };
 };

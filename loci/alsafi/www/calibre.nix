@@ -18,9 +18,9 @@ services = {
 
   nginx = {
     clientMaxBodySize = "1G"; # for uploading big books
-    virtualHosts."calibre.cloverp.duckdns.org" = {
+    virtualHosts."calibre.clover.isons.org" = {
       forceSSL = true;
-      useACMEHost = "sub-cloverp.duckdns.org";
+      useACMEHost = "clover.isons.org";
       locations."/" = {
         proxyPass = "http://[::1]:" + toString port;
         recommendedProxySettings = true;

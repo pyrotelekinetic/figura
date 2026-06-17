@@ -7,7 +7,11 @@ imports = [
   ./immich.nix
 ];
 
-sops.secrets."duckdns.token".sopsFile = ../secrets.yaml;
+sops.secrets = {
+  "godaddy.key".sopsFile = ../secrets.yaml;
+  "godaddy.secret".sopsFile = ../secrets.yaml;
+  "duckdns.token".sopsFile = ../secrets.yaml;
+};
 
 services = {
   duckdns = {
@@ -18,11 +22,10 @@ services = {
 
   nginx = {
     enable = true;
-    virtualHosts."cloverp.duckdns.org" = {
+    virtualHosts."clover.isons.org" = {
       root = inputs.pyrosite.packages.${pkgs.stdenv.hostPlatform.system}.default + "/site";
       forceSSL = true;
-      # Generate a cert for cloverp.duckdns.org (not a subdomain)
-      enableACME = true;
+      useACMEHost = "clover.isons.org";
     };
   };
 };
@@ -32,12 +35,16 @@ users.users.nginx.extraGroups = [ "acme" ];
 security.acme = {
   defaults = {
     email = "clover+acme@isons.org";
-    # just setting dnsProvider doesn't seem to work
-    extraLegoFlags = [ "--dns" "duckdns" ];
-    dnsProvider = "duckdns";
-    credentialFiles."DUCKDNS_TOKEN_FILE" = config.sops.secrets."duckdns.token".path;
+    dnsProvider = "godaddy";
+    credentialFiles = {
+      "GODADDY_API_KEY_FILE" = config.sops.secrets."godaddy.key".path;
+      "GODADDY_API_SECRET_FILE" = config.sops.secrets."godaddy.secret".path;
+    };
   };
-  certs."sub-cloverp.duckdns.org".domain = "*.cloverp.duckdns.org";
+  certs."clover.isons.org".extraDomainNames = [
+    "clover.isons.org"
+    "*.clover.isons.org"
+  ];
   acceptTerms = true;
 };
 
