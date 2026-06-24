@@ -1,12 +1,12 @@
-{ ... }: let
-  port = 8391;
+{ config, ... }: let
+  cfg = config.services.calibre-server;
 in {
 
 services = {
   calibre-server = {
     enable = true;
     host = "::1";
-    inherit port;
+    port = 8391;
     openFirewall = false;
     libraries = [ "/srv/calibre/library" ];
     auth = {
@@ -22,7 +22,7 @@ services = {
       forceSSL = true;
       useACMEHost = "clover.isons.org";
       locations."/" = {
-        proxyPass = "http://[::1]:" + toString port;
+        proxyPass = "http://[::1]:" + toString cfg.port;
         recommendedProxySettings = true;
       };
     };

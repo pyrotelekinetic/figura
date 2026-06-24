@@ -1,5 +1,5 @@
 { config, ... }: let
-  port = 8689;
+  cfg = config.services.webdav;
 in {
 
 services = {
@@ -8,7 +8,7 @@ services = {
     environmentFile = config.sops.secrets."webdav.env".path;
     settings = {
       address = "[::1]";
-      inherit port;
+      port = 8689;
       directory = "/srv/webdav/seedvault";
       permissions = "none";
       users = [ {
@@ -23,7 +23,7 @@ services = {
     forceSSL = true;
     useACMEHost = "clover.isons.org";
     locations."/" = {
-      proxyPass = "http://[::1]:" + toString port;
+      proxyPass = "http://[::1]:" + toString cfg.settings.port;
       extraConfig = ''
         # copied from upstream docs:
         # <https://github.com/hacdias/webdav/blob/010ca576fbc6795196183505dcedeb24b3ec6cc8/README.md#nginx-configuration-example>
