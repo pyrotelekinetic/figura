@@ -22,6 +22,7 @@ services = {
 
   nginx = {
     enable = true;
+    recommendedTlsSettings = true;
     virtualHosts."clover.isons.org" = {
       root = inputs.pyrosite.packages.${pkgs.stdenv.hostPlatform.system}.default + "/site";
       forceSSL = true;
