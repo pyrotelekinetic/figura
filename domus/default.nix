@@ -19,6 +19,7 @@ in {
 users.users.cison.packages = [
   wrappers.config.build.toplevel
   pkgs.flow-control
+  pkgs.nixd
 ] ++ lib.optionals config.head.graphical [
   (pkgs.ungoogled-chromium.override { enableWideVine = true; })
   pkgs.libreoffice
