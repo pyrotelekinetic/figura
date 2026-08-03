@@ -1,4 +1,4 @@
-{ nixosConfig, pkgs, ... }: {
+{ config, pkgs, ... }: {
 
 wrappers.vim = {
   basePackage = pkgs.vim-full.override {
@@ -18,7 +18,7 @@ wrappers.vim = {
     ftNixSupport = true;
   };
   prependFlags = let
-    inherit (nixosConfig.users.users.cison) home;
+    inherit (config.users.users.cison) home;
     vimDir = ./vimdir;
     stateDir = home + "/.local/state/vim";
     vimrc = pkgs.runCommand "vimrc" {

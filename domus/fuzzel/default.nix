@@ -1,6 +1,6 @@
-{ pkgs, inputs, ... }: {
+{ config, pkgs, inputs, lib, ... }: {
 
-wrappers.fuzzel = {
+wrappers.fuzzel = lib.mkIf config.head.graphical {
   basePackage = pkgs.fuzzel;
   prependFlags = let
     config = pkgs.runCommand "fuzzel.ini"

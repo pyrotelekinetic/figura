@@ -1,6 +1,6 @@
-{ pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
 
-wrappers.alacritty = {
+wrappers.alacritty = lib.mkIf config.head.graphical {
   basePackage = pkgs.alacritty;
   prependFlags = let
     colors = lib.mapAttrs (_: x: "#" + x) inputs.pyroscheme.lib.colors;

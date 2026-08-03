@@ -1,6 +1,6 @@
-{ pkgs, inputs, ... }: {
+{ config, pkgs, inputs, lib, ... }: {
 
-wrappers.foot = {
+wrappers.foot = lib.mkIf config.head.graphical {
   basePackage = pkgs.foot;
   prependFlags = let
     config = pkgs.runCommand "foot.ini"

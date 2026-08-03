@@ -1,29 +1,35 @@
 { config, lib, inputs, pkgs, ... }: let
-  wrappers = inputs.wrapper-manager.lib {
+  wrappersEval = inputs.wrapper-manager.lib {
     inherit pkgs;
-    specialArgs = {
-      inherit inputs;
-      nixosConfig = config;
-    };
-    modules = [
-      ./ripgrep
-      ./vim
-    ] ++ lib.optionals config.head.graphical [
-      ./alacritty
-      ./foot
-      ./fuzzel
-    ];
+    modules = [ { inherit (config) wrappers; } ];
   };
 in {
 
-users.users.cison.packages = [
-  wrappers.config.build.toplevel
-  pkgs.flow-control
-  pkgs.nixd
-] ++ lib.optionals config.head.graphical [
-  (pkgs.ungoogled-chromium.override { enableWideVine = true; })
-  pkgs.libreoffice
-  pkgs.vesktop
+imports = [
+  ./ripgrep
+  ./vim
+  ./alacritty
+  ./foot
+  ./fuzzel
 ];
+
+options = {
+  wrappers = lib.mkOption {
+    # TODO: specify type
+    description = "Wrapper declarations for wrapper manager";
+  };
+};
+
+config = {
+  users.users.cison.packages = [
+    wrappersEval.config.build.toplevel
+    pkgs.flow-control
+    pkgs.nixd
+  ] ++ lib.optionals config.head.graphical [
+    (pkgs.ungoogled-chromium.override { enableWideVine = true; })
+    pkgs.libreoffice
+    pkgs.vesktop
+  ];
+};
 
 }
