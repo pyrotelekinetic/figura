@@ -119,6 +119,22 @@
         "type": "github"
       }
     },
+    "nix-maid": {
+      "locked": {
+        "lastModified": 1783804358,
+        "narHash": "sha256-SxgdtD4DBslk8u5MIzh4Hs/7vcuPHn4cD2h5I3Mufz4=",
+        "owner": "viperML",
+        "repo": "nix-maid",
+        "rev": "0e0feba21016c1285382e32ea894ace731f49d3b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "ref": "master",
+        "repo": "nix-maid",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -339,6 +355,7 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
+        "nix-maid": "nix-maid",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "pinputs": "pinputs",

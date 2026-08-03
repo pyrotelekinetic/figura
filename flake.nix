@@ -15,6 +15,7 @@ inputs = {
     url = "github:nix-community/lanzaboote?ref=v1.1.0";
     inputs.nixpkgs.follows = "nixpkgs";
   };
+  nix-maid.url = "github:viperML/nix-maid?ref=master";
   nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
   nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
   pinputs = {

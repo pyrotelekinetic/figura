@@ -11,6 +11,7 @@ imports = [
   ./alacritty
   ./foot
   ./fuzzel
+  ./readline
 ];
 
 options = {
