@@ -12,7 +12,7 @@ inputs = {
     inputs.nixpkgs.follows = "nixpkgs";
   };
   lanzaboote = {
-    url = "github:nix-community/lanzaboote?ref=v1.0.0";
+    url = "github:nix-community/lanzaboote?ref=v1.1.0";
     inputs.nixpkgs.follows = "nixpkgs";
   };
   nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
