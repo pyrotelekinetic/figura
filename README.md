@@ -12,7 +12,7 @@ Host specific configuration is under `loci/` (latin for "locals").
 
 ---
 
-    Copyright (C) 2023  Carter "pyrotelekinetic" Ison <carter@isons.org>
+    Copyright (C) 2023  Clover "pyrotelekinetic" Ison <clover@isons.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
