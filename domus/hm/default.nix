@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }: {
+{ pkgs, config, ... }: {
 
 imports = [
   ./graphical
@@ -30,14 +30,6 @@ home = {
 
     # cd shorthand
     ".." = "cd ..";
-  };
-
-  # Custom compose sequences
-  file.".XCompose" = lib.mkIf config.graphical.enable { text = ''
-    include "%L"
-    # For some reason including the unicode point seems to break some defualt sequences
-    <Multi_key> <backslash> <backslash>  : "λ" # U03BB # GREEK SMALL LETTER LAMDA
-  '';
   };
 };
 

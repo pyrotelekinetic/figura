@@ -12,6 +12,7 @@ imports = [
   ./foot
   ./fuzzel
   ./readline
+  ./xcompose
 ];
 
 options = {
