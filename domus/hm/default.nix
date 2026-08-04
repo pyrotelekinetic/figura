@@ -88,18 +88,6 @@ programs = {
     ];
   };
 
-  ssh = {
-    enable = true;
-    enableDefaultConfig = false;
-    matchBlocks."*" = {
-      controlMaster = "auto";
-      controlPath = "${config.home.homeDirectory}/.ssh/control/%r@%n:%p";
-      controlPersist = "5m";
-      forwardAgent = false;
-      addKeysToAgent = "no";
-      compression = false;
-    };
-  };
   delta = {
     enable = true;
     enableGitIntegration = true;

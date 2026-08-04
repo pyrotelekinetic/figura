@@ -13,6 +13,7 @@ imports = [
   ./fuzzel
   ./readline
   ./xcompose
+  ./ssh
 ];
 
 options = {
