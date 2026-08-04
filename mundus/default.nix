@@ -8,6 +8,7 @@ imports = [
   ./hosts.nix
   ./mouse.nix
   ./lix.nix
+  ./northstarProton
 ];
 
 # I'm a huge fan of opaque binary blobs
