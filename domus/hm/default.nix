@@ -41,16 +41,6 @@ programs = {
   # Make bash work with HM
   bash.enable = true;
 
-  gpg = {
-    enable = true;
-    mutableKeys = true;
-    mutableTrust = true;
-    settings = {
-      keyid-format = "none";
-      with-subkey-fingerprint = true;
-    };
-  };
-
   git = {
     enable = true;
     signing = {
